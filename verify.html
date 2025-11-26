@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verifying...</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter Tight", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f8f9fa;
+    color: #333;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .spinner {
+    border: 6px solid #e0e0e0;
+    border-top: 6px solid #007bff;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg);}
+    100% { transform: rotate(360deg);}
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    margin: 0;
+    font-weight: 600;
+  }
+
+  p {
+    margin: 5px 0 0;
+    font-size: 1rem;
+    color: #555;
+  }
+</style>
+<script>
+  // Redirect after 4 seconds
+  setTimeout(function() {
+    window.location.href = "index.html";
+  }, 4000);
+</script>
+</head>
+<body>
+  <div class="spinner"></div>
+  <h1>Checking your browser before accessing</h1>
+  <p>This process is automated to ensure a safe browsing experience.</p>
+</body>
+</html>
