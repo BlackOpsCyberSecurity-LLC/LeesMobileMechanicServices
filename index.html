@@ -1,178 +1,220 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-  <link rel="shortcut icon" href="https://r.mobirisesite.com/1997632/assets/images/shop3-h_mifa1ufz.jpg" type="image/x-icon">
-  <meta name="description" content="">
-  <title>Home</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Mechanic • Professional Auto Repair</title>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="https://r.mobirisesite.com/1997632/assets/bootstrap/css/bootstrap.min.css?rnd=1764132528697">
-  <link rel="stylesheet" href="https://r.mobirisesite.com/1997632/assets/dropdown/css/style.css?rnd=1764132528697">
-  <link rel="stylesheet" href="https://r.mobirisesite.com/1997632/assets/animatecss/animate.css?rnd=1764132528697">
-  <link rel="stylesheet" href="https://r.mobirisesite.com/1997632/assets/theme/css/style.css?rnd=1764132528697">
-  <link rel="preload" href="https://fonts.googleapis.com/css?family=Inter+Tight:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter+Tight:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap">
-  </noscript>
-  <link rel="stylesheet" href="https://r.mobirisesite.com/1997632/assets/css/mbr-additional.css?rnd=1764132528697" type="text/css">
+    <style>
+        body {
+            margin: 0;
+            background: #111;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
 
-  <!-- ADDED: Custom styling for orange + bold text -->
-  <style>
-    body {
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-    main {
-      flex: 1;
-    }
-    footer {
-      flex-shrink: 0;
-    }
-    /* Orange + bold for Why Choose Us */
-    .orange-bold {
-      color: orange !important;
-      font-weight: bold !important;
-    }
-  </style>
+        header {
+            background: #000;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 3px solid orange;
+        }
+
+        header h1 {
+            color: orange;
+            margin: 0;
+            font-size: 32px;
+            font-weight: 900;
+        }
+
+        /* Intro Section */
+        #intro {
+            padding: 60px 20px;
+            text-align: center;
+            background: #111;
+        }
+
+        #intro h1 {
+            font-size: 40px;
+            font-weight: 900;
+            color: orange;
+            margin-bottom: 20px;
+        }
+
+        #intro p {
+            font-size: 20px;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto 20px auto;
+            font-weight: 500;
+        }
+
+        #intro a {
+            display: inline-block;
+            margin-top: 35px;
+            padding: 14px 30px;
+            background: orange;
+            color: #111;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+
+        /* Services Section */
+        #services {
+            padding: 60px 20px;
+            background: #222;
+        }
+
+        #services h2 {
+            text-align: center;
+            color: orange;
+            font-size: 35px;
+            font-weight: 800;
+        }
+
+        .service-list {
+            max-width: 1000px;
+            margin: 30px auto 0 auto;
+            columns: 2;
+            column-gap: 40px;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .service-list li {
+            margin-bottom: 10px;
+        }
+
+        /* Why Choose Us */
+        #why-us {
+            padding: 60px 20px;
+            background: #111;
+        }
+
+        #why-us h2 {
+            text-align: center;
+            color: orange;
+            font-size: 35px;
+            font-weight: 900;
+        }
+
+        #why-us ul {
+            max-width: 900px;
+            margin: 30px auto;
+            font-size: 20px;
+            line-height: 1.7;
+            font-weight: 800; /* Bold text */
+            color: orange; /* Orange text */
+        }
+
+        #contact {
+            padding: 60px 20px;
+            background: #000;
+            border-top: 3px solid orange;
+        }
+
+        #contact h2 {
+            text-align: center;
+            color: orange;
+            font-size: 35px;
+        }
+
+        #contact p {
+            font-size: 20px;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #000;
+            border-top: 3px solid orange;
+        }
+    </style>
 </head>
+
 <body>
 
-<main>
+<header>
+    <h1>Your Mobile Mechanic</h1>
+</header>
 
-<!-- Navbar -->
-<section data-bs-version="5.1" class="menu menu5 cid-v3BV98Nlzj" once="menu" id="menu05-1i">
-  <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
-    <div class="container">
-      <div class="navbar-brand">
-        <span class="navbar-logo">
-          <img src="https://r.mobirisesite.com/1997632/assets/images/shop3-h_mifa1ufz.jpg" alt="" style="height: 5rem;">
-        </span>
-        <span class="navbar-caption-wrap"><a class="navbar-caption text-black text-primary display-4">Lee's Mobile Mechanic Service</a></span>
-      </div>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <div class="hamburger"><span></span><span></span><span></span><span></span></div>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
-          <li class="nav-item"><a class="nav-link link text-black text-primary display-7" href="index.html">Home</a></li>
-        </ul>
-        <div class="navbar-buttons mbr-section-btn">
-          <a class="btn btn-black display-4" href="page1.html">Job Pricing</a>
-          <a class="btn btn-black display-4" href="index.html#contacts02-1n">Contact Info</a>
-        </div>
-      </div>
-    </div>
-  </nav>
+<!-- Intro Section -->
+<section id="intro">
+    <h1>Reliable Mobile Mechanic Services — Delivered to Your Doorstep</h1>
+
+    <p>
+        At <strong>Your Mobile Mechanic</strong>, we bring professional, certified automotive repair and 
+        maintenance directly to you — whether you're at home, at work, or on the roadside.  
+        Our mission is to provide fast, transparent, and affordable service without the hassle 
+        of waiting rooms, towing fees, or inflated shop prices.
+    </p>
+
+    <p>
+        With years of experience, advanced diagnostics, and full mobile capability, we handle everything 
+        from routine maintenance to major repairs — delivering dealership-level quality at unbeatable convenience.
+    </p>
+
+    <a href="#services">View Our Services</a>
 </section>
 
-<!-- Features Section -->
-<section data-bs-version="5.1" class="features030 cid-v3Capy1s1k" id="features030-1q">
-  <div class="mbr-overlay" style="opacity: 0; background-color: rgb(255, 255, 255);"></div>
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-12 content-head mb-5">
-        <h1 class="mbr-section-title mbr-fonts-style mb-0 display-2 orange-bold">Why Choose Us?</h1>
-      </div>
-    </div>
-    <div class="row justify-content-center blockContent">
-      <div class="col-12 col-lg">
-        <div class="item-wrapper align-left">
-          <div class="mbr-text counter-container mbr-fonts-style display-7 orange-bold">
+<!-- Services Section -->
+<section id="services">
+    <h2>Complete Mobile Auto Repair Services</h2>
 
-            <strong>Lee’s Mobile Mechanic Service provides fast, reliable, and affordable automotive repair directly at your home, job site, or roadside...</strong>
-
-            <div><strong><br>Comprehensive Service List (pricing varies by vehicle make, model, and year):</strong></div>
-
-            <ul>
-              <li><strong>Diagnostics & Electronics:</strong> Full vehicle diagnostics, check engine light troubleshooting, electrical repair, battery testing, ECU diagnostics, wiring repairs, etc.</li>
-              <li><strong>Engine Services:</strong> Oil changes, spark plugs, timing belts, water pumps, alternators, starters, head gaskets, engine rebuilds, etc.</li>
-              <li><strong>Transmission & Drivetrain:</strong> Clutches, CV axles, differential repairs, transfer case service, driveshafts, etc.</li>
-              <li><strong>Brakes & Suspension:</strong> Pads, rotors, calipers, struts, shocks, control arms, ball joints, steering racks, etc.</li>
-              <li><strong>Cooling & HVAC:</strong> Radiators, hoses, heater cores, AC recharge, compressors, condensers, fans, etc.</li>
-              <li><strong>Tires & Wheels:</strong> Tire changes, rotations, flat repair, balancing, etc.</li>
-              <li><strong>Exhaust & Emissions:</strong> Mufflers, catalytic converters, oxygen sensors, piping, exhaust manifolds.</li>
-              <li><strong>Roadside & Emergency:</strong> Jump-starts, lockouts, emergency diagnostics, towing assistance.</li>
-              <li><strong>Maintenance:</strong> Fluids, filters, fuel system cleaning, wipers, bulbs, inspections.</li>
-            </ul>
-
-            <div><strong>Why Customers Choose Me:</strong></div>
-            <ul>
-              <li>Fast response times — I come to you, fully equipped.</li>
-              <li>Professional workmanship — no shortcuts, no guesswork.</li>
-              <li>Honest pricing — clear quotes before any work begins.</li>
-              <li>Convenient service — no waiting rooms, no towing.</li>
-              <li>Trusted experience — real mechanical expertise.</li>
-            </ul>
-
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-lg-6">
-        <div class="image-wrapper mb-4">
-          <img class="w-100" src="https://r.mobirisesite.com/1997632/assets/images/gallery10-h_mifbcdak.jpg" alt="">
-        </div>
-      </div>
-    </div>
-  </div>
+    <ul class="service-list">
+        <li>Full Diagnostics & Check Engine Light Scans</li>
+        <li>Oil Change & All Fluid Services</li>
+        <li>Brake Pads, Rotors, Fluid</li>
+        <li>Suspension & Steering Repairs</li>
+        <li>Ball Joints • Tie Rods • Control Arms</li>
+        <li>Battery Testing & Replacement</li>
+        <li>Alternators • Starters • Sensors</li>
+        <li>Cooling System & Radiator Repairs</li>
+        <li>Thermostats • Water Pumps • Hoses</li>
+        <li>Air Conditioning Recharge & Repair</li>
+        <li>Belts • Pulleys • Tensioners</li>
+        <li>Fuel Pumps • Filters • Injection</li>
+        <li>Engine Tune-Ups & Spark Plugs</li>
+        <li>Gasket Repairs (Valve Cover, Oil Pan, etc.)</li>
+        <li>Exhaust & Muffler Repairs</li>
+        <li>Transmission Fluid Service</li>
+        <li>CV Axles • Wheel Bearings</li>
+        <li>Electrical System Troubleshooting</li>
+        <li>Roadside Service & Emergency Repair</li>
+        <li>Pre-Purchase Vehicle Inspections</li>
+        <li>Complete Preventative Maintenance</li>
+    </ul>
 </section>
 
-<!-- Contact Section -->
-<section data-bs-version="5.1" class="contacts02 map1 cid-v3BW1ZDWa1" id="contacts02-1n">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-12 content-head">
-        <div class="mbr-section-head mb-5">
-          <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2"><strong>Contact Info</strong></h3>
-        </div>
-      </div>
-    </div>
+<!-- Why Choose Us -->
+<section id="why-us">
+    <h2>Why Choose Us?</h2>
 
-    <div class="row justify-content-center">
-      <div class="card col-12 col-md-12 col-lg-6">
-        <div class="card-wrapper">
-          <div class="text-wrapper">
-            <h5 class="cardTitle mbr-fonts-style mb-2 display-5"><strong>Contact Us @</strong></h5>
-            <ul class="list mbr-fonts-style display-7">
-              <li>Phone: 239-441-8552</li>
-              <li>Email: leesmobilemechanicservices@gmail.com</li>
-              <li>Address: Conway, South Carolina-29526</li>
-              <li>Working Hours: Full Time</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="map-wrapper col-md-12 col-lg-6">
-        <div class="google-map">
-          <iframe frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB7QWkvlxV39ZsyKvhZRjPGVqlJFvxxNkw&q=Conway South Carolina" allowfullscreen></iframe>
-        </div>
-      </div>
-
-    </div>
-  </div>
+    <ul>
+        <li>Certified Professional Mechanic</li>
+        <li>Fast Response Times</li>
+        <li>Affordable & Honest Pricing</li>
+        <li>Fully Mobile — We Come to You</li>
+        <li>Advanced Diagnostics & Tools</li>
+        <li>Repairs Done Right the First Time</li>
+        <li>No Shop Fees • No Towing • No Hassle</li>
+    </ul>
 </section>
 
-</main>
+<!-- Contact -->
+<section id="contact">
+    <h2>Contact Us</h2>
+    <p>Call or Text Anytime: <strong style="color: orange;">(555) 555-5555</strong></p>
+    <p>Email: <strong style="color: orange;">info@yourmobilemechanic.com</strong></p>
+</section>
 
-<!-- Footer -->
-<footer class="footer py-3 bg-dark text-white mt-auto">
-  <div class="container text-center">
-    <p class="mb-0">&copy; 2025 Lee's Mobile Mechanic Service. All rights reserved.</p>
-  </div>
+<footer>
+    © 2025 Your Mobile Mechanic — All Rights Reserved
 </footer>
-
-<!-- JS -->
-<script src="https://r.mobirisesite.com/1997632/assets/web/assets/jquery/jquery.min.js?rnd=1764132528697"></script>
-<script src="https://r.mobirisesite.com/1997632/assets/bootstrap/js/bootstrap.bundle.min.js?rnd=1764132528697"></script>
-<script src="https://r.mobirisesite.com/1997632/assets/smoothscroll/smooth-scroll.js?rnd=1764132528697"></script>
-<script src="https://r.mobirisesite.com/1997632/assets/ytplayer/index.js?rnd=1764132528697"></script>
-<script src="https://r.mobirisesite.com/1997632/assets/dropdown/js/navbar-dropdown.js?rnd=1764132528697"></script>
-<script src="https://r.mobirisesite.com/1997632/assets/theme/js/script.js?rnd=1764132528697"></script>
 
 </body>
 </html>
