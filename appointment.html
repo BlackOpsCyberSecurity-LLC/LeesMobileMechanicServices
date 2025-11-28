@@ -22,75 +22,21 @@
     main { flex: 1; }
     footer { flex-shrink: 0; }
 
-    .form-section {
-      background: #f8f9fa;
-      padding: 2rem;
-      border-radius: 8px;
-      margin-bottom: 2rem;
-    }
+    .form-section { background: #f8f9fa; padding: 2rem; border-radius: 8px; margin-bottom: 2rem; }
+    .form-section h4 { background: #000; color: #fff; padding: 0.5rem 1rem; border-radius: 5px; margin-bottom: 1rem; }
+    .submit-btn { background-color: #00aaff; color: white; font-size: 1.2rem; border-radius: 8px; padding: 12px 30px; border: none; }
+    .submit-btn:hover { background-color: #0088cc; color: white; }
 
-    .form-section h4 {
-      background: #000;
-      color: #fff;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      margin-bottom: 1rem;
-    }
+    /* Select2 / Vehicle Dropdown Styling */
+    select.form-select { border: 2px solid #000 !important; height: 52px !important; font-size: 1.1rem !important; font-weight: 500; cursor: pointer !important; }
+    .select2-container .select2-selection--single { height: 52px !important; border: 2px solid #000 !important; font-size: 1.1rem !important; display: flex !important; align-items: center !important; }
+    .select2-container--default .select2-selection--multiple { border: 2px solid #000 !important; min-height: 52px !important; font-size: 1.1rem !important; }
+    .select2-selection__rendered { padding-left: 12px !important; }
 
-    .submit-btn {
-      background-color: #00aaff;
-      color: white;
-      font-size: 1.2rem;
-      border-radius: 8px;
-      padding: 12px 30px;
-      border: none;
-    }
-
-    .submit-btn:hover {
-      background-color: #0088cc;
-      color: white;
-    }
-
-    /* Make Select2 dropdowns more visible and mobile-friendly */
-    .select2-container--bootstrap .select2-selection {
-      min-height: 50px;
-      font-size: 1.1rem;
-      border: 2px solid #007BFF;
-      border-radius: 8px;
-      background-color: #fff;
-    }
-    .select2-container--bootstrap .select2-selection__placeholder {
-      color: #666;
-      font-weight: 500;
-    }
-    .select2-container--bootstrap .select2-selection__arrow {
-      height: 50px;
-      right: 12px;
-    }
-    .select2-container--bootstrap .select2-selection--multiple {
-      min-height: 60px;
-      border: 2px solid #007BFF;
-      border-radius: 8px;
-      background-color: #fff;
-      padding: 6px 12px;
-    }
-    .select2-container--bootstrap .select2-results__option {
-      padding: 8px 12px;
-      font-size: 1rem;
-    }
-    .select2-container--bootstrap .select2-results__option--highlighted {
-      background-color: #007BFF;
-      color: #fff;
-    }
-    @media (max-width: 768px) {
-      .select2-container--bootstrap .select2-selection {
-        min-height: 60px;
-        font-size: 1.2rem;
-      }
-      .select2-container--bootstrap .select2-selection--multiple {
-        min-height: 70px;
-        font-size: 1.2rem;
-      }
+    /* Responsive row for vehicle dropdowns */
+    .vehicle-row .col-md-4 { padding-left:5px; padding-right:5px; }
+    @media (max-width: 767px) {
+      .vehicle-row .col-md-4 { margin-bottom: 1rem; }
     }
   </style>
 </head>
@@ -109,7 +55,7 @@
           <a class="navbar-caption text-black text-primary display-4">Lee's Mobile Mechanic Service</a>
         </span>
       </div>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <div class="hamburger"><span></span><span></span><span></span><span></span></div>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -135,20 +81,26 @@
         <label for="name" class="form-label">Full Name</label>
         <input type="text" class="form-control" id="name" placeholder="John Doe" required>
       </div>
+
       <div class="mb-3">
         <label for="email" class="form-label">Email</label>
         <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
       </div>
+
       <div class="mb-3">
         <label for="phone" class="form-label">Phone</label>
         <input type="tel" class="form-control" id="phone" placeholder="239-441-8552" required>
       </div>
 
       <h4><i class="bi bi-car-front-fill"></i> Vehicle Information</h4>
-      <div class="row">
+      <div class="row vehicle-row">
+        <div class="col-12 mb-3">
+          <label for="vin" class="form-label">VIN (Optional)</label>
+          <input type="text" id="vin" class="form-control" placeholder="Enter VIN to auto-fill vehicle info">
+        </div>
         <div class="col-md-4 mb-3">
           <label for="year" class="form-label">Year</label>
-          <select id="year" class="form-select select2-single"></select>
+          <select id="year" class="form-select select2-single"><option value="">Select Year</option></select>
         </div>
         <div class="col-md-4 mb-3">
           <label for="make" class="form-label">Make</label>
@@ -160,9 +112,11 @@
         </div>
       </div>
 
+      <!-- Services & Parts (unchanged) -->
       <h4><i class="bi bi-tools"></i> Services Requested</h4>
       <div class="mb-3">
         <select id="services" class="form-select select2-multiple" multiple="multiple" style="width:100%">
+          <!-- Your existing service options here -->
           <option>Full Vehicle Diagnostic Scan</option>
           <option>Check Engine Light Troubleshooting</option>
           <option>Electrical/Starting System Diagnostic</option>
@@ -214,6 +168,7 @@
       <h4><i class="bi bi-box-seam"></i> Parts Needed</h4>
       <div class="mb-3">
         <select id="parts" class="form-select select2-multiple" multiple="multiple" style="width:100%">
+          <!-- Your existing parts options here -->
           <option>Brake Pads</option>
           <option>Rotors</option>
           <option>Brake Calipers</option>
@@ -250,7 +205,7 @@
   </div>
 </section>
 
-<!-- Contact Section -->
+<!-- Contact Section (unchanged) -->
 <section data-bs-version="5.1" class="contacts02 map1 cid-v3BW1ZDWa1" id="contacts02-1n">
   <div class="container">
     <div class="row justify-content-center">
@@ -299,54 +254,87 @@
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 <script>
-$(document).ready(function() {
-  // Sample vehicle data
-  const vehicleData = {
-    "2000": { "Ford": ["F-150", "Mustang"], "Toyota": ["Camry", "Corolla"] },
-    "2001": { "Ford": ["Explorer"], "Honda": ["Civic"] },
-    "2005": { "Chevrolet": ["Silverado", "Tahoe"], "Nissan": ["Altima", "Rogue"] },
-    "2010": { "Ford": ["F-150", "Mustang"], "Toyota": ["RAV4"], "Honda": ["Accord"] },
-    "2020": { "Tesla": ["Model S", "Model 3"] }
-  };
+document.addEventListener("DOMContentLoaded", function () {
 
-  // Populate Year dropdown
-  for(let y=2000; y<=2025; y++){
-    $('#year').append(`<option value="${y}">${y}</option>`);
-  }
+  const yearSelect = document.getElementById("year");
+  const makeSelect = document.getElementById("make");
+  const modelSelect = document.getElementById("model");
+  const vinInput = document.getElementById("vin");
 
-  // When Year changes, populate Make
-  $('#year').on('change', function() {
-    const year = $(this).val();
-    $('#make').empty().append('<option value="">Select Make</option>');
-    $('#model').empty().append('<option value="">Select Model</option>');
-
-    if(year && vehicleData[year]){
-      Object.keys(vehicleData[year]).forEach(make => {
-        $('#make').append(`<option value="${make}">${make}</option>`);
+  fetch("vehicles_us.json")
+    .then(res => res.json())
+    .then(vehicleData => {
+      // Populate unique years
+      const years = Array.from(new Set(vehicleData.map(v => v.Year))).sort((a,b)=>b-a);
+      years.forEach(year => {
+        let opt = document.createElement("option");
+        opt.value = year;
+        opt.textContent = year;
+        yearSelect.appendChild(opt);
       });
-    }
-    $('#make').trigger('change');
-    $('#model').trigger('change');
-  });
 
-  // When Make changes, populate Model
-  $('#make').on('change', function() {
-    const year = $('#year').val();
-    const make = $(this).val();
-    $('#model').empty().append('<option value="">Select Model</option>');
+      // Initialize Select2
+      $(yearSelect).select2({ theme:'bootstrap-5', placeholder:'Select Year', width:'100%' });
+      $(makeSelect).select2({ theme:'bootstrap-5', placeholder:'Select Make', width:'100%' });
+      $(modelSelect).select2({ theme:'bootstrap-5', placeholder:'Select Model', width:'100%' });
+      $('.select2-multiple').select2({ theme: 'bootstrap-5', placeholder: 'Select one or more options', width:'100%' });
 
-    if(year && make && vehicleData[year] && vehicleData[year][make]){
-      vehicleData[year][make].forEach(model => {
-        $('#model').append(`<option value="${model}">${model}</option>`);
+      // Year → Make
+      yearSelect.addEventListener("change", function(){
+        const year = this.value;
+        makeSelect.innerHTML = '<option value="">Select Make</option>';
+        modelSelect.innerHTML = '<option value="">Select Model</option>';
+        if(!year) return;
+        const makes = Array.from(new Set(vehicleData.filter(v => v.Year===year).map(v=>v.Make))).sort();
+        makes.forEach(make=>{
+          let opt=document.createElement("option"); opt.value=make; opt.textContent=make; makeSelect.appendChild(opt);
+        });
+        $(makeSelect).trigger('change.select2');
       });
-    }
-    $('#model').trigger('change');
-  });
 
-  // Initialize Select2
-  $('.select2-single').select2({ theme: 'bootstrap-5', placeholder: 'Select an option', allowClear: true, width:'100%' });
-  $('.select2-multiple').select2({ theme: 'bootstrap-5', placeholder: 'Select one or more options', allowClear: true, width:'100%' });
-});
-</script>
-</body>
-</html>
+      // Make → Model
+      makeSelect.addEventListener("change", function(){
+        const year = yearSelect.value;
+        const make = this.value;
+        modelSelect.innerHTML = '<option value="">Select Model</option>';
+        if(!year || !make) return;
+        const models = Array.from(new Set(vehicleData.filter(v => v.Year===year && v.Make===make).map(v=>v.Model))).sort();
+        models.forEach(model=>{
+          let opt=document.createElement("option"); opt.value=model; opt.textContent=model; modelSelect.appendChild(opt);
+        });
+        $(modelSelect).trigger('change.select2');
+      });
+
+      // VIN auto-fill
+      vinInput.addEventListener("change", function() {
+        const vin = this.value.trim();
+        if(vin.length !== 17) return; // Standard VIN length
+
+        fetch(`https://vpic.nhtsa.dot.gov/api/vehicles/decodevin/${vin}?format=json`)
+          .then(res => res.json())
+          .then(data => {
+            const results = data.Results;
+            const year = results.find(r => r.Variable === "Model Year")?.Value || "";
+            const make = results.find(r => r.Variable === "Make")?.Value || "";
+            const model = results.find(r => r.Variable === "Model")?.Value || "";
+
+            if(year && make && model){
+              yearSelect.value = year;
+              $(yearSelect).trigger('change.select2');
+
+              setTimeout(()=>{
+                makeSelect.value = make;
+                $(makeSelect).trigger('change.select2');
+
+                setTimeout(()=>{
+                  modelSelect.value = model;
+                  $(modelSelect).trigger('change.select2');
+                }, 100);
+              }, 100);
+            }
+          })
+          .catch(err => console.error("VIN lookup error:", err));
+      });
+
+    })
+    .catch(err => console.error("
