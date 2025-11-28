@@ -1,228 +1,211 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-  <link rel="shortcut icon" href="https://r.mobirisesite.com/1997632/assets/images/shop3-h_mifa1ufz.jpg" type="image/x-icon">
-  <title>Book Appointment</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book Appointment – Lee’s Mobile Mechanic</title>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="https://r.mobirisesite.com/1997632/assets/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://r.mobirisesite.com/1997632/assets/dropdown/css/style.css">
-  <link rel="stylesheet" href="https://r.mobirisesite.com/1997632/assets/animatecss/animate.css">
-  <link rel="stylesheet" href="https://r.mobirisesite.com/1997632/assets/theme/css/style.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
+  <!-- Bootstrap + Icons + Select2 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="https://r.mobirisesite.com/1997632/assets/css/mbr-additional.css" type="text/css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
 
   <style>
-    body { display: flex; flex-direction: column; min-height: 100vh; }
-    main { flex: 1; }
-    footer { flex-shrink: 0; }
+    body { background:#f1f1f1; }
 
-    .form-section { background: #f8f9fa; padding: 2rem; border-radius: 8px; margin-bottom: 2rem; }
-    .form-section h4 { background: #000; color: #fff; padding: 0.5rem 1rem; border-radius: 5px; margin-bottom: 1rem; }
+    /* Home page style matching */
+    .navbar {
+      background: black;
+      padding: 1rem;
+    }
+    .navbar-brand {
+      color: white !important;
+      font-size: 1.5rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    .nav-link {
+      color: white !important;
+      font-size: 1.1rem;
+      margin-left: 20px;
+    }
+    .nav-link:hover { color:#00aaff !important; }
 
-    .submit-btn { background-color: #00aaff; color: white; font-size: 1.2rem; border-radius: 8px; padding: 12px 30px; border: none; }
-    .submit-btn:hover { background-color: #0088cc; color: white; }
-
-    select.form-select { border: 2px solid #000 !important; height: 52px !important; font-size: 1.1rem !important; font-weight: 500; cursor: pointer !important; }
+    /* Form styling */
+    .form-section {
+      background:white;
+      padding:2rem;
+      border-radius:12px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.15);
+      margin-top:2rem;
+    }
+    h4 {
+      background:black;
+      color:white;
+      padding:10px 15px;
+      border-radius:6px;
+      margin-bottom:1rem;
+    }
+    .submit-btn {
+      background:#00aaff;
+      color:white;
+      padding:12px 35px;
+      font-size:1.3rem;
+      border-radius:10px;
+      border:none;
+      transition:0.2s;
+    }
+    .submit-btn:hover {
+      background:#0088cc;
+    }
+    select, input, textarea {
+      border:2px solid black !important;
+    }
   </style>
 </head>
+
 <body>
-<main>
 
-<!-- Appointment Form -->
-<section class="container mt-5 mb-5">
+<!-- 🧭 NAVBAR (matches your homepage) -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">Lee’s Mobile Mechanic</a>
+    <div>
+      <a class="nav-link d-inline" href="index.html">Home</a>
+      <a class="nav-link d-inline" href="appointment.html">Appointments</a>
+      <a class="nav-link d-inline" href="pricing.html">Pricing</a>
+      <a class="nav-link d-inline" href="contact.html">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main class="container">
   <div class="form-section">
-    <h4><i class="bi bi-person-fill"></i> Personal Information</h4>
-    <form>
-      <div class="mb-3">
-        <label for="name" class="form-label">Full Name</label>
-        <input type="text" class="form-control" id="name" placeholder="John Doe" required>
-      </div>
-      <div class="mb-3">
-        <label for="email" class="form-label">Email</label>
-        <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
-      </div>
-      <div class="mb-3">
-        <label for="phone" class="form-label">Phone</label>
-        <input type="tel" class="form-control" id="phone" placeholder="239-441-8552" required>
-      </div>
+    <form action="https://usebasin.com/f/d459393c2dd6" method="POST">
 
+      <!-- Personal Info -->
+      <h4><i class="bi bi-person-fill"></i> Personal Information</h4>
+
+      <label class="form-label">Full Name</label>
+      <input name="Full Name" class="form-control mb-3" required>
+
+      <label class="form-label">Email</label>
+      <input type="email" name="Email" class="form-control mb-3" required>
+
+      <label class="form-label">Phone Number</label>
+      <input name="Phone" class="form-control mb-3" required>
+
+      <!-- Vehicle Info -->
       <h4><i class="bi bi-car-front-fill"></i> Vehicle Information</h4>
       <div class="row">
         <div class="col-md-4 mb-3">
-          <label for="year" class="form-label">Year</label>
-          <select id="year" class="form-select">
+          <label>Year</label>
+          <select id="year" name="Year" class="form-select select2-single">
             <option value="">Select Year</option>
           </select>
         </div>
+
         <div class="col-md-4 mb-3">
-          <label for="make" class="form-label">Make</label>
-          <select id="make" class="form-select">
+          <label>Make</label>
+          <select id="make" name="Make" class="form-select select2-single">
             <option value="">Select Make</option>
           </select>
         </div>
+
         <div class="col-md-4 mb-3">
-          <label for="model" class="form-label">Model</label>
-          <select id="model" class="form-select">
+          <label>Model</label>
+          <select id="model" name="Model" class="form-select select2-single">
             <option value="">Select Model</option>
           </select>
         </div>
       </div>
 
+      <!-- Engine Info -->
+      <h4><i class="bi bi-gear-fill"></i> Engine Information</h4>
+
+      <label class="form-label">Engine Type (4-cyl, V6, V8, etc.)</label>
+      <input name="Engine Type" class="form-control mb-3" placeholder="Example: V6, V8, 4 Cylinder">
+
+      <label class="form-label">Engine Size (Liters)</label>
+      <input name="Engine Liters" class="form-control mb-3" placeholder="Example: 3.5L">
+
+      <!-- Services -->
       <h4><i class="bi bi-tools"></i> Services Requested</h4>
-      <div class="mb-3">
-        <select id="services" class="form-select select2-multiple" multiple="multiple" style="width:100%">
-          <option>Full Vehicle Diagnostic Scan</option>
-          <option>Check Engine Light Troubleshooting</option>
-          <option>Electrical/Starting System Diagnostic</option>
-          <option>Shocks / Struts</option>
-          <option>Control Arms / Bushings</option>
-          <option>Ball Joints</option>
-          <option>Tie Rod Ends</option>
-          <option>Steering Rack / Gear</option>
-          <option>Brake Pads (Front or Rear)</option>
-          <option>Pads + Rotors</option>
-          <option>Brake Calipers</option>
-          <option>Brake Lines / Hoses</option>
-          <option>Brake Fluid Flush</option>
-          <option>Alternator Replacement</option>
-          <option>Starter Replacement</option>
-          <option>Battery Replacement</option>
-          <option>Radiator Replacement</option>
-          <option>Water Pump Replacement</option>
-          <option>Serpentine Belt</option>
-          <option>Thermostat Replacement</option>
-          <option>Head Gasket Replacement</option>
-          <option>Engine Overhaul / Major Repair</option>
-          <option>Muffler Replacement</option>
-          <option>Catalytic Converter</option>
-          <option>Exhaust Piping / Manifold</option>
-          <option>Oxygen Sensor Replacement</option>
-          <option>Fuel Pump Replacement</option>
-          <option>Fuel Filter Replacement</option>
-          <option>Fuel Injector Cleaning / Replacement</option>
-          <option>Carburetor / EFI Service</option>
-          <option>Oil Change (Mobile)</option>
-          <option>Tune-Up / Spark Plugs</option>
-          <option>Air Filter Replacement</option>
-          <option>Fluid Top-Off / Basic Service</option>
-          <option>Jump-Start</option>
-          <option>Battery Testing</option>
-          <option>Lockout Service (Non-destructive)</option>
-          <option>Flat Tire Replacement / Repair</option>
-          <option>Emergency Breakdown Diagnostic</option>
-          <option>Standard Service Call</option>
-          <option>Emergency / After-Hours Call</option>
-          <option>Alternator / Starter Diagnostics</option>
-          <option>Sensor Replacement (O2, MAF, etc.)</option>
-          <option>Wiring / Harness Repair</option>
-          <option>ECU / Computer Diagnostics</option>
-        </select>
-      </div>
 
-      <h4><i class="bi bi-box-seam"></i> Parts Needed</h4>
-      <div class="mb-3">
-        <select id="parts" class="form-select select2-multiple" multiple="multiple" style="width:100%">
-          <option>Brake Pads</option>
-          <option>Rotors</option>
-          <option>Brake Calipers</option>
-          <option>Brake Lines</option>
-          <option>Alternator</option>
-          <option>Starter</option>
-          <option>Battery</option>
-          <option>Radiator</option>
-          <option>Water Pump</option>
-          <option>Serpentine Belt</option>
-          <option>Thermostat</option>
-          <option>Head Gasket</option>
-          <option>Muffler</option>
-          <option>Catalytic Converter</option>
-          <option>Exhaust Manifold</option>
-          <option>Oxygen Sensor</option>
-          <option>Fuel Pump</option>
-          <option>Fuel Filter</option>
-          <option>Spark Plugs</option>
-          <option>Air Filter</option>
-          <option>Other</option>
-        </select>
-      </div>
+      <select name="Services Requested" class="form-select select2-multiple" multiple>
+        <option>Full Diagnostic Scan</option>
+        <option>Check Engine Light</option>
+        <option>Oil Change</option>
+        <option>Brake Pads</option>
+        <option>Battery Replacement</option>
+        <option>Tune-Up</option>
+        <option>Other</option>
+      </select>
 
-      <div class="mb-3">
-        <label for="notes" class="form-label">Additional Notes</label>
-        <textarea class="form-control" id="notes" rows="3" placeholder="Any other details..."></textarea>
-      </div>
+      <!-- Notes -->
+      <label class="form-label mt-3">Additional Notes</label>
+      <textarea name="Notes" class="form-control" rows="3"></textarea>
 
-      <div class="text-center">
-        <button type="submit" class="submit-btn">Submit Appointment</button>
+      <!-- Submit -->
+      <div class="text-center mt-4">
+        <button class="submit-btn">Submit Appointment</button>
       </div>
     </form>
   </div>
-</section>
-
 </main>
 
-<!-- JS -->
-<script src="https://r.mobirisesite.com/1997632/assets/web/assets/jquery/jquery.min.js"></script>
-<script src="https://r.mobirisesite.com/1997632/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Footer -->
+<footer class="footer py-3 bg-dark text-white mt-5">
+  <div class="container text-center">
+    <p class="mb-0">© 2025 Lee’s Mobile Mechanic Service — All Rights Reserved</p>
+    <p class="mb-0">📞 239-441-8552 | 📧 leesmobilemechanicservice@gmail.com</p>
+    <p class="mb-0">Serving Cape Coral • Ft Myers • Lehigh Acres • Punta Gorda</p>
+  </div>
+</footer>
+
+<!-- JS + Select2 -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 <script>
-  // Initialize Services & Parts Select2
-  $(document).ready(function() {
-    $('.select2-multiple').select2({ theme: 'bootstrap-5', placeholder: 'Select one or more options' });
-  });
+$(document).ready(function () {
+    $('.select2-single').select2({ width: "100%" });
+    $('.select2-multiple').select2({ width: "100%" });
 
-  // Load vehicles_us.json for Year → Make → Model
-  document.addEventListener("DOMContentLoaded", function () {
-    const yearSelect = document.getElementById("year");
-    const makeSelect = document.getElementById("make");
-    const modelSelect = document.getElementById("model");
-
+    // Load vehicle data from your GitHub repo
     fetch("vehicles_us.json")
-      .then(res => res.json())
+      .then(r => r.json())
       .then(data => {
-        // Populate Years
-        Object.keys(data).sort((a,b)=>b-a).forEach(year => {
-          let opt = document.createElement("option");
-          opt.value = year;
-          opt.textContent = year;
-          yearSelect.appendChild(opt);
-        });
+          const years = Object.keys(data).sort((a,b)=>b - a);
+          years.forEach(y => $("#year").append(`<option>${y}</option>`));
 
-        // Year → Make
-        yearSelect.addEventListener("change", function(){
-          const year = this.value;
-          makeSelect.innerHTML = '<option value="">Select Make</option>';
-          modelSelect.innerHTML = '<option value="">Select Model</option>';
-          if(!data[year]) return;
-          Object.keys(data[year]).sort().forEach(make => {
-            let opt = document.createElement("option");
-            opt.value = make;
-            opt.textContent = make;
-            makeSelect.appendChild(opt);
-          });
-        });
+          $("#year").on("change", function () {
+              const year = this.value;
+              $("#make").empty().append(`<option value="">Select Make</option>`);
+              $("#model").empty().append(`<option value="">Select Model</option>`);
 
-        // Make → Model
-        makeSelect.addEventListener("change", function(){
-          const year = yearSelect.value;
-          const make = this.value;
-          modelSelect.innerHTML = '<option value="">Select Model</option>';
-          if(!data[year] || !data[year][make]) return;
-          data[year][make].forEach(model => {
-            let opt = document.createElement("option");
-            opt.value = model;
-            opt.textContent = model;
-            modelSelect.appendChild(opt);
+              if (data[year]) {
+                  Object.keys(data[year]).sort().forEach(make => {
+                      $("#make").append(`<option>${make}</option>`);
+                  });
+              }
           });
-        });
-      })
-      .catch(err => console.error("Failed to load vehicles_us.json:", err));
-  });
+
+          $("#make").on("change", function () {
+              const year = $("#year").val();
+              const make = this.value;
+              $("#model").empty().append(`<option value="">Select Model</option>`);
+
+              if (data[year] && data[year][make]) {
+                  data[year][make].forEach(model => {
+                      $("#model").append(`<option>${model}</option>`);
+                  });
+              }
+          });
+      });
+});
 </script>
+
 </body>
 </html>
