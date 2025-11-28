@@ -5,72 +5,66 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Book Appointment – Lee’s Mobile Mechanic</title>
 
-  <!-- Bootstrap + Icons + Select2 -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <!-- Bootstrap + Icons + Select2 + Home Page Fonts/Theme -->
+  <link rel="stylesheet" href="https://r.mobirisesite.com/1997632/assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
+  <link rel="stylesheet" href="https://r.mobirisesite.com/1997632/assets/css/mbr-additional.css" type="text/css">
 
   <style>
-    body { background:#f1f1f1; }
+    body { display:flex; flex-direction:column; min-height:100vh; font-family:'Inter Tight', sans-serif; }
+    main { flex:1; }
+    footer { flex-shrink:0; }
 
-    /* Home page style matching */
-    .navbar {
-      background: black;
-      padding: 1rem;
-    }
-    .navbar-brand {
-      color: white !important;
-      font-size: 1.5rem;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
-    .nav-link {
-      color: white !important;
-      font-size: 1.1rem;
-      margin-left: 20px;
-    }
+    /* Navbar matching home page */
+    .navbar { background:#000; padding:1rem; }
+    .navbar-brand { color:#fff !important; font-size:1.5rem; font-weight:bold; letter-spacing:1px; }
+    .nav-link { color:#fff !important; margin-left:1rem; font-size:1.1rem; }
     .nav-link:hover { color:#00aaff !important; }
 
     /* Form styling */
     .form-section {
-      background:white;
+      background:#fff;
       padding:2rem;
       border-radius:12px;
-      box-shadow:0 4px 10px rgba(0,0,0,0.15);
+      box-shadow:0 4px 15px rgba(0,0,0,0.1);
       margin-top:2rem;
     }
     h4 {
-      background:black;
-      color:white;
+      background:#000;
+      color:#fff;
       padding:10px 15px;
       border-radius:6px;
       margin-bottom:1rem;
+      display:flex;
+      align-items:center;
+      gap:0.5rem;
     }
     .submit-btn {
       background:#00aaff;
-      color:white;
+      color:#fff;
       padding:12px 35px;
-      font-size:1.3rem;
+      font-size:1.2rem;
       border-radius:10px;
       border:none;
       transition:0.2s;
     }
-    .submit-btn:hover {
-      background:#0088cc;
-    }
-    select, input, textarea {
-      border:2px solid black !important;
+    .submit-btn:hover { background:#0088cc; }
+
+    select.form-select, input.form-control, textarea.form-control {
+      border:2px solid #000 !important;
+      font-weight:500;
     }
   </style>
 </head>
 
 <body>
 
-<!-- 🧭 NAVBAR (matches your homepage) -->
+<!-- Navbar -->
 <nav class="navbar navbar-expand-lg">
   <div class="container">
     <a class="navbar-brand" href="index.html">Lee’s Mobile Mechanic</a>
-    <div>
+    <div class="collapse navbar-collapse">
       <a class="nav-link d-inline" href="index.html">Home</a>
       <a class="nav-link d-inline" href="appointment.html">Appointments</a>
       <a class="nav-link d-inline" href="pricing.html">Pricing</a>
@@ -85,53 +79,31 @@
 
       <!-- Personal Info -->
       <h4><i class="bi bi-person-fill"></i> Personal Information</h4>
-
-      <label class="form-label">Full Name</label>
-      <input name="Full Name" class="form-control mb-3" required>
-
-      <label class="form-label">Email</label>
-      <input type="email" name="Email" class="form-control mb-3" required>
-
-      <label class="form-label">Phone Number</label>
-      <input name="Phone" class="form-control mb-3" required>
+      <input name="Full Name" class="form-control mb-3" placeholder="John Doe" required>
+      <input type="email" name="Email" class="form-control mb-3" placeholder="you@example.com" required>
+      <input name="Phone" class="form-control mb-3" placeholder="239-441-8552" required>
 
       <!-- Vehicle Info -->
       <h4><i class="bi bi-car-front-fill"></i> Vehicle Information</h4>
       <div class="row">
         <div class="col-md-4 mb-3">
-          <label>Year</label>
-          <select id="year" name="Year" class="form-select select2-single">
-            <option value="">Select Year</option>
-          </select>
+          <select id="year" name="Year" class="form-select select2-single"><option value="">Select Year</option></select>
         </div>
-
         <div class="col-md-4 mb-3">
-          <label>Make</label>
-          <select id="make" name="Make" class="form-select select2-single">
-            <option value="">Select Make</option>
-          </select>
+          <select id="make" name="Make" class="form-select select2-single"><option value="">Select Make</option></select>
         </div>
-
         <div class="col-md-4 mb-3">
-          <label>Model</label>
-          <select id="model" name="Model" class="form-select select2-single">
-            <option value="">Select Model</option>
-          </select>
+          <select id="model" name="Model" class="form-select select2-single"><option value="">Select Model</option></select>
         </div>
       </div>
 
       <!-- Engine Info -->
       <h4><i class="bi bi-gear-fill"></i> Engine Information</h4>
-
-      <label class="form-label">Engine Type (4-cyl, V6, V8, etc.)</label>
-      <input name="Engine Type" class="form-control mb-3" placeholder="Example: V6, V8, 4 Cylinder">
-
-      <label class="form-label">Engine Size (Liters)</label>
-      <input name="Engine Liters" class="form-control mb-3" placeholder="Example: 3.5L">
+      <input name="Engine Type" class="form-control mb-3" placeholder="V6, V8, 4 Cylinder">
+      <input name="Engine Liters" class="form-control mb-3" placeholder="3.5L">
 
       <!-- Services -->
       <h4><i class="bi bi-tools"></i> Services Requested</h4>
-
       <select name="Services Requested" class="form-select select2-multiple" multiple>
         <option>Full Diagnostic Scan</option>
         <option>Check Engine Light</option>
@@ -144,11 +116,11 @@
 
       <!-- Notes -->
       <label class="form-label mt-3">Additional Notes</label>
-      <textarea name="Notes" class="form-control" rows="3"></textarea>
+      <textarea name="Notes" class="form-control" rows="3" placeholder="Any details..."></textarea>
 
       <!-- Submit -->
       <div class="text-center mt-4">
-        <button class="submit-btn">Submit Appointment</button>
+        <button class="submit-btn" type="submit">Submit Appointment</button>
       </div>
     </form>
   </div>
@@ -163,46 +135,36 @@
   </div>
 </footer>
 
-<!-- JS + Select2 -->
+<!-- JS + Select2 + Bootstrap -->
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 <script>
-$(document).ready(function () {
-    $('.select2-single').select2({ width: "100%" });
-    $('.select2-multiple').select2({ width: "100%" });
+$(document).ready(function() {
+    $('.select2-single').select2({ width:"100%" });
+    $('.select2-multiple').select2({ width:"100%" });
 
-    // Load vehicle data from your GitHub repo
+    // Load vehicle data
     fetch("vehicles_us.json")
-      .then(r => r.json())
-      .then(data => {
-          const years = Object.keys(data).sort((a,b)=>b - a);
-          years.forEach(y => $("#year").append(`<option>${y}</option>`));
+      .then(res=>res.json())
+      .then(data=>{
+        const years = Object.keys(data).sort((a,b)=>b-a);
+        years.forEach(y=>$("#year").append(`<option>${y}</option>`));
 
-          $("#year").on("change", function () {
-              const year = this.value;
-              $("#make").empty().append(`<option value="">Select Make</option>`);
-              $("#model").empty().append(`<option value="">Select Model</option>`);
+        $("#year").on("change",function(){
+          const year = this.value;
+          $("#make").empty().append('<option value="">Select Make</option>');
+          $("#model").empty().append('<option value="">Select Model</option>');
+          if(data[year]) Object.keys(data[year]).sort().forEach(make=>$("#make").append(`<option>${make}</option>`));
+        });
 
-              if (data[year]) {
-                  Object.keys(data[year]).sort().forEach(make => {
-                      $("#make").append(`<option>${make}</option>`);
-                  });
-              }
-          });
-
-          $("#make").on("change", function () {
-              const year = $("#year").val();
-              const make = this.value;
-              $("#model").empty().append(`<option value="">Select Model</option>`);
-
-              if (data[year] && data[year][make]) {
-                  data[year][make].forEach(model => {
-                      $("#model").append(`<option>${model}</option>`);
-                  });
-              }
-          });
+        $("#make").on("change",function(){
+          const year = $("#year").val();
+          const make = this.value;
+          $("#model").empty().append('<option value="">Select Model</option>');
+          if(data[year] && data[year][make]) data[year][make].forEach(model=>$("#model").append(`<option>${model}</option>`));
+        });
       });
 });
 </script>
