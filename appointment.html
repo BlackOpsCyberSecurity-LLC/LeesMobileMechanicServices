@@ -98,23 +98,45 @@
       </div>
 
       <h4><i class="bi bi-car-front-fill"></i> Vehicle Information</h4>
+
+      <div class="mb-3">
+        <label for="vin" class="form-label">VIN (Optional)</label>
+        <div class="input-group">
+          <input type="text" id="vin" class="form-control" placeholder="Enter VIN for auto-fill">
+          <button type="button" id="vin-lookup" class="btn btn-primary">Lookup VIN</button>
+        </div>
+        <small class="form-text text-muted">Enter VIN to auto-fill Year, Make, Model, Engine. You can also fill manually.</small>
+      </div>
+
       <div class="row">
-        <div class="col-md-4 mb-3">
+        <div class="col-md-3 mb-3">
           <label for="year" class="form-label">Year</label>
           <select id="year" name="year" class="form-select select2-single">
             <option value="">Select Year</option>
           </select>
         </div>
-        <div class="col-md-4 mb-3">
+        <div class="col-md-3 mb-3">
           <label for="make" class="form-label">Make</label>
           <select id="make" name="make" class="form-select select2-single">
             <option value="">Select Make</option>
           </select>
         </div>
-        <div class="col-md-4 mb-3">
+        <div class="col-md-3 mb-3">
           <label for="model" class="form-label">Model</label>
           <select id="model" name="model" class="form-select select2-single">
             <option value="">Select Model</option>
+          </select>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="engine" class="form-label">Engine / Liter</label>
+          <select id="engine" name="engine" class="form-select select2-single">
+            <option value="">Select Engine</option>
+            <option value="4-cylinder">4-cylinder</option>
+            <option value="V6">V6</option>
+            <option value="V8">V8</option>
+            <option value="V10">V10</option>
+            <option value="V12">V12</option>
+            <option value="Other">Other</option>
           </select>
         </div>
       </div>
@@ -189,7 +211,7 @@
 
 </main>
 
-<!-- Footer -->
+<!-- Footer (same as home page) -->
 <footer class="footer py-3 bg-dark text-white mt-auto">
   <div class="container text-center">
     <p class="mb-0">&copy; 2025 Lee'sMobileMechanicService-LLC. All rights reserved.</p>
@@ -203,42 +225,66 @@
 <script src="https://js.usebasin.com/v2.10.0.min.js" defer></script>
 
 <script>
-  $(document).ready(function() {
-    $('.select2-single').select2({ theme: 'bootstrap-5', placeholder: 'Select an option', width: '100%' });
-    $('.select2-multiple').select2({ theme: 'bootstrap-5', placeholder: 'Select one or more', width: '100%' });
+$(document).ready(function() {
+  $('.select2-single').select2({ theme: 'bootstrap-5', placeholder: 'Select an option', width: '100%' });
+  $('.select2-multiple').select2({ theme: 'bootstrap-5', placeholder: 'Select one or more', width: '100%' });
 
-    // === Paste your full vehicle data here ===
-    const vehicleData = {
-      /* Example:
-      "2023": { "Ford": ["F-150", "Mustang"], "Chevy": ["Silverado", "Camaro"] },
-      "2022": { "Ford": ["Explorer", "Fusion"], "Chevy": ["Equinox", "Malibu"] }
-      */
-    };
+  const vehicleData = {
+    /* Paste your full vehicle dataset here */
+  };
 
-    // Populate Year dropdown
-    const years = Object.keys(vehicleData).sort((a,b)=>b-a);
-    years.forEach(y => $('#year').append(`<option value="${y}">${y}</option>`));
+  const years = Object.keys(vehicleData).sort((a,b)=>b-a);
+  years.forEach(y => $('#year').append(`<option value="${y}">${y}</option>`));
 
-    // Year → Make
-    $('#year').on('change', function() {
-      const year = this.value;
-      $('#make').empty().append('<option value="">Select Make</option>');
-      $('#model').empty().append('<option value="">Select Model</option>');
-      if(vehicleData[year]) Object.keys(vehicleData[year]).sort().forEach(make => {
-        $('#make').append(`<option value="${make}">${make}</option>`);
-      });
-    });
-
-    // Make → Model
-    $('#make').on('change', function() {
-      const year = $('#year').val();
-      const make = this.value;
-      $('#model').empty().append('<option value="">Select Model</option>');
-      if(vehicleData[year] && vehicleData[year][make]) vehicleData[year][make].forEach(model => {
-        $('#model').append(`<option value="${model}">${model}</option>`);
-      });
+  $('#year').on('change', function() {
+    const year = this.value;
+    $('#make').empty().append('<option value="">Select Make</option>');
+    $('#model').empty().append('<option value="">Select Model</option>');
+    if(vehicleData[year]) Object.keys(vehicleData[year]).sort().forEach(make => {
+      $('#make').append(`<option value="${make}">${make}</option>`);
     });
   });
+
+  $('#make').on('change', function() {
+    const year = $('#year').val();
+    const make = this.value;
+    $('#model').empty().append('<option value="">Select Model</option>');
+    if(vehicleData[year] && vehicleData[year][make]) vehicleData[year][make].forEach(model => {
+      $('#model').append(`<option value="${model}">${model}</option>`);
+    });
+  });
+
+  // VIN Lookup
+  $('#vin-lookup').click(function() {
+    const vin = $('#vin').val().trim();
+    if(!vin) return alert('Please enter a VIN.');
+
+    const apiUrl = `https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVinValues/${vin}?format=json`;
+
+    fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => {
+        const vehicle = data.Results[0];
+        $('#year').val(vehicle.ModelYear).trigger('change');
+
+        if(vehicle.Make && vehicle.Model){
+          $('#make').val(vehicle.Make).trigger('change');
+          $('#model').val(vehicle.Model).trigger('change');
+        }
+
+        let engineOption = 'Other';
+        switch(vehicle.EngineCylinders){
+          case "4": engineOption = "4-cylinder"; break;
+          case "6": engineOption = "V6"; break;
+          case "8": engineOption = "V8"; break;
+          case "10": engineOption = "V10"; break;
+          case "12": engineOption = "V12"; break;
+        }
+        $('#engine').val(engineOption).trigger('change');
+      })
+      .catch(err => alert('Error decoding VIN. Please check and try again.'));
+  });
+});
 </script>
 
 </body>
