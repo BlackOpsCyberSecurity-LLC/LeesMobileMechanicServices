@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
   <link rel="shortcut icon" href="https://r.mobirisesite.com/1997632/assets/images/shop3-h_mifa1ufz.jpg" type="image/x-icon">
+  <meta name="description" content="">
   <title>Book Appointment</title>
 
   <!-- CSS -->
@@ -21,7 +22,12 @@
     main { flex: 1; }
     footer { flex-shrink: 0; }
 
-    .form-section { background: #f8f9fa; padding: 2rem; border-radius: 8px; margin-bottom: 2rem; }
+    .form-section {
+      background: #f8f9fa;
+      padding: 2rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+    }
 
     .form-section h4 {
       background: #000;
@@ -39,31 +45,27 @@
       padding: 12px 30px;
       border: none;
     }
-    .submit-btn:hover { background-color: #0088cc; }
 
-    /* Make Select2 multiple selects visible and mobile-friendly */
-    .select2-container--bootstrap .select2-selection--multiple {
-      min-height: 50px;
-      border: 2px solid #00aaff;
-      border-radius: 8px;
-      cursor: pointer;
-      background-color: #f0f8ff;
-      padding: 4px 8px;
+    .submit-btn:hover {
+      background-color: #0088cc;
+      color: white;
     }
-    .select2-container--bootstrap .select2-selection--multiple:hover { background-color: #e0f0ff; }
-    .select2-container--bootstrap .select2-selection__placeholder { color: #0077cc; font-weight: bold; }
-    .select2-container--bootstrap .select2-selection__choice {
-      background-color: #00aaff !important;
-      border: none !important;
-      color: #fff !important;
-      padding: 3px 8px !important;
+
+    /* Make Select2 boxes more visible */
+    .select2-container--bootstrap .select2-selection--single,
+    .select2-container--bootstrap .select2-selection--multiple {
+      border: 2px solid #000;
+      border-radius: 5px;
+      min-height: 44px;
+      padding: 4px;
+      background-color: #fff;
     }
   </style>
 </head>
 <body>
 <main>
 
-<!-- Navbar (same as homepage) -->
+<!-- Navbar (Homepage copy) -->
 <section data-bs-version="5.1" class="menu menu5 cid-v3BV98Nlzj" once="menu" id="menu05-1i">
   <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
     <div class="container">
@@ -75,7 +77,9 @@
           <a class="navbar-caption text-black text-primary display-4">Lee's Mobile Mechanic Service</a>
         </span>
       </div>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse" 
+              data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent" 
+              aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <div class="hamburger"><span></span><span></span><span></span><span></span></div>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -118,7 +122,6 @@
           <label for="year" class="form-label">Year</label>
           <select id="year" class="form-select select2-single">
             <option value="">Select Year</option>
-            <!-- Years populated via JS -->
           </select>
         </div>
         <div class="col-md-4 mb-3">
@@ -225,53 +228,90 @@
   </div>
 </section>
 
+<!-- Contact Section -->
+<section data-bs-version="5.1" class="contacts02 map1 cid-v3BW1ZDWa1" id="contacts02-1n">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 content-head">
+        <div class="mbr-section-head mb-5">
+          <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2"><strong>Contact Info</strong></h3>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="card col-12 col-md-12 col-lg-6">
+        <div class="card-wrapper">
+          <div class="text-wrapper">
+            <h5 class="cardTitle mbr-fonts-style mb-2 display-5"><strong>Contact Us @</strong></h5>
+            <ul class="list mbr-fonts-style display-7">
+              <li>Phone: <a href="tel:+12394418552" class="contact-link">239-441-8552</a></li>
+              <li>Email: <a href="mailto:leesmobilemechanicservices@gmail.com" class="contact-link">leesmobilemechanicservices@gmail.com</a></li>
+              <li>Address: Conway, South Carolina-29526</li>
+              <li>Working Hours: Full Time</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="map-wrapper col-md-12 col-lg-6">
+        <div class="google-map">
+          <iframe frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB7QWkvlxV39ZsyKvhZRjPGVqlJFvxxNkw&q=Conway South Carolina" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer py-3 bg-dark text-white mt-auto">
+  <div class="container text-center">
+    <p class="mb-0">&copy; 2025 Lee's Mobile Mechanic Service. All rights reserved.</p>
+  </div>
+</footer>
+
 <!-- JS -->
 <script src="https://r.mobirisesite.com/1997632/assets/web/assets/jquery/jquery.min.js"></script>
 <script src="https://r.mobirisesite.com/1997632/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="https://r.mobirisesite.com/1997632/assets/smoothscroll/smooth-scroll.js"></script>
+<script src="https://r.mobirisesite.com/1997632/assets/ytplayer/index.js"></script>
+<script src="https://r.mobirisesite.com/1997632/assets/dropdown/js/navbar-dropdown.js"></script>
+<script src="https://r.mobirisesite.com/1997632/assets/theme/js/script.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 <script>
-  $(document).ready(function() {
-    // Populate Year
-    for (let y = 2000; y <= 2025; y++) {
-      $('#year').append(`<option value="${y}">${y}</option>`);
+$(document).ready(function() {
+  // Populate Year
+  for(let y=2000; y<=2025; y++){
+    $('#year').append(`<option value="${y}">${y}</option>`);
+  }
+
+  // Example Make / Model data
+  const makeModel = {
+    "Ford": ["F-150", "Mustang", "Explorer"],
+    "Chevrolet": ["Silverado", "Camaro", "Tahoe"],
+    "Toyota": ["Camry", "Corolla", "RAV4"],
+    "Honda": ["Civic", "Accord", "CR-V"],
+    "Nissan": ["Altima", "Sentra", "Rogue"]
+  };
+
+  // Populate Make
+  Object.keys(makeModel).forEach(make => $('#make').append(`<option value="${make}">${make}</option>`));
+
+  // When Make changes, filter Model
+  $('#make').on('change', function(){
+    let selected = $(this).val();
+    $('#model').empty().append('<option value="">Select Model</option>');
+    if(selected && makeModel[selected]){
+      makeModel[selected].forEach(model => $('#model').append(`<option value="${model}">${model}</option>`));
     }
-
-    // Sample Make & Model data
-    const vehicles = {
-      "2025": { "Ford": ["F-150", "Mustang"], "Toyota": ["Camry", "Corolla"], "Honda": ["Civic", "Accord"] },
-      "2024": { "Ford": ["F-150", "Explorer"], "Toyota": ["Camry", "RAV4"], "Honda": ["Civic", "Pilot"] }
-      // add more years & makes/models as needed
-    };
-
-    // Update makes based on year
-    $('#year').on('change', function() {
-      let year = $(this).val();
-      $('#make').empty().append('<option value="">Select Make</option>');
-      $('#model').empty().append('<option value="">Select Model</option>');
-      if (vehicles[year]) {
-        Object.keys(vehicles[year]).forEach(make => {
-          $('#make').append(`<option value="${make}">${make}</option>`);
-        });
-      }
-    });
-
-    // Update models based on make
-    $('#make').on('change', function() {
-      let year = $('#year').val();
-      let make = $(this).val();
-      $('#model').empty().append('<option value="">Select Model</option>');
-      if (vehicles[year] && vehicles[year][make]) {
-        vehicles[year][make].forEach(model => {
-          $('#model').append(`<option value="${model}">${model}</option>`);
-        });
-      }
-    });
-
-    // Initialize Select2
-    $('.select2-single').select2({ theme: 'bootstrap-5', placeholder: 'Select an option' });
-    $('.select2-multiple').select2({ theme: 'bootstrap-5', placeholder: 'Tap to select one or more options', allowClear: true });
+    $('#model').trigger('change'); // refresh Select2
   });
+
+  // Initialize Select2
+  $('.select2-single').select2({ theme: 'bootstrap-5', placeholder: 'Select an option' });
+  $('.select2-multiple').select2({ theme: 'bootstrap-5', placeholder: 'Select one or more options' });
+});
 </script>
 </body>
 </html>
