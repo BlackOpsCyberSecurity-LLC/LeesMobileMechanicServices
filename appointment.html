@@ -17,33 +17,58 @@
   <link rel="stylesheet" href="https://r.mobirisesite.com/1997632/assets/css/mbr-additional.css" type="text/css">
 
   <style>
-    body { display: flex; flex-direction: column; min-height: 100vh; }
-    main { flex: 1; }
-    footer { flex-shrink: 0; }
+    body { display:flex; flex-direction:column; min-height:100vh; font-family:'Arial', sans-serif; }
+    main { flex:1; }
+    footer { flex-shrink:0; }
 
+    /* Form Section */
     .form-section {
-      background: #f8f9fa;
-      padding: 2rem;
-      border-radius: 8px;
-      margin-bottom: 2rem;
+      background:#ffffff;
+      padding:3rem;
+      border-radius:12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      margin-bottom:4rem;
     }
+
     .form-section h4 {
-      background: #000;
-      color: #fff;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      margin-bottom: 1rem;
+      background:#222;
+      color:#fff;
+      padding:0.75rem 1.25rem;
+      border-radius:6px;
+      margin-bottom:1.5rem;
+      font-size:1.4rem;
     }
+
+    .form-label { font-weight:500; font-size:1rem; }
+    .form-control, .form-select { 
+      border:2px solid #000 !important; 
+      height:50px !important; 
+      font-size:1rem !important; 
+      font-weight:500 !important; 
+      border-radius:8px; 
+    }
+
+    .select2-container--bootstrap .select2-selection--multiple { min-height:50px; }
+
+    /* Submit Button Matching Home Page */
     .submit-btn {
-      background-color: #00aaff;
-      color: white;
-      font-size: 1.2rem;
-      border-radius: 8px;
-      padding: 12px 30px;
-      border: none;
+      background-color:#000; /* matches home page main buttons */
+      color:#fff;
+      font-size:1rem;
+      font-weight:600;
+      padding:14px 32px;
+      border-radius:10px;
+      border:none;
+      transition: all 0.3s ease;
     }
-    .submit-btn:hover { background-color: #0088cc; color: white; }
-    select.form-select { border:2px solid #000 !important; height:52px !important; font-size:1.1rem !important; font-weight:500; cursor:pointer !important; }
+
+    .submit-btn:hover {
+      background-color:#222; 
+      color:white;
+    }
+
+    /* Consistent spacing for sections */
+    .mb-4 { margin-bottom:1.5rem !important; }
   </style>
 </head>
 <body>
@@ -84,34 +109,34 @@
     <h4><i class="bi bi-person-fill"></i> Personal Information</h4>
     <form action="https://usebasin.com/f/d459393c2dd6" method="POST" data-basin-form data-basin-success-action="render">
 
-      <div class="mb-3">
+      <div class="mb-4">
         <label for="name" class="form-label">Full Name</label>
         <input type="text" class="form-control" id="name" name="name" placeholder="John Doe" required>
       </div>
-      <div class="mb-3">
+      <div class="mb-4">
         <label for="email" class="form-label">Email</label>
         <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" required>
       </div>
-      <div class="mb-3">
+      <div class="mb-4">
         <label for="phone" class="form-label">Phone</label>
         <input type="tel" class="form-control" id="phone" name="phone" placeholder="239-441-8552" required>
       </div>
 
       <h4><i class="bi bi-car-front-fill"></i> Vehicle Information</h4>
       <div class="row">
-        <div class="col-md-4 mb-3">
+        <div class="col-md-4 mb-4">
           <label for="year" class="form-label">Year</label>
           <select id="year" name="year" class="form-select select2-single">
             <option value="">Select Year</option>
           </select>
         </div>
-        <div class="col-md-4 mb-3">
+        <div class="col-md-4 mb-4">
           <label for="make" class="form-label">Make</label>
           <select id="make" name="make" class="form-select select2-single">
             <option value="">Select Make</option>
           </select>
         </div>
-        <div class="col-md-4 mb-3">
+        <div class="col-md-4 mb-4">
           <label for="model" class="form-label">Model</label>
           <select id="model" name="model" class="form-select select2-single">
             <option value="">Select Model</option>
@@ -120,7 +145,7 @@
       </div>
 
       <h4><i class="bi bi-tools"></i> Services Requested</h4>
-      <div class="mb-3">
+      <div class="mb-4">
         <select id="services" name="services[]" class="form-select select2-multiple" multiple="multiple" style="width:100%">
           <option>Full Vehicle Diagnostic Scan</option>
           <option>Check Engine Light Troubleshooting</option>
@@ -133,7 +158,7 @@
       </div>
 
       <h4><i class="bi bi-box-seam"></i> Parts Needed</h4>
-      <div class="mb-3">
+      <div class="mb-4">
         <select id="parts" name="parts[]" class="form-select select2-multiple" multiple="multiple" style="width:100%">
           <option>Brake Pads</option>
           <option>Rotors</option>
@@ -143,7 +168,7 @@
         </select>
       </div>
 
-      <div class="mb-3">
+      <div class="mb-4">
         <label for="notes" class="form-label">Additional Notes</label>
         <textarea class="form-control" id="notes" name="notes" rows="3" placeholder="Any other details..."></textarea>
       </div>
@@ -154,7 +179,7 @@
     </form>
   </div>
 
-  <!-- Contact Section (same style as home page) -->
+  <!-- Contact Section -->
   <section data-bs-version="5.1" class="contacts02 map1 cid-v3BW1ZDWa1" id="contacts02-1n">
     <div class="container">
       <div class="row justify-content-center">
@@ -189,10 +214,10 @@
 
 </main>
 
-<!-- Footer (same as home page) -->
+<!-- Footer -->
 <footer class="footer py-3 bg-dark text-white mt-auto">
   <div class="container text-center">
-    <p class="mb-0">&copy; 2025 Lee'sMobileMechanicService-LLC. All rights reserved.</p>
+    <p class="mb-0">&copy; 2025 Lee's Mobile Mechanic Service. All rights reserved.</p>
   </div>
 </footer>
 
@@ -204,14 +229,13 @@
 
 <script>
   $(document).ready(function() {
-    $('.select2-single').select2({ theme: 'bootstrap-5', placeholder: 'Select an option', width: '100%' });
-    $('.select2-multiple').select2({ theme: 'bootstrap-5', placeholder: 'Select one or more', width: '100%' });
+    $('.select2-single').select2({ theme:'bootstrap-5', placeholder:'Select an option', width:'100%' });
+    $('.select2-multiple').select2({ theme:'bootstrap-5', placeholder:'Select one or more', width:'100%' });
 
-    // === Populate vehicle dropdowns if you have a vehicles_us.json object ===
-    const vehicleData = {}; // <-- paste your vehicles_us.json content here
-
+    // Vehicle dropdown logic if you have vehicles_us.json
+    const vehicleData = {}; // <-- paste your JSON
     const years = Object.keys(vehicleData).sort((a,b)=>b-a);
-    years.forEach(y => $('#year').append(`<option value="${y}">${y}</option>`));
+    years.forEach(y=>$('#year').append(`<option value="${y}">${y}</option>`));
 
     $('#year').on('change', function() {
       const year = this.value;
