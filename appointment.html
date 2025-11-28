@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="https://r.mobirisesite.com/1997632/assets/images/shop3-h_mifa1ufz.jpg" type="image/x-icon">
+  <title>Book Appointment - Lee's Mobile Mechanic Service</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://r.mobirisesite.com/1997632/assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://r.mobirisesite.com/1997632/assets/theme/css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+  <style>
+    body { display: flex; flex-direction: column; min-height: 100vh; }
+    main { flex: 1; }
+    footer { flex-shrink: 0; }
+
+    /* Form styling */
+    #booking { max-width: 600px; margin: 50px auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; background: #f8f9fa; }
+    #booking h2 { text-align: center; margin-bottom: 20px; }
+    label { display: block; margin-top: 15px; font-weight: bold; }
+    input, textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+    button { margin-top: 20px; padding: 12px 20px; background: #00aaff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    button:hover { background: #0088cc; }
+    #thank-you { display: none; color: green; font-weight: bold; margin-top: 15px; text-align:center; }
+  </style>
+</head>
+<body>
+<main>
+
+<!-- Navbar (same as homepage) -->
+<section data-bs-version="5.1" class="menu menu5 cid-v3BV98Nlzj" once="menu" id="menu05-1i">
+  <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
+    <div class="container">
+      <div class="navbar-brand">
+        <span class="navbar-logo">
+          <img src="https://r.mobirisesite.com/1997632/assets/images/shop3-h_mifa1ufz.jpg" alt="" style="height: 5rem;">
+        </span>
+        <span class="navbar-caption-wrap">
+          <a class="navbar-caption text-black text-primary display-4">Lee's Mobile Mechanic Service</a>
+        </span>
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <div class="hamburger"><span></span><span></span><span></span><span></span></div>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
+          <li class="nav-item"><a class="nav-link link text-black text-primary display-7" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link link text-black text-primary display-7" href="page1.html">Job Pricing</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</section>
+
+<!-- Booking Form Section -->
+<section id="booking">
+  <h2>Book Your Appointment</h2>
+  <p style="text-align:center;">Fill out the form below and we’ll contact you shortly to confirm your appointment.</p>
+
+  <form action="https://usebasin.com/f/d459393c2dd6" method="POST">
+    <label for="name">Full Name</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="phone">Phone Number</label>
+    <input type="tel" id="phone" name="phone" required>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="vehicle">Vehicle (Make, Model, Year)</label>
+    <input type="text" id="vehicle" name="vehicle" required>
+
+    <label for="issue">Describe the Issue</label>
+    <textarea id="issue" name="issue" rows="5" required></textarea>
+
+    <label for="date">Preferred Appointment Date</label>
+    <input type="date" id="date" name="date" required>
+
+    <label for="time">Preferred Time</label>
+    <input type="time" id="time" name="time" required>
+
+    <button type="submit">Request Appointment</button>
+  </form>
+
+  <p id="thank-you">Thank you! Your booking request has been sent.</p>
+</section>
+
+<script>
+  const form = document.querySelector("#booking form");
+  const thankYou = document.getElementById("thank-you");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const action = form.getAttribute("action");
+
+    fetch(action, {
+      method: "POST",
+      body: data,
+      headers: { Accept: "application/json" }
+    }).then(response => {
+      if (response.ok) {
+        thankYou.style.display = "block";
+        form.reset();
+      } else {
+        alert("Something went wrong — please try again later.");
+      }
+    });
+  });
+</script>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer py-3 bg-dark text-white mt-auto">
+  <div class="container text-center">
+    <p class="mb-0">&copy; 2025 Lee's Mobile Mechanic Service. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- JS -->
+<script src="https://r.mobirisesite.com/1997632/assets/web/assets/jquery/jquery.min.js"></script>
+<script src="https://r.mobirisesite.com/1997632/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
