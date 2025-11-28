@@ -22,6 +22,10 @@
     main { flex: 1; }
     footer { flex-shrink: 0; }
 
+    .select2-container--bootstrap .select2-selection--multiple {
+      min-height: 44px;
+    }
+
     .form-section {
       background: #f8f9fa;
       padding: 2rem;
@@ -49,31 +53,6 @@
     .submit-btn:hover {
       background-color: #0088cc;
       color: white;
-    }
-
-    /* Make Select2 boxes visually obvious and clickable */
-    .select2-container--bootstrap .select2-selection--multiple {
-      min-height: 44px;
-      border: 2px solid #00aaff;
-      border-radius: 8px;
-      cursor: pointer;
-      background-color: #f0f8ff;
-    }
-
-    .select2-container--bootstrap .select2-selection--multiple:hover {
-      background-color: #e0f0ff;
-    }
-
-    .select2-container--bootstrap .select2-selection__rendered {
-      padding: 6px;
-      font-weight: 500;
-    }
-
-    .select2-container--bootstrap .select2-selection__choice {
-      background-color: #00aaff !important;
-      border: none !important;
-      color: #fff !important;
-      padding: 3px 8px !important;
     }
   </style>
 </head>
@@ -135,6 +114,7 @@
           <label for="year" class="form-label">Year</label>
           <select id="year" class="form-select select2-single">
             <option value="">Select Year</option>
+            <!-- Example years -->
             <script>
               for(let y=2000; y<=2025; y++) {
                 document.write(`<option value="${y}">${y}</option>`);
@@ -265,6 +245,48 @@
   </div>
 </section>
 
+<!-- Contact Section -->
+<section data-bs-version="5.1" class="contacts02 map1 cid-v3BW1ZDWa1" id="contacts02-1n">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 content-head">
+        <div class="mbr-section-head mb-5">
+          <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2"><strong>Contact Info</strong></h3>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="card col-12 col-md-12 col-lg-6">
+        <div class="card-wrapper">
+          <div class="text-wrapper">
+            <h5 class="cardTitle mbr-fonts-style mb-2 display-5"><strong>Contact Us @</strong></h5>
+            <ul class="list mbr-fonts-style display-7">
+              <li>Phone: <a href="tel:+12394418552" class="contact-link">239-441-8552</a></li>
+              <li>Email: <a href="mailto:leesmobilemechanicservices@gmail.com" class="contact-link">leesmobilemechanicservices@gmail.com</a></li>
+              <li>Address: Conway, South Carolina-29526</li>
+              <li>Working Hours: Full Time</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="map-wrapper col-md-12 col-lg-6">
+        <div class="google-map">
+          <iframe frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB7QWkvlxV39ZsyKvhZRjPGVqlJFvxxNkw&q=Conway South Carolina" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer py-3 bg-dark text-white mt-auto">
+  <div class="container text-center">
+    <p class="mb-0">&copy; 2025 Lee's Mobile Mechanic Service. All rights reserved.</p>
+  </div>
+</footer>
+
 <!-- JS -->
 <script src="https://r.mobirisesite.com/1997632/assets/web/assets/jquery/jquery.min.js"></script>
 <script src="https://r.mobirisesite.com/1997632/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -274,11 +296,7 @@
 <script>
   $(document).ready(function() {
     $('.select2-single').select2({ theme: 'bootstrap-5', placeholder: 'Select an option' });
-    $('.select2-multiple').select2({ 
-      theme: 'bootstrap-5', 
-      placeholder: 'Click to select one or more options',
-      allowClear: true
-    });
+    $('.select2-multiple').select2({ theme: 'bootstrap-5', placeholder: 'Select one or more options' });
   });
 </script>
 </body>
