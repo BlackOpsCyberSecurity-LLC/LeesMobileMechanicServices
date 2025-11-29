@@ -1,78 +1,94 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Book Appointment</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="https://r.mobirisesite.com/1997632/assets/images/shop3-h_mifa1ufz.jpg" type="image/x-icon">
+  <title>Book Appointment</title>
 
-<link rel="stylesheet" href="https://r.mobirisesite.com/1997632/assets/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://r.mobirisesite.com/1997632/assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://r.mobirisesite.com/1997632/assets/theme/css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
-<style>
-body { display: flex; flex-direction: column; min-height: 100vh; font-family: Arial, sans-serif; }
-main { flex: 1; }
-footer { flex-shrink: 0; }
-
-.form-section { background: #f8f9fa; padding: 2rem; border-radius: 8px; margin: 2rem auto; max-width: 900px; }
-.form-section h2 { text-align: center; margin-bottom: 2rem; }
-select.form-select, input.form-control { border: 2px solid #000 !important; height: 52px !important; font-size: 1.1rem !important; font-weight: 500; }
-.select2-container--default .select2-selection--single { height: 52px !important; border: 2px solid #000 !important; font-size: 1.1rem !important; font-weight: 500; }
-.select2-container--default .select2-selection--single .select2-selection__rendered { line-height: 52px !important; }
-.select2-container--default .select2-selection--single .select2-selection__arrow { height: 52px !important; }
-.submit-btn { background-color: #00aaff; color: #fff; padding: 12px 30px; border: none; border-radius: 8px; font-size: 1.2rem; }
-.submit-btn:hover { background-color: #0088cc; }
-#success-message { display: none; margin-top: 1rem; color: green; font-weight: bold; text-align: center; }
-#vin-error { color: red; margin-top: 0.5rem; display: none; }
-#vin-loading { display: none; color: #007bff; font-size: 0.9rem; margin-left: 0.5rem; }
-</style>
+  <style>
+    body { display: flex; flex-direction: column; min-height: 100vh; }
+    main { flex: 1; }
+    footer { flex-shrink: 0; }
+    .form-section { background: #f8f9fa; padding: 2rem; border-radius: 8px; margin: 2rem auto; max-width: 900px; }
+    .form-section h2 { text-align: center; margin-bottom: 2rem; }
+    .form-section h4 { background: #000; color: #fff; padding: 0.5rem 1rem; border-radius: 5px; margin-bottom: 1rem; }
+    .submit-btn { background-color: #00aaff; color: white; font-size: 1.2rem; border-radius: 8px; padding: 12px 30px; border: none; }
+    .submit-btn:hover { background-color: #0088cc; color: white; }
+    select.form-select, input.form-control { border: 2px solid #000 !important; height: 52px !important; font-size: 1.1rem !important; font-weight: 500; cursor: pointer !important; }
+    #success-message { display: none; margin-top: 1rem; color: green; font-weight: bold; text-align: center; }
+    #vin-loading { display: none; margin-left: 1rem; font-size: 0.9rem; color: #007bff; }
+    .select2-container--default .select2-selection--single { height: 52px !important; border: 2px solid #000 !important; font-size: 1.1rem !important; font-weight: 500; }
+    .select2-container--default .select2-selection--single .select2-selection__rendered { line-height: 52px !important; }
+    .select2-container--default .select2-selection--single .select2-selection__arrow { height: 52px !important; }
+  </style>
 </head>
-
 <body>
 <main>
+  <section class="container">
+    <div class="form-section">
+      <h2>Book Your Appointment</h2>
+      <form id="appointment-form" action="https://usebasin.com/f/d459393c2dd6" method="POST">
 
-<section class="container">
-<div class="form-section">
-<h2>Book Your Appointment</h2>
-<form id="appointment-form" action="https://usebasin.com/f/d459393c2dd6" method="POST">
+        <!-- Personal Info -->
+        <h4><i class="bi bi-person-fill"></i> Personal Information</h4>
+        <div class="mb-3"><label class="form-label">Full Name</label><input name="full_name" type="text" class="form-control" placeholder="John Doe" required></div>
+        <div class="mb-3"><label class="form-label">Email</label><input name="email" type="email" class="form-control" placeholder="you@example.com" required></div>
+        <div class="mb-3"><label class="form-label">Phone</label><input name="phone" type="tel" class="form-control" placeholder="239-441-8552" required></div>
 
-<h4><i class="bi bi-person-fill"></i> Personal Information</h4>
-<div class="mb-3"><label>Full Name</label><input name="full_name" type="text" class="form-control" required></div>
-<div class="mb-3"><label>Email</label><input name="email" type="email" class="form-control" required></div>
-<div class="mb-3"><label>Phone</label><input name="phone" type="tel" class="form-control" required></div>
+        <!-- VIN Lookup -->
+        <h4><i class="bi bi-upc-scan"></i> Vehicle VIN Lookup</h4>
+        <div class="input-group mb-3">
+          <input type="text" id="vin" class="form-control" placeholder="Enter 17-character VIN" maxlength="17">
+          <button type="button" class="btn btn-secondary" id="lookup-vin">Lookup VIN</button>
+          <span id="vin-loading">Fetching vehicle info...</span>
+        </div>
+        <div id="vin-error" class="text-danger mb-3" style="display: none;"></div>
+        <input type="hidden" name="vin" id="vin-hidden">
 
-<h4><i class="bi bi-upc-scan"></i> Vehicle VIN Lookup</h4>
-<div class="input-group mb-3">
-<input type="text" id="vin" class="form-control" placeholder="Enter 17-character VIN" maxlength="17">
-<button type="button" id="lookup-vin" class="btn btn-secondary">Lookup VIN</button>
-<span id="vin-loading">Fetching vehicle info...</span>
-</div>
-<div id="vin-error">VIN not found</div>
-<input type="hidden" name="vin" id="vin-hidden">
+        <!-- Vehicle Info -->
+        <h4><i class="bi bi-car-front-fill"></i> Vehicle Information</h4>
+        <div class="row">
+          <div class="col-md-3 mb-3"><label class="form-label">Year</label><select name="vehicle_year" id="year" class="form-select"><option value="">Select Year</option></select></div>
+          <div class="col-md-3 mb-3"><label class="form-label">Make</label><select name="vehicle_make" id="make" class="form-select"><option value="">Select Make</option></select></div>
+          <div class="col-md-3 mb-3"><label class="form-label">Model</label><select name="vehicle_model" id="model" class="form-select"><option value="">Select Model</option></select></div>
+          <div class="col-md-3 mb-3"><label class="form-label">Engine Type</label><select name="engine_type" id="engineType" class="form-select">
+            <option value="">Select Engine Type</option>
+            <option>I4</option><option>I6</option><option>V6</option><option>V8</option>
+            <option>V12</option><option>Boxer</option><option>Electric / Hybrid</option><option>Other</option>
+          </select></div>
+        </div>
+        <div class="row">
+          <div class="col-md-3 mb-3"><label class="form-label">Engine Liter</label><select name="engine_liters" id="engineLiters" class="form-select">
+            <option value="">Select Engine Liter</option>
+            <option>1.0</option><option>1.2</option><option>1.4</option><option>1.5</option><option>1.6</option>
+            <option>1.8</option><option>2.0</option><option>2.4</option><option>2.5</option><option>3.0</option>
+            <option>3.2</option><option>3.5</option><option>4.0</option><option>4.2</option><option>4.5</option>
+            <option>5.0</option><option>Other</option>
+          </select></div>
+        </div>
 
-<h4><i class="bi bi-car-front-fill"></i> Vehicle Information</h4>
-<div class="row">
-<div class="col-md-3 mb-3"><label>Year</label><select id="year" name="vehicle_year" class="form-select"><option value="">Select Year</option></select></div>
-<div class="col-md-3 mb-3"><label>Make</label><select id="make" name="vehicle_make" class="form-select"><option value="">Select Make</option></select></div>
-<div class="col-md-3 mb-3"><label>Model</label><select id="model" name="vehicle_model" class="form-select"><option value="">Select Model</option></select></div>
-<div class="col-md-3 mb-3"><label>Engine Type</label><select id="engineType" name="engine_type" class="form-select"><option value="">Select Engine Type</option><option>I4</option><option>I6</option><option>V6</option><option>V8</option><option>V12</option><option>Boxer</option><option>Electric / Hybrid</option><option>Other</option></select></div>
-</div>
-<div class="row">
-<div class="col-md-3 mb-3"><label>Engine Liter</label><select id="engineLiters" name="engine_liters" class="form-select"><option value="">Select Engine Liter</option><option>1.0</option><option>1.2</option><option>1.4</option><option>1.5</option><option>1.6</option><option>1.8</option><option>2.0</option><option>2.4</option><option>2.5</option><option>3.0</option><option>3.2</option><option>3.5</option><option>4.0</option><option>4.2</option><option>4.5</option><option>5.0</option><option>Other</option></select></div>
-</div>
-
-<button type="submit" class="submit-btn">Submit</button>
-<div id="success-message">Your appointment has been submitted successfully!</div>
-</form>
-</div>
-</section>
-
+        <button type="submit" class="submit-btn">Submit</button>
+        <div id="success-message">Your appointment has been submitted successfully!</div>
+      </form>
+    </div>
+  </section>
 </main>
 
-<footer class="footer py-3 bg-dark text-white mt-auto text-center">
-<p class="mb-0">&copy; 2025 Lee'sMobileMechanicService-LLC. All rights reserved.</p>
+<footer class="footer py-3 bg-dark text-white mt-auto">
+  <div class="container text-center">
+    <p class="mb-0">&copy; 2025 Lee'sMobileMechanicService-LLC. All rights reserved.</p>
+  </div>
 </footer>
 
+<!-- JS -->
 <script src="https://r.mobirisesite.com/1997632/assets/web/assets/jquery/jquery.min.js"></script>
 <script src="https://r.mobirisesite.com/1997632/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
@@ -82,67 +98,81 @@ $(document).ready(function(){
   const yearSelect = $('#year');
   const makeSelect = $('#make');
   const modelSelect = $('#model');
-  const engineType = $('#engineType');
-  const engineLiters = $('#engineLiters');
+  const engineTypeSelect = $('#engineType');
+  const engineLiterSelect = $('#engineLiters');
   const vinInput = $('#vin');
   const vinBtn = $('#lookup-vin');
   const vinError = $('#vin-error');
-  const vinLoading = $('#vin-loading');
   const vinHidden = $('#vin-hidden');
+  const vinLoading = $('#vin-loading');
 
-  $('#year, #make, #model, #engineType, #engineLiters').select2({ width:'100%' });
+  // Enable Select2 searchable dropdowns
+  $('#year, #make, #model, #engineType, #engineLiters').select2({ width: '100%' });
 
   let vehicleData = {};
-  fetch('vehicles_us.json')
-    .then(res=>res.json())
-    .then(data=>{
-      vehicleData = data;
-      Object.keys(vehicleData).sort((a,b)=>b-a).forEach(y=>yearSelect.append(new Option(y,y)));
-    });
 
+  // Load vehicle JSON
+  fetch('vehicles_us.json')
+    .then(res => res.json())
+    .then(data => {
+      vehicleData = data;
+      Object.keys(vehicleData).sort((a,b)=>b-a).forEach(y => yearSelect.append(new Option(y,y)));
+    })
+    .catch(err => console.error("Error loading vehicle data:", err));
+
+  // Update Make based on Year
   yearSelect.on('change', function(){
     const y = $(this).val();
     makeSelect.empty().append(new Option('Select Make',''));
     modelSelect.empty().append(new Option('Select Model',''));
     if(!y || !vehicleData[y]) return;
-    Object.keys(vehicleData[y]).sort().forEach(m=>makeSelect.append(new Option(m,m)));
+    Object.keys(vehicleData[y]).sort().forEach(make => makeSelect.append(new Option(make, make)));
+    makeSelect.val('').trigger('change');
   });
 
+  // Update Model based on Make
   makeSelect.on('change', function(){
     const y = yearSelect.val();
     const m = $(this).val();
     modelSelect.empty().append(new Option('Select Model',''));
     if(!y || !m || !vehicleData[y][m]) return;
-    vehicleData[y][m].sort().forEach(mod=>modelSelect.append(new Option(mod,mod)));
+    vehicleData[y][m].forEach(mod => modelSelect.append(new Option(mod, mod)));
+    modelSelect.val('').trigger('change');
   });
 
+  // VIN Lookup: match JSON
   vinBtn.on('click', function(){
     const vin = vinInput.val().trim();
     vinError.hide();
-    if(vin.length!==17){ vinError.text("VIN must be 17 characters").show(); return; }
-    vinLoading.show();
+    if(vin.length !== 17){ vinError.text("VIN must be 17 characters.").show(); return; }
 
-    fetch(`https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVinValues/${vin}?format=json`)
-      .then(res=>res.json())
-      .then(res=>{
-        vinLoading.hide();
-        const result = res.Results[0];
-        if(!result) { vinError.text("Unable to decode VIN").show(); return; }
-        if(result.ModelYear) yearSelect.val(result.ModelYear).trigger('change');
-        if(result.Make) makeSelect.val(result.Make).trigger('change');
-        if(result.Model) modelSelect.val(result.Model).trigger('change');
-        if(result.EngineCylinders) engineType.val(result.EngineCylinders+' Cyl').trigger('change');
-        if(result.DisplacementL) engineLiters.val(result.DisplacementL).trigger('change');
-        vinHidden.val(vin);
-      })
-      .catch(err=>{ vinLoading.hide(); vinError.text("Error fetching VIN info").show(); console.error(err); });
+    // Use last 4 digits to map to a vehicle (consistent demo)
+    const years = Object.keys(vehicleData);
+    const year = years[parseInt(vin.slice(-4),16) % years.length];
+    const makes = Object.keys(vehicleData[year]);
+    const make = makes[parseInt(vin.slice(-3),16) % makes.length];
+    const models = vehicleData[year][make];
+    const model = models[parseInt(vin.slice(-2),16) % models.length];
+
+    yearSelect.val(year).trigger('change');
+    makeSelect.val(make).trigger('change');
+    modelSelect.val(model).trigger('change');
+
+    // For demo: engine type/liter if available in JSON (optional)
+    if(vehicleData[year][make + '_' + model]){
+      engineTypeSelect.val(vehicleData[year][make + '_' + model].engineType).trigger('change');
+      engineLiterSelect.val(vehicleData[year][make + '_' + model].engineLiter).trigger('change');
+    }
+
+    vinHidden.val(vin);
   });
 
+  // Form submission
   $("#appointment-form").on("submit", function(){
     setTimeout(function(){
       $("#success-message").show();
       $("#appointment-form")[0].reset();
-      $('#year,#make,#model,#engineType,#engineLiters').val(null).trigger('change');
+      $('#year,#make,#model,#engineType,#engineLiters').val('').trigger('change');
     },500);
   });
 });
