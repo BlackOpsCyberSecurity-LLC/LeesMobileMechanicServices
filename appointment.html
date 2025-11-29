@@ -1,350 +1,540 @@
 <!DOCTYPE html>
+
 <html>
+
+
+
 <head>
+
   <meta charset="UTF-8">
+
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+
   <link rel="shortcut icon" href="https://r.mobirisesite.com/1997632/assets/images/shop3-h_mifa1ufz.jpg" type="image/x-icon">
+
   <title>Book Appointment</title>
 
+
+
   <!-- CSS -->
+
   <link rel="stylesheet" href="https://r.mobirisesite.com/1997632/assets/bootstrap/css/bootstrap.min.css">
+
   <link rel="stylesheet" href="https://r.mobirisesite.com/1997632/assets/dropdown/css/style.css">
+
   <link rel="stylesheet" href="https://r.mobirisesite.com/1997632/assets/animatecss/animate.css">
+
   <link rel="stylesheet" href="https://r.mobirisesite.com/1997632/assets/theme/css/style.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Inter+Tight:100,200,300,400,500,600,700,800,900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+  <noscript>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter+Tight:100,200,300,400,500,600,700,800,900&display=swap">
+
+  </noscript>
+
   <link rel="stylesheet" href="https://r.mobirisesite.com/1997632/assets/css/mbr-additional.css" type="text/css">
 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
+
+
+
   <style>
-    body { display: flex; flex-direction: column; min-height: 100vh; }
-    main { flex: 1; }
-    footer { flex-shrink: 0; }
 
-    .form-section { background: #f8f9fa; padding: 2rem; border-radius: 8px; margin-bottom: 2rem; }
-    .form-section h4 { background: #000; color: #fff; padding: 0.5rem 1rem; border-radius: 5px; margin-bottom: 1rem; }
+    body {
 
-    .submit-btn { background-color: #00aaff; color: white; font-size: 1.2rem; border-radius: 8px; padding: 12px 30px; border: none; }
-    .submit-btn:hover { background-color: #0088cc; color: white; }
+      display: flex;
 
-    select.form-select { border: 2px solid #000 !important; height: 52px !important; font-size: 1.1rem !important; font-weight: 500; cursor: pointer !important; }
-    .vin-section { margin-bottom: 1rem; }
-    #vin-error { color: red; display: none; font-size: 0.9rem; margin-top: 0.3rem; }
-  </style>
-</head>
-<body>
-<main>
+      flex-direction: column;
 
-<!-- Appointment Form -->
-<section class="container mt-5 mb-5">
-  <div class="form-section">
-    <h4><i class="bi bi-person-fill"></i> Personal Information</h4>
-    <form action="https://usebasin.com/f/d459393c2dd6" method="POST">
-      <div class="mb-3">
-        <label for="name" class="form-label">Full Name</label>
-        <input type="text" class="form-control" id="name" name="name" placeholder="John Doe" required>
-      </div>
-      <div class="mb-3">
-        <label for="email" class="form-label">Email</label>
-        <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" required>
-      </div>
-      <div class="mb-3">
-        <label for="phone" class="form-label">Phone</label>
-        <input type="tel" class="form-control" id="phone" name="phone" placeholder="239-441-8552" required>
-      </div>
+      min-height: 100vh;
 
-      <h4><i class="bi bi-car-front-fill"></i> Vehicle Information</h4>
-
-      <!-- VIN Lookup -->
-      <div class="vin-section">
-        <label for="vin" class="form-label">VIN</label>
-        <div class="input-group mb-2">
-          <input type="text" id="vin" class="form-control" placeholder="Enter 17-character VIN">
-          <button type="button" id="lookup-vin" class="btn btn-secondary">Lookup VIN</button>
-        </div>
-        <div id="vin-error"></div>
-        <input type="hidden" id="vin-hidden" name="vin">
-      </div>
-
-      <div class="row">
-        <div class="col-md-4 mb-3">
-          <label for="year" class="form-label">Year</label>
-          <select id="year" name="year" class="form-select">
-            <option value="">Select Year</option>
-          </select>
-        </div>
-        <div class="col-md-4 mb-3">
-          <label for="make" class="form-label">Make</label>
-          <select id="make" name="make" class="form-select">
-            <option value="">Select Make</option>
-          </select>
-        </div>
-        <div class="col-md-4 mb-3">
-          <label for="model" class="form-label">Model</label>
-          <select id="model" name="model" class="form-select">
-            <option value="">Select Model</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-6 mb-3">
-          <label for="engineType" class="form-label">Engine Type</label>
-          <select id="engineType" name="engineType" class="form-select">
-            <option value="">Select Engine Type</option>
-            <option value="I4">I4</option>
-            <option value="I6">I6</option>
-            <option value="V6">V6</option>
-            <option value="V8">V8</option>
-            <option value="V12">V12</option>
-            <option value="Boxer">Boxer</option>
-            <option value="Electric / Hybrid">Electric / Hybrid</option>
-            <option value="Other">Other</option>
-          </select>
-        </div>
-        <div class="col-md-6 mb-3">
-          <label for="engineLiters" class="form-label">Engine Liters</label>
-          <select id="engineLiters" name="engineLiters" class="form-select">
-            <option value="">Select Engine Liters</option>
-            <option value="1.0">1.0</option>
-            <option value="1.2">1.2</option>
-            <option value="1.4">1.4</option>
-            <option value="1.6">1.6</option>
-            <option value="2.0">2.0</option>
-            <option value="2.4">2.4</option>
-            <option value="2.5">2.5</option>
-            <option value="3.0">3.0</option>
-            <option value="3.5">3.5</option>
-            <option value="4.0">4.0</option>
-            <option value="4.4">4.4</option>
-            <option value="5.0">5.0</option>
-            <option value="Other">Other</option>
-          </select>
-        </div>
-      </div>
-
-      <h4><i class="bi bi-tools"></i> Services Requested</h4>
-      <div class="mb-3">
-        <select id="services" name="services[]" class="form-select select2-multiple" multiple="multiple" style="width:100%">
-          <option>Full Vehicle Diagnostic Scan</option>
-          <option>Check Engine Light Troubleshooting</option>
-          <option>Electrical/Starting System Diagnostic</option>
-          <option>Shocks / Struts</option>
-          <option>Control Arms / Bushings</option>
-          <option>Ball Joints</option>
-          <option>Tie Rod Ends</option>
-          <option>Steering Rack / Gear</option>
-          <option>Brake Pads (Front or Rear)</option>
-          <option>Pads + Rotors</option>
-          <option>Brake Calipers</option>
-          <option>Brake Lines / Hoses</option>
-          <option>Brake Fluid Flush</option>
-          <option>Alternator Replacement</option>
-          <option>Starter Replacement</option>
-          <option>Battery Replacement</option>
-          <option>Radiator Replacement</option>
-          <option>Water Pump Replacement</option>
-          <option>Serpentine Belt</option>
-          <option>Thermostat Replacement</option>
-          <option>Head Gasket Replacement</option>
-          <option>Engine Overhaul / Major Repair</option>
-          <option>Muffler Replacement</option>
-          <option>Catalytic Converter</option>
-          <option>Exhaust Piping / Manifold</option>
-          <option>Oxygen Sensor Replacement</option>
-          <option>Fuel Pump Replacement</option>
-          <option>Fuel Filter Replacement</option>
-          <option>Fuel Injector Cleaning / Replacement</option>
-          <option>Carburetor / EFI Service</option>
-          <option>Oil Change (Mobile)</option>
-          <option>Tune-Up / Spark Plugs</option>
-          <option>Air Filter Replacement</option>
-          <option>Fluid Top-Off / Basic Service</option>
-          <option>Jump-Start</option>
-          <option>Battery Testing</option>
-          <option>Lockout Service (Non-destructive)</option>
-          <option>Flat Tire Replacement / Repair</option>
-          <option>Emergency Breakdown Diagnostic</option>
-          <option>Standard Service Call</option>
-          <option>Emergency / After-Hours Call</option>
-          <option>Alternator / Starter Diagnostics</option>
-          <option>Sensor Replacement (O2, MAF, etc.)</option>
-          <option>Wiring / Harness Repair</option>
-          <option>ECU / Computer Diagnostics</option>
-        </select>
-      </div>
-
-      <h4><i class="bi bi-box-seam"></i>Parts Needed</h4>
-      <div class="mb-3">
-        <select id="parts" name="parts[]" class="form-select select2-multiple" multiple="multiple" style="width:100%">
-          <option>Brake Pads</option>
-          <option>Rotors</option>
-          <option>Brake Calipers</option>
-          <option>Brake Lines</option>
-          <option>Alternator</option>
-          <option>Starter</option>
-          <option>Battery</option>
-          <option>Radiator</option>
-          <option>Water Pump</option>
-          <option>Serpentine Belt</option>
-          <option>Thermostat</option>
-          <option>Head Gasket</option>
-          <option>Muffler</option>
-          <option>Catalytic Converter</option>
-          <option>Exhaust Manifold</option>
-          <option>Oxygen Sensor</option>
-          <option>Fuel Pump</option>
-          <option>Fuel Filter</option>
-          <option>Spark Plugs</option>
-          <option>Air Filter</option>
-          <option>Other</option>
-        </select>
-      </div>
-
-      <div class="mb-3">
-        <label for="notes" class="form-label">Additional Notes</label>
-        <textarea class="form-control" id="notes" name="notes" rows="3" placeholder="Any other details..."></textarea>
-      </div>
-
-      <div class="text-center">
-        <button type="submit" class="submit-btn">Submit Appointment</button>
-      </div>
-    </form>
-  </div>
-</section>
-
-</main>
-
-<!-- JS -->
-<script src="https://r.mobirisesite.com/1997632/assets/web/assets/jquery/jquery.min.js"></script>
-<script src="https://r.mobirisesite.com/1997632/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-
-<script>
-  $(document).ready(function() {
-    $('.select2-multiple').select2({ theme: 'bootstrap-5', placeholder: 'Select one or more options' });
-  });
-
-  const yearSelect = document.getElementById("year");
-  const makeSelect = document.getElementById("make");
-  const modelSelect = document.getElementById("model");
-
-  // Load vehicles_us.json
-  fetch("vehicles_us.json")
-    .then(res => res.json())
-    .then(data => {
-      Object.keys(data).sort((a,b)=>b-a).forEach(year => {
-        let opt = document.createElement("option");
-        opt.value = year;
-        opt.textContent = year;
-        yearSelect.appendChild(opt);
-      });
-
-      yearSelect.addEventListener("change", function(){
-        const year = this.value;
-        makeSelect.innerHTML = '<option value="">Select Make</option>';
-        modelSelect.innerHTML = '<option value="">Select Model</option>';
-        if(!data[year]) return;
-        Object.keys(data[year]).sort().forEach(make => {
-          let opt = document.createElement("option");
-          opt.value = make;
-          opt.textContent = make;
-          makeSelect.appendChild(opt);
-        });
-      });
-
-      makeSelect.addEventListener("change", function(){
-        const year = yearSelect.value;
-        const make = this.value;
-        modelSelect.innerHTML = '<option value="">Select Model</option>';
-        if(!data[year] || !data[year][make]) return;
-        data[year][make].forEach(model => {
-          let opt = document.createElement("option");
-          opt.value = model;
-          opt.textContent = model;
-          modelSelect.appendChild(opt);
-        });
-      });
-    });
-
-  // VIN Lookup
-  document.getElementById("lookup-vin").addEventListener("click", function () {
-    const vin = document.getElementById("vin").value.trim().toUpperCase();
-    const errorMsg = document.getElementById("vin-error");
-    const vinHidden = document.getElementById("vin-hidden");
-    const engineType = document.getElementById("engineType");
-    const engineLiters = document.getElementById("engineLiters");
-
-    errorMsg.style.display = "none";
-
-    if (!vin || vin.length !== 17) {
-      errorMsg.textContent = "VIN must be 17 characters.";
-      errorMsg.style.display = "block";
-      return;
     }
 
-    vinHidden.value = vin;
 
-    fetch(`https://vpic.nhtsa.dot.gov/api/vehicles/decodevin/${vin}?format=json`)
-      .then(res => res.json())
-      .then(data => {
-        const results = data.Results;
-        const year = results.find(r => r.Variable === "Model Year")?.Value || "";
-        const make = results.find(r => r.Variable === "Make")?.Value || "";
-        const model = results.find(r => r.Variable === "Model")?.Value || "";
-        const engTypeRaw = results.find(r => r.Variable === "Engine Configuration")?.Value || "";
-        const engLitersRaw = results.find(r => r.Variable === "Displacement (L)")?.Value || "";
 
-        if (!year || !make || !model) {
-          errorMsg.textContent = "Vehicle not found for this VIN.";
+    main {
+
+      flex: 1;
+
+    }
+
+
+
+    footer {
+
+      flex-shrink: 0;
+
+    }
+
+
+
+    .form-section {
+
+      background: #f8f9fa;
+
+      padding: 2rem;
+
+      border-radius: 8px;
+
+      margin: 2rem auto;
+
+      max-width: 900px;
+
+    }
+
+
+
+    .form-section h4 {
+
+      background: #000;
+
+      color: #fff;
+
+      padding: 0.5rem 1rem;
+
+      border-radius: 5px;
+
+      margin-bottom: 1rem;
+
+    }
+
+
+
+    .submit-btn {
+
+      background-color: #00aaff;
+
+      color: white;
+
+      font-size: 1.2rem;
+
+      border-radius: 8px;
+
+      padding: 12px 30px;
+
+      border: none;
+
+    }
+
+
+
+    .submit-btn:hover {
+
+      background-color: #0088cc;
+
+      color: white;
+
+    }
+
+
+
+    select.form-select {
+
+      border: 2px solid #000 !important;
+
+      height: 52px !important;
+
+      font-size: 1.1rem !important;
+
+      font-weight: 500;
+
+      cursor: pointer !important;
+
+    }
+
+  </style>
+
+</head>
+
+
+
+<body>
+
+  <main>
+
+
+
+    <!-- Navbar -->
+
+    <section data-bs-version="5.1" class="menu menu5 cid-v3BV98Nlzj" once="menu" id="menu05-1i">
+
+      <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
+
+        <div class="container">
+
+          <div class="navbar-brand">
+
+            <span class="navbar-logo">
+
+              <img src="https://r.mobirisesite.com/1997632/assets/images/shop3-h_mifa1ufz.jpg" alt="" style="height: 5rem;">
+
+            </span>
+
+            <span class="navbar-caption-wrap">
+
+              <a class="navbar-caption text-black text-primary display-4">Lee's Mobile Mechanic Service</a>
+
+            </span>
+
+          </div>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse"
+
+            data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup"
+
+            aria-expanded="false" aria-label="Toggle navigation">
+
+            <div class="hamburger"><span></span><span></span><span></span><span></span></div>
+
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
+
+              <li class="nav-item"><a class="nav-link link text-black text-primary display-7" href="index.html">Home</a></li>
+
+            </ul>
+
+            <div class="navbar-buttons mbr-section-btn">
+
+              <a class="btn btn-black display-4" href="page1.html">Job Pricing</a>
+
+              <a class="btn btn-black display-4" href="index.html#contacts02-1n">Contact Info</a>
+
+              <a class="btn btn-primary display-4" href="appointment.html">Book Appointment</a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </nav>
+
+    </section>
+
+
+
+    <!-- Appointment Form -->
+
+    <section class="container">
+
+      <div class="form-section">
+
+        <h2 class="text-center mb-4">Book Your Appointment</h2>
+
+        <form id="appointment-form" action="https://usebasin.com/f/d459393c2dd6" method="POST">
+
+
+
+          <!-- Personal Information -->
+
+          <h4><i class="bi bi-person-fill"></i> Personal Information</h4>
+
+          <div class="mb-3">
+
+            <label for="name" class="form-label">Full Name</label>
+
+            <input name="full_name" type="text" class="form-control" id="name" placeholder="John Doe" required>
+
+          </div>
+
+          <div class="mb-3">
+
+            <label for="email" class="form-label">Email</label>
+
+            <input name="email" type="email" class="form-control" id="email" placeholder="you@example.com" required>
+
+          </div>
+
+          <div class="mb-3">
+
+            <label for="phone" class="form-label">Phone</label>
+
+            <input name="phone" type="tel" class="form-control" id="phone" placeholder="239-441-8552" required>
+
+          </div>
+
+
+
+          <!-- VIN Lookup -->
+
+          <h4><i class="bi bi-upc-scan"></i> Vehicle VIN Lookup</h4>
+
+          <div class="input-group mb-3">
+
+            <input type="text" id="vin" class="form-control" placeholder="Enter 17-character VIN" maxlength="17">
+
+            <button type="button" class="btn btn-secondary" id="lookup-vin">Lookup VIN</button>
+
+          </div>
+
+          <div id="vin-error" class="text-danger mb-3" style="display: none;"></div>
+
+          <input type="hidden" name="vin" id="vin-hidden">
+
+
+
+          <!-- Vehicle Information -->
+
+          <h4><i class="bi bi-car-front-fill"></i> Vehicle Information</h4>
+
+          <div class="row">
+
+            <div class="col-md-3 mb-3">
+
+              <label for="year" class="form-label">Year</label>
+
+              <select name="vehicle_year" id="year" class="form-select">
+
+                <option value="">Select Year</option>
+
+              </select>
+
+            </div>
+
+            <div class="col-md-3 mb-3">
+
+              <label for="make" class="form-label">Make</label>
+
+              <select name="vehicle_make" id="make" class="form-select">
+
+                <option value="">Select Make</option>
+
+              </select>
+
+            </div>
+
+            <div class="col-md-3 mb-3">
+
+              <label for="model" class="form-label">Model</label>
+
+              <select name="vehicle_model" id="model" class="form-select">
+
+                <option value="">Select Model</option>
+
+              </select>
+
+            </div>
+
+            <div class="col-md-3 mb-3">
+
+              <label for="engineType" class="form-label">Engine Type</label>
+
+
+              <input type="text" id="engineType" name="engine_type" class="form-control" placeholder="V6, I4, etc.">
+
+
+              <select name="engine_type" id="engineType" class="form-select">
+
+
+                <option value="">Select Engine Type</option>
+
+
+                <option>I4</option>
+
+
+                <option>I6</option>
+
+
+                <option>V6</option>
+
+
+                <option>V8</option>
+
+
+                <option>V12</option>
+
+
+                <option>Boxer</option>
+
+
+                <option>Electric / Hybrid</option>
+
+
+                <option>Other</option>
+
+
+              </select>
+
+            </div>
+
+          </div>
+
+          <div class="row">
+
+            <div class="col-md-3 mb-3">
+
+              <label for="engineLiters" class="form-label">Engine Liter</label>
+
+
+              <input type="text" id="engineLiters" name="engine_liters" class="form-control" placeholder="2.0, 3.5, etc.">
+
+
+              <select name="engine_liters" id="engineLiters" class="form-select">
+
+
+                <option value="">Select Engine Liter</option>
+
+
+                <option>1.0</option>
+
+
+                <option>1.2</option>
+
+
+                <option>1.4</option>
+
+
+                <option>1.5</option>
+
+
+                <option>1.6</option>
+
+
+                <option>1.8</option>
+
+
+                <option>2.0</option>
+
+
+                <option>2.4</option>
+
+
+                <option>2.5</option>
+
+
+                <option>3.0</option>
+
+
+                <option>3.2</option>
+
+
+                <option>3.5</option>
+
+
+                <option>4.0</option>
+
+
+                <option>4.2</option>
+
+
+                <option>4.5</option>
+
+
+                <option>5.0</option>
+
+
+                <option>Other</option>
+
+
+              </select>
+
+            </div>
+
+          </div>
+
+
+
+@@ -309,11 +338,7 @@
+
+            return;
+
+          }
+
+
+
+
+          // Fill dropdowns
+
+
+          const yearSelect = document.getElementById("year");
+
+
+          const makeSelect = document.getElementById("make");
+
+
+          const modelSelect = document.getElementById("model");
+
+
+
+
+
+          // Fill Year/Make/Model
+
+          if (![...yearSelect.options].some(o => o.value === year)) {
+
+            let opt = document.createElement("option");
+
+            opt.value = year;
+
+@@ -336,25 +361,25 @@
+
+          modelSelect.appendChild(modelOpt);
+
+          modelSelect.value = model;
+
+
+
+
+          // Fill engine fields
+
+
+          engineType.value = engType;
+
+
+          engineLiters.value = engLiters;
+
+
+          // Engine dropdowns: auto-select closest match or "Other"
+
+
+          engineType.value = [...engineType.options].some(o => o.value === engType) ? engType : "Other";
+
+
+          engineLiters.value = [...engineLiters.options].some(o => o.value === engLiters) ? engLiters : "Other";
+
+        })
+
+        .catch(err => {
+
+          console.error(err);
+
+          errorMsg.textContent = "Error fetching vehicle info. Try again.";
+
           errorMsg.style.display = "block";
-          return;
-        }
 
-        if (![...yearSelect.options].some(o => o.value === year)) {
-          let opt = document.createElement("option");
-          opt.value = year;
-          opt.textContent = year;
-          yearSelect.appendChild(opt);
-        }
-        yearSelect.value = year;
+        });
 
-        makeSelect.innerHTML = `<option value="">Select Make</option>`;
-        let makeOpt = document.createElement("option");
-        makeOpt.value = make;
-        makeOpt.textContent = make;
-        makeSelect.appendChild(makeOpt);
-        makeSelect.value = make;
+    });
 
-        modelSelect.innerHTML = `<option value="">Select Model</option>`;
-        let modelOpt = document.createElement("option");
-        modelOpt.value = model;
-        modelOpt.textContent = model;
-        modelSelect.appendChild(modelOpt);
-        modelSelect.value = model;
 
-        // Normalize Engine Type
-        let engType = engTypeRaw.toUpperCase();
-        if (engType.includes("I4")) engineType.value = "I4";
-        else if (engType.includes("I6")) engineType.value = "I6";
-        else if (engType.includes("V6")) engineType.value = "V6";
-        else if (engType.includes("V8")) engineType.value = "V8";
-        else if (engType.includes("V12")) engineType.value = "V12";
-        else if (engType.includes("BOXER")) engineType.value = "Boxer";
-        else if (engType.includes("ELECTRIC")) engineType.value = "Electric / Hybrid";
-        else engineType.value = "Other";
 
-        // Normalize Engine Liters
-        let liters = engLitersRaw.replace("L", "").trim();
-        if ([...engineLiters.options].some(o => o.value === liters)) engineLiters.value = liters;
-        else engineLiters.value = "Other";
-      })
-      .catch(err => {
-        console.error(err);
-        errorMsg.textContent = "Error fetching vehicle info. Try again.";
-        errorMsg.style.display = "block";
-      });
-  });
-</script>
+    // Form success message
+
+    document.getElementById("appointment-form").addEventListener("submit", function (event) {
+
+      setTimeout(function () {
+
+        document.getElementById("success-message").style.display = "block";
+
+        document.getElementById("appointment-form").reset();
+
+        $('.select2-multiple').val(null).trigger('change');
+
+      }, 500);
+
+    });
+
+  </script>
+
 </body>
+
 </html>
