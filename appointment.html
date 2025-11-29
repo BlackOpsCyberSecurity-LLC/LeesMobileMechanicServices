@@ -18,76 +18,21 @@
   </noscript>
   <link rel="stylesheet" href="https://r.mobirisesite.com/1997632/assets/css/mbr-additional.css" type="text/css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
-  
+
   <style>
     body { display: flex; flex-direction: column; min-height: 100vh; }
     main { flex: 1; }
     footer { flex-shrink: 0; }
 
-    .form-section {
-      background: #f8f9fa;
-      padding: 2rem;
-      border-radius: 8px;
-      margin: 2rem auto;
-      max-width: 900px;
-    }
-
-    .form-section h4 {
-      background: #000;
-      color: #fff;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      margin-bottom: 1rem;
-    }
-
-    .submit-btn {
-      background-color: #00aaff;
-      color: white;
-      font-size: 1.2rem;
-      border-radius: 8px;
-      padding: 12px 30px;
-      border: none;
-    }
-
-    .submit-btn:hover {
-      background-color: #0088cc;
-      color: white;
-    }
-
-    select.form-select, #servicesOther, #partsOther {
-      border: 2px solid #000 !important;
-      font-size: 1.1rem !important;
-      font-weight: 500;
-      cursor: pointer !important;
-      border-radius: 8px;
-    }
-
-    #servicesOther, #partsOther {
-      padding: 10px;
-      margin-top: 0.5rem;
-      display: none;
-    }
-
-    .select2-container--default .select2-selection--multiple {
-      border: 2px solid #000;
-      border-radius: 8px;
-      min-height: 52px;
-      font-size: 1.1rem;
-      font-weight: 500;
-    }
-
-    #servicesOther:focus, #partsOther:focus,
-    .select2-container--default.select2-container--focus .select2-selection--multiple {
-      border-color: #00aaff;
-      outline: none;
-      box-shadow: 0 0 5px rgba(0,170,255,0.5);
-    }
+    .form-section { background: #f8f9fa; padding: 2rem; border-radius: 8px; margin: 2rem auto; max-width: 900px; }
+    .form-section h4 { background: #000; color: #fff; padding: 0.5rem 1rem; border-radius: 5px; margin-bottom: 1rem; }
+    .submit-btn { background-color: #00aaff; color: white; font-size: 1.2rem; border-radius: 8px; padding: 12px 30px; border: none; }
+    .submit-btn:hover { background-color: #0088cc; color: white; }
+    select.form-select { border: 2px solid #000 !important; height: 52px !important; font-size: 1.1rem !important; font-weight: 500; cursor: pointer !important; }
   </style>
 </head>
 <body>
 <main>
-
 <!-- Navbar -->
 <section data-bs-version="5.1" class="menu menu5 cid-v3BV98Nlzj" once="menu" id="menu05-1i">
   <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
@@ -100,9 +45,7 @@
           <a class="navbar-caption text-black text-primary display-4">Lee's Mobile Mechanic Service</a>
         </span>
       </div>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse"
-        data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup"
-        aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <div class="hamburger"><span></span><span></span><span></span><span></span></div>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -124,21 +67,11 @@
   <div class="form-section">
     <h2 class="text-center mb-4">Book Your Appointment</h2>
     <form id="appointment-form" action="https://usebasin.com/f/d459393c2dd6" method="POST">
-
       <!-- Personal Info -->
       <h4><i class="bi bi-person-fill"></i> Personal Information</h4>
-      <div class="mb-3">
-        <label for="name" class="form-label">Full Name</label>
-        <input name="full_name" type="text" class="form-control" id="name" placeholder="John Doe" required>
-      </div>
-      <div class="mb-3">
-        <label for="email" class="form-label">Email</label>
-        <input name="email" type="email" class="form-control" id="email" placeholder="you@example.com" required>
-      </div>
-      <div class="mb-3">
-        <label for="phone" class="form-label">Phone</label>
-        <input name="phone" type="tel" class="form-control" id="phone" placeholder="239-441-8552" required>
-      </div>
+      <div class="mb-3"><label for="name" class="form-label">Full Name</label><input name="full_name" type="text" class="form-control" id="name" placeholder="John Doe" required></div>
+      <div class="mb-3"><label for="email" class="form-label">Email</label><input name="email" type="email" class="form-control" id="email" placeholder="you@example.com" required></div>
+      <div class="mb-3"><label for="phone" class="form-label">Phone</label><input name="phone" type="tel" class="form-control" id="phone" placeholder="239-441-8552" required></div>
 
       <!-- VIN Lookup -->
       <h4><i class="bi bi-upc-scan"></i> Vehicle VIN Lookup</h4>
@@ -152,99 +85,32 @@
       <!-- Vehicle Info -->
       <h4><i class="bi bi-car-front-fill"></i> Vehicle Information</h4>
       <div class="row">
-        <div class="col-md-3 mb-3">
-          <label for="year" class="form-label">Year</label>
-          <select name="vehicle_year" id="year" class="form-select"><option value="">Select Year</option></select>
-        </div>
-        <div class="col-md-3 mb-3">
-          <label for="make" class="form-label">Make</label>
-          <select name="vehicle_make" id="make" class="form-select"><option value="">Select Make</option></select>
-        </div>
-        <div class="col-md-3 mb-3">
-          <label for="model" class="form-label">Model</label>
-          <select name="vehicle_model" id="model" class="form-select"><option value="">Select Model</option></select>
-        </div>
-        <div class="col-md-3 mb-3">
-          <label for="engineType" class="form-label">Engine Type</label>
+        <div class="col-md-3 mb-3"><label for="year" class="form-label">Year</label><select name="vehicle_year" id="year" class="form-select"><option value="">Select Year</option></select></div>
+        <div class="col-md-3 mb-3"><label for="make" class="form-label">Make</label><select name="vehicle_make" id="make" class="form-select"><option value="">Select Make</option></select></div>
+        <div class="col-md-3 mb-3"><label for="model" class="form-label">Model</label><select name="vehicle_model" id="model" class="form-select"><option value="">Select Model</option></select></div>
+        <div class="col-md-3 mb-3"><label for="engineType" class="form-label">Engine Type</label>
           <select name="engine_type" id="engineType" class="form-select">
             <option value="">Select Engine Type</option>
-            <option>I4</option>
-            <option>I6</option>
-            <option>V6</option>
-            <option>V8</option>
-            <option>V12</option>
-            <option>Boxer</option>
-            <option>Electric / Hybrid</option>
-            <option>Other</option>
+            <option>I4</option><option>I6</option><option>V6</option><option>V8</option><option>V12</option><option>Boxer</option><option>Electric / Hybrid</option><option>Other</option>
           </select>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-3 mb-3">
-          <label for="engineLiters" class="form-label">Engine Liter</label>
+        <div class="col-md-3 mb-3"><label for="engineLiters" class="form-label">Engine Liter</label>
           <select name="engine_liters" id="engineLiters" class="form-select">
             <option value="">Select Engine Liter</option>
-            <option>1.0</option>
-            <option>1.2</option>
-            <option>1.4</option>
-            <option>1.5</option>
-            <option>1.6</option>
-            <option>1.8</option>
-            <option>2.0</option>
-            <option>2.4</option>
-            <option>2.5</option>
-            <option>3.0</option>
-            <option>3.2</option>
-            <option>3.5</option>
-            <option>4.0</option>
-            <option>4.2</option>
-            <option>4.5</option>
-            <option>5.0</option>
-            <option>Other</option>
+            <option>1.0</option><option>1.2</option><option>1.4</option><option>1.5</option><option>1.6</option><option>1.8</option><option>2.0</option><option>2.4</option><option>2.5</option><option>3.0</option><option>3.2</option><option>3.5</option><option>4.0</option><option>4.2</option><option>4.5</option><option>5.0</option><option>Other</option>
           </select>
         </div>
       </div>
 
-      <!-- Services & Parts -->
-      <h4><i class="bi bi-tools"></i> Services Required</h4>
-      <div class="mb-3">
-        <select name="services_required[]" id="servicesRequired" class="form-select" multiple>
-          <option value="Oil Change">Oil Change</option>
-          <option value="Brake Repair">Brake Repair</option>
-          <option value="Engine Tune-Up">Engine Tune-Up</option>
-          <option value="Diagnostics">Diagnostics</option>
-          <option value="Transmission Repair">Transmission Repair</option>
-          <option value="AC / HVAC Service">AC / HVAC Service</option>
-          <option value="Tire Service">Tire Service</option>
-          <option value="Battery / Electrical">Battery / Electrical</option>
-          <option value="Other">Other</option>
-        </select>
-        <input type="text" id="servicesOther" name="services_other" class="form-control mt-2" placeholder="Specify other service">
-      </div>
-
-      <h4><i class="bi bi-box-seam"></i> Parts Required</h4>
-      <div class="mb-3">
-        <select name="parts_required[]" id="partsRequired" class="form-select" multiple>
-          <option value="Oil Filter">Oil Filter</option>
-          <option value="Brake Pads">Brake Pads</option>
-          <option value="Spark Plugs">Spark Plugs</option>
-          <option value="Air Filter">Air Filter</option>
-          <option value="Battery">Battery</option>
-          <option value="Belts / Pulleys">Belts / Pulleys</option>
-          <option value="Tires">Tires</option>
-          <option value="Other">Other</option>
-        </select>
-        <input type="text" id="partsOther" name="parts_other" class="form-control mt-2" placeholder="Specify other part">
-      </div>
-
-      <div class="text-center mt-4">
-        <button type="submit" class="submit-btn">Book Appointment</button>
-      </div>
+      <button type="submit" class="submit-btn">Submit</button>
     </form>
   </div>
 </section>
-
 </main>
+
+<!-- Footer -->
 <footer class="footer py-3 bg-dark text-white mt-auto">
   <div class="container text-center">
     <p class="mb-0">&copy; 2025 Lee'sMobileMechanicService-LLC. All rights reserved.</p>
@@ -254,38 +120,48 @@
 <!-- JS -->
 <script src="https://r.mobirisesite.com/1997632/assets/web/assets/jquery/jquery.min.js"></script>
 <script src="https://r.mobirisesite.com/1997632/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="https://r.mobirisesite.com/1997632/assets/smoothscroll/smooth-scroll.js"></script>
+<script src="https://r.mobirisesite.com/1997632/assets/ytplayer/index.js"></script>
+<script src="https://r.mobirisesite.com/1997632/assets/dropdown/js/navbar-dropdown.js"></script>
+<script src="https://r.mobirisesite.com/1997632/assets/theme/js/script.js"></script>
 
+<!-- Embedded Vehicles Data for Year/Make/Model -->
 <script>
-$(document).ready(function() {
-  // Initialize Select2
-  $('#servicesRequired').select2({ placeholder: "Select required services", width: '100%' });
-  $('#partsRequired').select2({ placeholder: "Select required parts", width: '100%' });
+  const vehiclesData = [
+    { "year": "2025", "make": "Honda", "model": "Pilot", "engineType": "I6", "engineLiters": "3.5" },
+    { "year": "2024", "make": "Toyota", "model": "Camry", "engineType": "I4", "engineLiters": "2.5" },
+    { "year": "2023", "make": "Ford", "model": "F-150", "engineType": "V8", "engineLiters": "5.0" }
+    // ... paste the rest of your vehicles_us.json content here
+  ];
 
-  // Show/hide Other inputs
-  $('#servicesRequired').on('change', function() {
-    $(this).val().includes("Other") ? $('#servicesOther').show() : $('#servicesOther').hide().val('');
-  });
-  $('#partsRequired').on('change', function() {
-    $(this).val().includes("Other") ? $('#partsOther').show() : $('#partsOther').hide().val('');
-  });
+  const yearSelect = document.getElementById("year");
+  const makeSelect = document.getElementById("make");
+  const modelSelect = document.getElementById("model");
 
-  // Include 'Other' values on submit
-  $('#appointment-form').on('submit', function() {
-    const servicesOtherVal = $('#servicesOther').val();
-    if (servicesOtherVal) {
-      const services = $('#servicesRequired').val() || [];
-      if (!services.includes(servicesOtherVal)) services.push(servicesOtherVal);
-      $('#servicesRequired').val(services).trigger('change');
-    }
-    const partsOtherVal = $('#partsOther').val();
-    if (partsOtherVal) {
-      const parts = $('#partsRequired').val() || [];
-      if (!parts.includes(partsOtherVal)) parts.push(partsOtherVal);
-      $('#partsRequired').val(parts).trigger('change');
-    }
-  });
-});
+  function populateYearMakeModel() {
+    const years = [...new Set(vehiclesData.map(v => v.year))].sort((a,b)=>b-a);
+    yearSelect.innerHTML = '<option value="">Select Year</option>';
+    years.forEach(y=>yearSelect.appendChild(new Option(y,y)));
+
+    yearSelect.addEventListener('change', function() {
+      const selectedYear = this.value;
+      const makes = [...new Set(vehiclesData.filter(v=>v.year===selectedYear).map(v=>v.make))];
+      makeSelect.innerHTML = '<option value="">Select Make</option>';
+      makes.forEach(m=>makeSelect.appendChild(new Option(m,m)));
+      modelSelect.innerHTML = '<option value="">Select Model</option>';
+    });
+
+    makeSelect.addEventListener('change', function() {
+      const selectedYear = yearSelect.value;
+      const selectedMake = this.value;
+      const models = [...new Set(vehiclesData.filter(v=>v.year===selectedYear && v.make===selectedMake).map(v=>v.model))];
+      modelSelect.innerHTML = '<option value="">Select Model</option>';
+      models.forEach(m=>modelSelect.appendChild(new Option(m,m)));
+    });
+  }
+
+  populateYearMakeModel();
 </script>
+
 </body>
 </html>
