@@ -125,42 +125,46 @@
 <script src="https://r.mobirisesite.com/1997632/assets/dropdown/js/navbar-dropdown.js"></script>
 <script src="https://r.mobirisesite.com/1997632/assets/theme/js/script.js"></script>
 
-<!-- Embedded Vehicles Data for Year/Make/Model -->
+<!-- Vehicles Dropdowns -->
 <script>
-  const vehiclesData = [
-    { "year": "2025", "make": "Honda", "model": "Pilot", "engineType": "I6", "engineLiters": "3.5" },
-    { "year": "2024", "make": "Toyota", "model": "Camry", "engineType": "I4", "engineLiters": "2.5" },
-    { "year": "2023", "make": "Ford", "model": "F-150", "engineType": "V8", "engineLiters": "5.0" }
-    // ... paste the rest of your vehicles_us.json content here
-  ];
-
   const yearSelect = document.getElementById("year");
   const makeSelect = document.getElementById("make");
   const modelSelect = document.getElementById("model");
+  const engineTypeSelect = document.getElementById("engineType");
+  const engineLitersSelect = document.getElementById("engineLiters");
 
-  function populateYearMakeModel() {
-    const years = [...new Set(vehiclesData.map(v => v.year))].sort((a,b)=>b-a);
-    yearSelect.innerHTML = '<option value="">Select Year</option>';
-    years.forEach(y=>yearSelect.appendChild(new Option(y,y)));
+  fetch('./vehicles_us.json')
+    .then(res => res.json())
+    .then(vehiclesData => {
+      const years = [...new Set(vehiclesData.map(v=>v.year))].sort((a,b)=>b-a);
+      yearSelect.innerHTML = '<option value="">Select Year</option>';
+      years.forEach(y => yearSelect.appendChild(new Option(y,y)));
 
-    yearSelect.addEventListener('change', function() {
-      const selectedYear = this.value;
-      const makes = [...new Set(vehiclesData.filter(v=>v.year===selectedYear).map(v=>v.make))];
-      makeSelect.innerHTML = '<option value="">Select Make</option>';
-      makes.forEach(m=>makeSelect.appendChild(new Option(m,m)));
-      modelSelect.innerHTML = '<option value="">Select Model</option>';
+      yearSelect.addEventListener('change', () => {
+        const makes = [...new Set(vehiclesData.filter(v=>v.year===yearSelect.value).map(v=>v.make))];
+        makeSelect.innerHTML = '<option value="">Select Make</option>';
+        makes.forEach(m => makeSelect.appendChild(new Option(m,m)));
+        modelSelect.innerHTML = '<option value="">Select Model</option>';
+      });
+
+      makeSelect.addEventListener('change', () => {
+        const models = [...new Set(vehiclesData.filter(v=>v.year===yearSelect.value && v.make===makeSelect.value).map(v=>v.model))];
+        modelSelect.innerHTML = '<option value="">Select Model</option>';
+        models.forEach(m => modelSelect.appendChild(new Option(m,m)));
+      });
+
+      modelSelect.addEventListener('change', () => {
+        const vehicle = vehiclesData.find(v=>v.year===yearSelect.value && v.make===makeSelect.value && v.model===modelSelect.value);
+        if(vehicle){
+          engineTypeSelect.value = [...engineTypeSelect.options].some(o=>o.value===vehicle.engineType)?vehicle.engineType:'Other';
+          engineLitersSelect.value = [...engineLitersSelect.options].some(o=>o.value===vehicle.engineLiters)?vehicle.engineLiters:'Other';
+        }
+      });
+    })
+    .catch(err=>{
+      console.error(err);
+      alert("Failed to load vehicles_us.json. Make sure it is in the same folder as appointment.html.");
     });
-
-    makeSelect.addEventListener('change', function() {
-      const selectedYear = yearSelect.value;
-      const selectedMake = this.value;
-      const models = [...new Set(vehiclesData.filter(v=>v.year===selectedYear && v.make===selectedMake).map(v=>v.model))];
-      modelSelect.innerHTML = '<option value="">Select Model</option>';
-      models.forEach(m=>modelSelect.appendChild(new Option(m,m)));
-    });
-  }
-
-  populateYearMakeModel();
 </script>
 
 </body>
