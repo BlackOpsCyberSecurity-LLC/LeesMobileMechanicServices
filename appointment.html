@@ -181,6 +181,23 @@
       yearSelect.appendChild(opt);
     }
 
+    function mapEngineType(cylinders) {
+      switch(cylinders) {
+        case "4": return "I4";
+        case "6": return "I6";
+        case "8": return "V8";
+        case "12": return "V12";
+        default: return "Other";
+      }
+    }
+
+    function mapEngineLiters(displacement) {
+      if(!displacement) return "Other";
+      const val = parseFloat(displacement);
+      if(isNaN(val)) return "Other";
+      return val.toFixed(1);
+    }
+
     vinBtn.addEventListener('click', function () {
       const vin = vinInput.value.trim();
       vinError.style.display = "none";
@@ -220,9 +237,12 @@
             modelSelect.value = v.Model;
           }
 
-          // Engine
-          engineTypeSelect.value = v.EngineCylinders || "Other";
-          engineLitersSelect.value = v.DisplacementL || "Other";
+          // Engine Type & Liter
+          const engType = mapEngineType(v.EngineCylinders);
+          const engLiters = mapEngineLiters(v.DisplacementL);
+
+          engineTypeSelect.value = [...engineTypeSelect.options].some(o => o.value === engType) ? engType : "Other";
+          engineLitersSelect.value = [...engineLitersSelect.options].some(o => o.value === engLiters) ? engLiters : "Other";
         })
         .catch(err => {
           console.error(err);
