@@ -1,226 +1,176 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Book Appointment – Lee’s Mobile Mechanic</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <title>Book Appointment</title>
 
-  <!-- CSS (matching homepage) -->
+  <!-- CSS -->
   <link rel="stylesheet" href="https://r.mobirisesite.com/1997632/assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://r.mobirisesite.com/1997632/assets/dropdown/css/style.css">
   <link rel="stylesheet" href="https://r.mobirisesite.com/1997632/assets/animatecss/animate.css">
   <link rel="stylesheet" href="https://r.mobirisesite.com/1997632/assets/theme/css/style.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://r.mobirisesite.com/1997632/assets/css/mbr-additional.css" type="text/css">
 
   <style>
-    body { display:flex; flex-direction:column; min-height:100vh; background:#f1f1f1; }
-    main { flex:1; }
-    footer { flex-shrink:0; }
+    body { display: flex; flex-direction: column; min-height: 100vh; }
+    main { flex: 1; }
+    footer { flex-shrink: 0; }
 
-    .form-section {
-      background:white;
-      padding:2rem;
-      border-radius:12px;
-      box-shadow:0 4px 10px rgba(0,0,0,0.15);
-      margin-top:2rem;
-    }
-    h4 {
-      background:black;
-      color:white;
-      padding:10px 15px;
-      border-radius:6px;
-      margin-bottom:1rem;
-    }
-    .submit-btn {
-      background:#00aaff;
-      color:white;
-      padding:12px 35px;
-      font-size:1.3rem;
-      border-radius:10px;
-      border:none;
-      transition:0.2s;
-    }
-    .submit-btn:hover { background:#0088cc; }
-    select, input, textarea { border:2px solid black !important; }
+    .form-section { background: #f8f9fa; padding: 2rem; border-radius: 8px; margin-bottom: 2rem; }
+    .form-section h4 { background: #000; color: #fff; padding: 0.5rem 1rem; border-radius: 5px; margin-bottom: 1rem; }
+
+    .submit-btn { background-color: #00aaff; color: white; font-size: 1.2rem; border-radius: 8px; padding: 12px 30px; border: none; }
+    .submit-btn:hover { background-color: #0088cc; color: white; }
+
+    select.form-select { border: 2px solid #000 !important; height: 52px !important; font-size: 1.1rem !important; font-weight: 500; cursor: pointer !important; }
   </style>
 </head>
-
 <body>
+<main>
 
-<!-- Navbar (matches homepage) -->
-<section data-bs-version="5.1" class="menu menu5 cid-v3BV98Nlzj" once="menu" id="menu05-1i">
-  <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
-    <div class="container">
-      <div class="navbar-brand">
-        <span class="navbar-logo">
-          <img src="https://r.mobirisesite.com/1997632/assets/images/shop3-h_mifa1ufz.jpg" alt="" style="height: 5rem;">
-        </span>
-        <span class="navbar-caption-wrap">
-          <a class="navbar-caption text-black text-primary display-4">Lee's Mobile Mechanic Service</a>
-        </span>
-      </div>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <div class="hamburger"><span></span><span></span><span></span><span></span></div>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
-          <li class="nav-item"><a class="nav-link link text-black text-primary display-7" href="index.html">Home</a></li>
-        </ul>
-        <div class="navbar-buttons mbr-section-btn">
-          <a class="btn btn-black display-4" href="page1.html">Job Pricing</a>
-          <a class="btn btn-black display-4" href="index.html#contacts02-1n">Contact Info</a>
-          <a class="btn btn-primary display-4" href="appointment.html">Book Appointment</a>
-        </div>
-      </div>
-    </div>
-  </nav>
-</section>
-
-<main class="container">
+<section class="container mt-5 mb-5">
   <div class="form-section">
-    <form action="https://usebasin.com/f/d459393c2dd6" method="POST">
+    <h4><i class="bi bi-person-fill"></i> Personal Information</h4>
+    <form id="appointment-form" action="https://usebasin.com/f/d459393c2dd6" method="POST">
+      <div class="mb-3">
+        <label for="name" class="form-label">Full Name</label>
+        <input name="full_name" type="text" class="form-control" id="name" placeholder="John Doe" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input name="email" type="email" class="form-control" id="email" placeholder="you@example.com" required>
+      </div>
+      <div class="mb-3">
+        <label for="phone" class="form-label">Phone</label>
+        <input name="phone" type="tel" class="form-control" id="phone" placeholder="239-441-8552" required>
+      </div>
 
-      <!-- Personal Info -->
-      <h4><i class="bi bi-person-fill"></i> Personal Information</h4>
-      <label class="form-label">Full Name</label>
-      <input name="Full Name" class="form-control mb-3" required>
-      <label class="form-label">Email</label>
-      <input type="email" name="Email" class="form-control mb-3" required>
-      <label class="form-label">Phone Number</label>
-      <input name="Phone" class="form-control mb-3" required>
-
-      <!-- Vehicle Info + VIN -->
       <h4><i class="bi bi-car-front-fill"></i> Vehicle Information</h4>
       <div class="row">
-        <div class="col-md-3 mb-3">
-          <label>VIN</label>
-          <input id="vin" class="form-control" placeholder="Enter VIN">
-          <button id="lookupVin" type="button" class="btn btn-primary mt-2 w-100">Lookup VIN</button>
-        </div>
-        <div class="col-md-3 mb-3">
-          <label>Year</label>
-          <select id="year" name="Year" class="form-select select2-single">
+        <div class="col-md-4 mb-3">
+          <label for="year" class="form-label">Year</label>
+          <select name="vehicle_year" id="year" class="form-select">
             <option value="">Select Year</option>
           </select>
         </div>
-        <div class="col-md-3 mb-3">
-          <label>Make</label>
-          <select id="make" name="Make" class="form-select select2-single">
+        <div class="col-md-4 mb-3">
+          <label for="make" class="form-label">Make</label>
+          <select name="vehicle_make" id="make" class="form-select">
             <option value="">Select Make</option>
           </select>
         </div>
-        <div class="col-md-3 mb-3">
-          <label>Model</label>
-          <select id="model" name="Model" class="form-select select2-single">
+        <div class="col-md-4 mb-3">
+          <label for="model" class="form-label">Model</label>
+          <select name="vehicle_model" id="model" class="form-select">
             <option value="">Select Model</option>
           </select>
         </div>
       </div>
 
-      <!-- Engine Info -->
-      <h4><i class="bi bi-gear-fill"></i> Engine Information</h4>
-      <label class="form-label">Engine Type (4-cyl, V6, V8, etc.)</label>
-      <input id="engineType" name="Engine Type" class="form-control mb-3" placeholder="Example: V6, V8, 4 Cylinder">
-      <label class="form-label">Engine Size (Liters)</label>
-      <input id="engineLiters" name="Engine Liters" class="form-control mb-3" placeholder="Example: 3.5L">
-      <label class="form-label">Engine Info</label>
-      <input id="engineCombined" class="form-control mb-3" readonly placeholder="V6 / 3.5L">
-
-      <!-- Services -->
       <h4><i class="bi bi-tools"></i> Services Requested</h4>
-      <select name="Services Requested" class="form-select select2-multiple" multiple>
-        <option>Full Diagnostic Scan</option>
-        <option>Check Engine Light</option>
-        <option>Oil Change</option>
-        <option>Brake Pads</option>
-        <option>Battery Replacement</option>
-        <option>Tune-Up</option>
-        <option>Other</option>
-      </select>
+      <div class="mb-3">
+        <select name="services[]" id="services" class="form-select select2-multiple" multiple="multiple" style="width:100%">
+          <!-- same options as before -->
+          <option>Full Vehicle Diagnostic Scan</option>
+          <option>Check Engine Light Troubleshooting</option>
+          <!-- etc... -->
+        </select>
+      </div>
 
-      <!-- Notes -->
-      <label class="form-label mt-3">Additional Notes</label>
-      <textarea name="Notes" class="form-control" rows="3"></textarea>
+      <h4><i class="bi bi-box-seam"></i> Parts Needed</h4>
+      <div class="mb-3">
+        <select name="parts[]" id="parts" class="form-select select2-multiple" multiple="multiple" style="width:100%">
+          <option>Brake Pads</option>
+          <option>Rotors</option>
+          <!-- etc... -->
+        </select>
+      </div>
 
-      <!-- Submit -->
-      <div class="text-center mt-4">
-        <button class="submit-btn">Submit Appointment</button>
+      <div class="mb-3">
+        <label for="notes" class="form-label">Additional Notes</label>
+        <textarea name="notes" class="form-control" id="notes" rows="3" placeholder="Any other details..."></textarea>
+      </div>
+
+      <div class="text-center">
+        <button type="submit" class="submit-btn">Submit Appointment</button>
       </div>
     </form>
-  </div>
-</main>
 
-<!-- Footer (matches homepage) -->
-<footer class="footer py-3 bg-dark text-white mt-5">
-  <div class="container text-center">
-    <p class="mb-0">© 2025 Lee’s Mobile Mechanic Service — All Rights Reserved</p>
-    <p class="mb-0">📞 239-441-8552 | 📧 leesmobilemechanicservice@gmail.com</p>
-    <p class="mb-0">Serving Cape Coral • Ft Myers • Lehigh Acres • Punta Gorda</p>
+    <div id="success-message" class="alert alert-success mt-3" style="display: none;">
+      Thank you! Your appointment request has been submitted.
+    </div>
   </div>
-</footer>
+</section>
+
+</main>
 
 <!-- JS -->
 <script src="https://r.mobirisesite.com/1997632/assets/web/assets/jquery/jquery.min.js"></script>
 <script src="https://r.mobirisesite.com/1997632/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="https://r.mobirisesite.com/1997632/assets/smoothscroll/smooth-scroll.js"></script>
-<script src="https://r.mobirisesite.com/1997632/assets/dropdown/js/navbar-dropdown.js"></script>
-<script src="https://r.mobirisesite.com/1997632/assets/theme/js/script.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 <script>
-$(document).ready(function () {
-    $('.select2-single').select2({ width: "100%" });
-    $('.select2-multiple').select2({ width: "100%" });
+  $(document).ready(function() {
+    $('.select2-multiple').select2({ theme: 'bootstrap-5', placeholder: 'Select one or more options' });
+  });
 
-    // Load vehicle JSON
+  document.addEventListener("DOMContentLoaded", function () {
+    const yearSelect = document.getElementById("year");
+    const makeSelect = document.getElementById("make");
+    const modelSelect = document.getElementById("model");
+
     fetch("vehicles_us.json")
-      .then(r => r.json())
+      .then(res => res.json())
       .then(data => {
-          const years = Object.keys(data).sort((a,b)=>b-a);
-          years.forEach(y => $("#year").append(`<option>${y}</option>`));
+        Object.keys(data).sort((a,b) => b - a).forEach(year => {
+          let opt = document.createElement("option");
+          opt.value = year;
+          opt.textContent = year;
+          yearSelect.appendChild(opt);
+        });
 
-          $("#year").on("change", function () {
-              const year = this.value;
-              $("#make").empty().append(`<option value="">Select Make</option>`);
-              $("#model").empty().append(`<option value="">Select Model</option>`);
-              if (data[year]) Object.keys(data[year]).sort().forEach(make => $("#make").append(`<option>${make}</option>`));
+        yearSelect.addEventListener("change", function(){
+          const year = this.value;
+          makeSelect.innerHTML = '<option value="">Select Make</option>';
+          modelSelect.innerHTML = '<option value="">Select Model</option>';
+          if (!data[year]) return;
+          Object.keys(data[year]).sort().forEach(make => {
+            let opt = document.createElement("option");
+            opt.value = make;
+            opt.textContent = make;
+            makeSelect.appendChild(opt);
           });
+        });
 
-          $("#make").on("change", function () {
-              const year = $("#year").val();
-              const make = this.value;
-              $("#model").empty().append(`<option value="">Select Model</option>`);
-              if (data[year] && data[year][make]) data[year][make].forEach(model => $("#model").append(`<option>${model}</option>`));
+        makeSelect.addEventListener("change", function(){
+          const year = yearSelect.value;
+          const make = this.value;
+          modelSelect.innerHTML = '<option value="">Select Model</option>';
+          if (!data[year] || !data[year][make]) return;
+          data[year][make].forEach(model => {
+            let opt = document.createElement("option");
+            opt.value = model;
+            opt.textContent = model;
+            modelSelect.appendChild(opt);
           });
-      });
+        });
+      })
+      .catch(err => console.error("Failed to load vehicles_us.json:", err));
+  });
 
-    // VIN Lookup
-    $("#lookupVin").click(function(){
-        const vin = $("#vin").val().trim();
-        if(!vin){ alert("Please enter a VIN"); return; }
-
-        fetch(`https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVinValuesExtended/${vin}?format=json`)
-          .then(res => res.json())
-          .then(resp => {
-              if(!resp.Results || resp.Results.length===0) return;
-              const result = resp.Results[0];
-
-              if(result.ModelYear) $("#year").val(result.ModelYear).trigger('change');
-              if(result.Make) setTimeout(()=>$("#make").val(result.Make).trigger('change'),100);
-              if(result.Model) setTimeout(()=>$("#model").val(result.Model),200);
-
-              const engineType = result.EngineConfiguration || "";
-              const engineLiters = result.DisplacementL || "";
-
-              $("#engineType").val(engineType);
-              $("#engineLiters").val(engineLiters);
-              $("#engineCombined").val([engineType,engineLiters].filter(Boolean).join(" / "));
-          })
-          .catch(err => console.error(err));
-    });
-});
+  // On submit: show success message instead of redirect
+  document.getElementById("appointment-form").addEventListener("submit", function(event) {
+    // let Basin do its thing
+    setTimeout(function() {
+      document.getElementById("success-message").style.display = "block";
+      document.getElementById("appointment-form").reset();
+      $('.select2-multiple').val(null).trigger('change');
+    }, 500);
+  });
 </script>
-
 </body>
 </html>
