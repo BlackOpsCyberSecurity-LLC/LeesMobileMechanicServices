@@ -79,7 +79,7 @@
 <body>
   <main>
 
-    <!-- Navbar (matches homepage) -->
+    <!-- Navbar -->
     <section data-bs-version="5.1" class="menu menu5 cid-v3BV98Nlzj" once="menu" id="menu05-1i">
       <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
         <div class="container">
@@ -110,7 +110,7 @@
       </nav>
     </section>
 
-    <!-- Appointment Form Section -->
+    <!-- Appointment Form -->
     <section class="container">
       <div class="form-section">
         <h2 class="text-center mb-4">Book Your Appointment</h2>
@@ -143,23 +143,33 @@
           <!-- Vehicle Information -->
           <h4><i class="bi bi-car-front-fill"></i> Vehicle Information</h4>
           <div class="row">
-            <div class="col-md-4 mb-3">
+            <div class="col-md-3 mb-3">
               <label for="year" class="form-label">Year</label>
               <select name="vehicle_year" id="year" class="form-select">
                 <option value="">Select Year</option>
               </select>
             </div>
-            <div class="col-md-4 mb-3">
+            <div class="col-md-3 mb-3">
               <label for="make" class="form-label">Make</label>
               <select name="vehicle_make" id="make" class="form-select">
                 <option value="">Select Make</option>
               </select>
             </div>
-            <div class="col-md-4 mb-3">
+            <div class="col-md-3 mb-3">
               <label for="model" class="form-label">Model</label>
               <select name="vehicle_model" id="model" class="form-select">
                 <option value="">Select Model</option>
               </select>
+            </div>
+            <div class="col-md-3 mb-3">
+              <label for="engineType" class="form-label">Engine Type</label>
+              <input type="text" id="engineType" name="engine_type" class="form-control" placeholder="V6, I4, etc.">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3 mb-3">
+              <label for="engineLiters" class="form-label">Engine Liter</label>
+              <input type="text" id="engineLiters" name="engine_liters" class="form-control" placeholder="2.0, 3.5, etc.">
             </div>
           </div>
 
@@ -203,7 +213,6 @@
         </div>
       </div>
     </section>
-
   </main>
 
   <!-- Footer -->
@@ -219,13 +228,11 @@
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
   <script>
-    // Initialize Select2
-    $(document).ready(function() {
+    $(document).ready(function () {
       $('.select2-multiple').select2({ theme: 'bootstrap-5', placeholder: 'Select one or more options' });
     });
 
-    // Vehicle Year-Make-Model dropdowns
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function () {
       const yearSelect = document.getElementById("year");
       const makeSelect = document.getElementById("make");
       const modelSelect = document.getElementById("model");
@@ -240,7 +247,7 @@
             yearSelect.appendChild(opt);
           });
 
-          yearSelect.addEventListener("change", function() {
+          yearSelect.addEventListener("change", function () {
             const year = this.value;
             makeSelect.innerHTML = '<option value="">Select Make</option>';
             modelSelect.innerHTML = '<option value="">Select Model</option>';
@@ -253,7 +260,7 @@
             });
           });
 
-          makeSelect.addEventListener("change", function() {
+          makeSelect.addEventListener("change", function () {
             const year = yearSelect.value;
             const make = this.value;
             modelSelect.innerHTML = '<option value="">Select Model</option>';
@@ -270,10 +277,12 @@
     });
 
     // VIN Lookup
-    document.getElementById("lookup-vin").addEventListener("click", function() {
+    document.getElementById("lookup-vin").addEventListener("click", function () {
       const vin = document.getElementById("vin").value.trim().toUpperCase();
       const errorMsg = document.getElementById("vin-error");
       const vinHidden = document.getElementById("vin-hidden");
+      const engineType = document.getElementById("engineType");
+      const engineLiters = document.getElementById("engineLiters");
       errorMsg.style.display = "none";
 
       if (!vin || vin.length !== 17) {
@@ -282,7 +291,6 @@
         return;
       }
 
-      // Set hidden VIN field
       vinHidden.value = vin;
 
       fetch(`https://vpic.nhtsa.dot.gov/api/vehicles/decodevin/${vin}?format=json`)
@@ -292,6 +300,8 @@
           const year = results.find(r => r.Variable === "Model Year")?.Value || "";
           const make = results.find(r => r.Variable === "Make")?.Value || "";
           const model = results.find(r => r.Variable === "Model")?.Value || "";
+          const engType = results.find(r => r.Variable === "Engine Configuration")?.Value || "";
+          const engLiters = results.find(r => r.Variable === "Displacement (L)")?.Value || "";
 
           if (!year || !make || !model) {
             errorMsg.textContent = "Vehicle not found for this VIN.";
@@ -299,7 +309,7 @@
             return;
           }
 
-          // Fill the dropdowns
+          // Fill dropdowns
           const yearSelect = document.getElementById("year");
           const makeSelect = document.getElementById("make");
           const modelSelect = document.getElementById("model");
@@ -325,6 +335,10 @@
           modelOpt.textContent = model;
           modelSelect.appendChild(modelOpt);
           modelSelect.value = model;
+
+          // Fill engine fields
+          engineType.value = engType;
+          engineLiters.value = engLiters;
         })
         .catch(err => {
           console.error(err);
@@ -334,8 +348,8 @@
     });
 
     // Form success message
-    document.getElementById("appointment-form").addEventListener("submit", function(event) {
-      setTimeout(function() {
+    document.getElementById("appointment-form").addEventListener("submit", function (event) {
+      setTimeout(function () {
         document.getElementById("success-message").style.display = "block";
         document.getElementById("appointment-form").reset();
         $('.select2-multiple').val(null).trigger('change');
