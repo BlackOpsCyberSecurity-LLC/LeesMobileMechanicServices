@@ -7,7 +7,6 @@
   <link rel="shortcut icon" href="https://r.mobirisesite.com/1997632/assets/images/shop3-h_mifa1ufz.jpg" type="image/x-icon">
   <title>Book Appointment</title>
 
-  <!-- CSS -->
   <link rel="stylesheet" href="https://r.mobirisesite.com/1997632/assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://r.mobirisesite.com/1997632/assets/dropdown/css/style.css">
   <link rel="stylesheet" href="https://r.mobirisesite.com/1997632/assets/animatecss/animate.css">
@@ -18,18 +17,6 @@
   </noscript>
   <link rel="stylesheet" href="https://r.mobirisesite.com/1997632/assets/css/mbr-additional.css" type="text/css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-
-  <style>
-    body { display: flex; flex-direction: column; min-height: 100vh; }
-    main { flex: 1; }
-    footer { flex-shrink: 0; }
-
-    .form-section { background: #f8f9fa; padding: 2rem; border-radius: 8px; margin: 2rem auto; max-width: 900px; }
-    .form-section h4 { background: #000; color: #fff; padding: 0.5rem 1rem; border-radius: 5px; margin-bottom: 1rem; }
-    .submit-btn { background-color: #00aaff; color: white; font-size: 1.2rem; border-radius: 8px; padding: 12px 30px; border: none; }
-    .submit-btn:hover { background-color: #0088cc; color: white; }
-    select.form-select { border: 2px solid #000 !important; height: 52px !important; font-size: 1.1rem !important; font-weight: 500; cursor: pointer !important; }
-  </style>
 </head>
 <body>
 <main>
@@ -62,110 +49,178 @@
   </nav>
 </section>
 
-<!-- Appointment Form -->
 <section class="container">
   <div class="form-section">
     <h2 class="text-center mb-4">Book Your Appointment</h2>
     <form id="appointment-form" action="https://usebasin.com/f/d459393c2dd6" method="POST">
-      <!-- Personal Info -->
-      <h4><i class="bi bi-person-fill"></i> Personal Information</h4>
-      <div class="mb-3"><label for="name" class="form-label">Full Name</label><input name="full_name" type="text" class="form-control" id="name" placeholder="John Doe" required></div>
-      <div class="mb-3"><label for="email" class="form-label">Email</label><input name="email" type="email" class="form-control" id="email" placeholder="you@example.com" required></div>
-      <div class="mb-3"><label for="phone" class="form-label">Phone</label><input name="phone" type="tel" class="form-control" id="phone" placeholder="239-441-8552" required></div>
 
-      <!-- VIN Lookup -->
+      <h4><i class="bi bi-person-fill"></i> Personal Information</h4>
+      <div class="mb-3">
+        <label for="name" class="form-label">Full Name</label>
+        <input name="full_name" type="text" class="form-control" id="name" placeholder="John Doe" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input name="email" type="email" class="form-control" id="email" placeholder="you@example.com" required>
+      </div>
+      <div class="mb-3">
+        <label for="phone" class="form-label">Phone</label>
+        <input name="phone" type="tel" class="form-control" id="phone" placeholder="239-441-8552" required>
+      </div>
+
       <h4><i class="bi bi-upc-scan"></i> Vehicle VIN Lookup</h4>
       <div class="input-group mb-3">
         <input type="text" id="vin" class="form-control" placeholder="Enter 17-character VIN" maxlength="17">
         <button type="button" class="btn btn-secondary" id="lookup-vin">Lookup VIN</button>
       </div>
       <div id="vin-error" class="text-danger mb-3" style="display: none;"></div>
-      <input type="hidden" name="vin" id="vin-hidden">
 
-      <!-- Vehicle Info -->
       <h4><i class="bi bi-car-front-fill"></i> Vehicle Information</h4>
       <div class="row">
-        <div class="col-md-3 mb-3"><label for="year" class="form-label">Year</label><select name="vehicle_year" id="year" class="form-select"><option value="">Select Year</option></select></div>
-        <div class="col-md-3 mb-3"><label for="make" class="form-label">Make</label><select name="vehicle_make" id="make" class="form-select"><option value="">Select Make</option></select></div>
-        <div class="col-md-3 mb-3"><label for="model" class="form-label">Model</label><select name="vehicle_model" id="model" class="form-select"><option value="">Select Model</option></select></div>
-        <div class="col-md-3 mb-3"><label for="engineType" class="form-label">Engine Type</label>
+        <div class="col-md-3 mb-3">
+          <label for="year" class="form-label">Year</label>
+          <select name="vehicle_year" id="year" class="form-select"><option value="">Select Year</option></select>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="make" class="form-label">Make</label>
+          <select name="vehicle_make" id="make" class="form-select"><option value="">Select Make</option></select>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="model" class="form-label">Model</label>
+          <select name="vehicle_model" id="model" class="form-select"><option value="">Select Model</option></select>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="engineType" class="form-label">Engine Type</label>
           <select name="engine_type" id="engineType" class="form-select">
             <option value="">Select Engine Type</option>
-            <option>I4</option><option>I6</option><option>V6</option><option>V8</option><option>V12</option><option>Boxer</option><option>Electric / Hybrid</option><option>Other</option>
-          </select>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-3 mb-3"><label for="engineLiters" class="form-label">Engine Liter</label>
-          <select name="engine_liters" id="engineLiters" class="form-select">
-            <option value="">Select Engine Liter</option>
-            <option>1.0</option><option>1.2</option><option>1.4</option><option>1.5</option><option>1.6</option><option>1.8</option><option>2.0</option><option>2.4</option><option>2.5</option><option>3.0</option><option>3.2</option><option>3.5</option><option>4.0</option><option>4.2</option><option>4.5</option><option>5.0</option><option>Other</option>
+            <option>I4</option>
+            <option>I6</option>
+            <option>V6</option>
+            <option>V8</option>
+            <option>V12</option>
+            <option>Boxer</option>
+            <option>Electric / Hybrid</option>
+            <option>Other</option>
           </select>
         </div>
       </div>
 
-      <button type="submit" class="submit-btn">Submit</button>
+      <div class="row">
+        <div class="col-md-3 mb-3">
+          <label for="engineLiters" class="form-label">Engine Liter</label>
+          <select name="engine_liters" id="engineLiters" class="form-select">
+            <option value="">Select Engine Liter</option>
+            <option>1.0</option><option>1.2</option><option>1.4</option><option>1.5</option><option>1.6</option>
+            <option>1.8</option><option>2.0</option><option>2.4</option><option>2.5</option><option>3.0</option>
+            <option>3.2</option><option>3.5</option><option>4.0</option><option>4.2</option><option>4.5</option>
+            <option>5.0</option><option>Other</option>
+          </select>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="servicesRequired" class="form-label">Services Required</label>
+          <input type="text" name="services_required" id="servicesRequired" class="form-control" placeholder="Oil change, Brake repair, etc.">
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="partsRequired" class="form-label">Parts Required</label>
+          <input type="text" name="parts_required" id="partsRequired" class="form-control" placeholder="Brake pads, Air filter, etc.">
+        </div>
+      </div>
+
+      <div class="text-center mt-4">
+        <button type="submit" class="submit-btn">Book Appointment</button>
+      </div>
     </form>
   </div>
 </section>
 </main>
 
-<!-- Footer -->
 <footer class="footer py-3 bg-dark text-white mt-auto">
   <div class="container text-center">
     <p class="mb-0">&copy; 2025 Lee'sMobileMechanicService-LLC. All rights reserved.</p>
   </div>
 </footer>
 
-<!-- JS -->
+<script>
+const yearSelect = document.getElementById("year");
+const makeSelect = document.getElementById("make");
+const modelSelect = document.getElementById("model");
+const engineTypeSelect = document.getElementById("engineType");
+const engineLitersSelect = document.getElementById("engineLiters");
+const vinInput = document.getElementById("vin");
+const lookupBtn = document.getElementById("lookup-vin");
+const vinError = document.getElementById("vin-error");
+
+let vehiclesData = [];
+
+fetch('vehicles_us.json')
+  .then(res => res.json())
+  .then(data => {
+    vehiclesData = Array.isArray(data) ? data : data.vehicles;
+    const years = [...new Set(vehiclesData.map(v => v.year))].sort((a,b)=>b-a);
+    years.forEach(y => yearSelect.appendChild(new Option(y,y)));
+  })
+  .catch(err=>{
+    console.error(err);
+    alert("Failed to load vehicles_us.json. Make sure it is in the same folder as appointment.html.");
+  });
+
+yearSelect.addEventListener('change', () => {
+  const makes = [...new Set(vehiclesData.filter(v=>v.year===yearSelect.value).map(v=>v.make))];
+  makeSelect.innerHTML = '<option value="">Select Make</option>';
+  makes.forEach(m => makeSelect.appendChild(new Option(m,m)));
+  modelSelect.innerHTML = '<option value="">Select Model</option>';
+});
+
+makeSelect.addEventListener('change', () => {
+  const models = [...new Set(vehiclesData.filter(v=>v.year===yearSelect.value && v.make===makeSelect.value).map(v=>v.model))];
+  modelSelect.innerHTML = '<option value="">Select Model</option>';
+  models.forEach(m => modelSelect.appendChild(new Option(m,m)));
+});
+
+modelSelect.addEventListener('change', () => {
+  const vehicle = vehiclesData.find(v=>v.year===yearSelect.value && v.make===makeSelect.value && v.model===modelSelect.value);
+  if(vehicle){
+    engineTypeSelect.value = [...engineTypeSelect.options].some(o=>o.value===vehicle.engineType)?vehicle.engineType:'Other';
+    engineLitersSelect.value = [...engineLitersSelect.options].some(o=>o.value===vehicle.engineLiters)?vehicle.engineLiters:'Other';
+  }
+});
+
+lookupBtn.addEventListener("click", () => {
+  const vin = vinInput.value.trim();
+  if(vin.length!==17){
+    vinError.textContent="VIN must be 17 characters.";
+    vinError.style.display="block";
+    return;
+  }
+  vinError.style.display="none";
+  const vehicle = vehiclesData.find(v=>v.vin && v.vin.toUpperCase()===vin.toUpperCase());
+  if(!vehicle){
+    vinError.textContent="VIN not found in database.";
+    vinError.style.display="block";
+    return;
+  }
+
+  yearSelect.value = vehicle.year||"";
+  const makes = [...new Set(vehiclesData.filter(v=>v.year===vehicle.year).map(v=>v.make))];
+  makeSelect.innerHTML = '<option value="">Select Make</option>';
+  makes.forEach(m => makeSelect.appendChild(new Option(m,m)));
+  makeSelect.value = vehicle.make||"";
+
+  const models = [...new Set(vehiclesData.filter(v=>v.year===vehicle.year && v.make===vehicle.make).map(v=>v.model))];
+  modelSelect.innerHTML = '<option value="">Select Model</option>';
+  models.forEach(m => modelSelect.appendChild(new Option(m,m)));
+  modelSelect.value = vehicle.model||"";
+
+  engineTypeSelect.value = [...engineTypeSelect.options].some(o=>o.value===vehicle.engineType)?vehicle.engineType:'Other';
+  engineLitersSelect.value = [...engineLitersSelect.options].some(o=>o.value===vehicle.engineLiters)?vehicle.engineLiters:'Other';
+});
+</script>
+
 <script src="https://r.mobirisesite.com/1997632/assets/web/assets/jquery/jquery.min.js"></script>
 <script src="https://r.mobirisesite.com/1997632/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="https://r.mobirisesite.com/1997632/assets/smoothscroll/smooth-scroll.js"></script>
 <script src="https://r.mobirisesite.com/1997632/assets/ytplayer/index.js"></script>
 <script src="https://r.mobirisesite.com/1997632/assets/dropdown/js/navbar-dropdown.js"></script>
 <script src="https://r.mobirisesite.com/1997632/assets/theme/js/script.js"></script>
-
-<!-- Vehicles Dropdowns -->
-<script>
-  const yearSelect = document.getElementById("year");
-  const makeSelect = document.getElementById("make");
-  const modelSelect = document.getElementById("model");
-  const engineTypeSelect = document.getElementById("engineType");
-  const engineLitersSelect = document.getElementById("engineLiters");
-
-  fetch('./vehicles_us.json')
-    .then(res => res.json())
-    .then(vehiclesData => {
-      const years = [...new Set(vehiclesData.map(v=>v.year))].sort((a,b)=>b-a);
-      yearSelect.innerHTML = '<option value="">Select Year</option>';
-      years.forEach(y => yearSelect.appendChild(new Option(y,y)));
-
-      yearSelect.addEventListener('change', () => {
-        const makes = [...new Set(vehiclesData.filter(v=>v.year===yearSelect.value).map(v=>v.make))];
-        makeSelect.innerHTML = '<option value="">Select Make</option>';
-        makes.forEach(m => makeSelect.appendChild(new Option(m,m)));
-        modelSelect.innerHTML = '<option value="">Select Model</option>';
-      });
-
-      makeSelect.addEventListener('change', () => {
-        const models = [...new Set(vehiclesData.filter(v=>v.year===yearSelect.value && v.make===makeSelect.value).map(v=>v.model))];
-        modelSelect.innerHTML = '<option value="">Select Model</option>';
-        models.forEach(m => modelSelect.appendChild(new Option(m,m)));
-      });
-
-      modelSelect.addEventListener('change', () => {
-        const vehicle = vehiclesData.find(v=>v.year===yearSelect.value && v.make===makeSelect.value && v.model===modelSelect.value);
-        if(vehicle){
-          engineTypeSelect.value = [...engineTypeSelect.options].some(o=>o.value===vehicle.engineType)?vehicle.engineType:'Other';
-          engineLitersSelect.value = [...engineLitersSelect.options].some(o=>o.value===vehicle.engineLiters)?vehicle.engineLiters:'Other';
-        }
-      });
-    })
-    .catch(err=>{
-      console.error(err);
-      alert("Failed to load vehicles_us.json. Make sure it is in the same folder as appointment.html.");
-    });
-</script>
-
 </body>
 </html>
