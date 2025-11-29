@@ -175,16 +175,16 @@
     const engineTypeSelect = document.getElementById('engineType');
     const engineLitersSelect = document.getElementById('engineLiters');
 
-    // Populate years (common range)
-    for(let y=1990; y<=2025; y++){
-      const opt = document.createElement('option');
-      opt.value = y; opt.textContent = y; yearSelect.appendChild(opt);
+    // Populate years
+    for (let y = 1990; y <= 2025; y++) {
+      const opt = document.createElement('option'); opt.value = y; opt.textContent = y;
+      yearSelect.appendChild(opt);
     }
 
-    vinBtn.addEventListener('click', function(){
+    vinBtn.addEventListener('click', function () {
       const vin = vinInput.value.trim();
       vinError.style.display = "none";
-      if(vin.length !== 17){
+      if (vin.length !== 17) {
         vinError.textContent = "VIN must be 17 characters.";
         vinError.style.display = "block";
         return;
@@ -194,19 +194,37 @@
       document.getElementById('vin-loading').style.display = 'inline';
 
       fetch(`https://vpic.nhtsa.dot.gov/api/vehicles/decodevinvalues/${vin}?format=json`)
-        .then(resp=>resp.json())
-        .then(data=>{
+        .then(resp => resp.json())
+        .then(data => {
           document.getElementById('vin-loading').style.display = 'none';
           const v = data.Results[0];
 
-          // Fill dropdowns
-          if(v.ModelYear) { yearSelect.value = v.ModelYear; }
-          if(v.Make) { makeSelect.value = v.Make; }
-          if(v.Model) { modelSelect.value = v.Model; }
+          // Year
+          if (v.ModelYear) { yearSelect.value = v.ModelYear; }
+
+          // Make
+          if (v.Make) {
+            if (![...makeSelect.options].some(o => o.value === v.Make)) {
+              const opt = document.createElement("option"); opt.value = v.Make; opt.textContent = v.Make;
+              makeSelect.appendChild(opt);
+            }
+            makeSelect.value = v.Make;
+          }
+
+          // Model
+          if (v.Model) {
+            if (![...modelSelect.options].some(o => o.value === v.Model)) {
+              const opt = document.createElement("option"); opt.value = v.Model; opt.textContent = v.Model;
+              modelSelect.appendChild(opt);
+            }
+            modelSelect.value = v.Model;
+          }
+
+          // Engine
           engineTypeSelect.value = v.EngineCylinders || "Other";
           engineLitersSelect.value = v.DisplacementL || "Other";
         })
-        .catch(err=>{
+        .catch(err => {
           console.error(err);
           document.getElementById('vin-loading').style.display = 'none';
           vinError.textContent = "Error fetching vehicle info. Try again.";
@@ -214,12 +232,12 @@
         });
     });
 
-    // Success message
-    document.getElementById("appointment-form").addEventListener("submit", function(){
-      setTimeout(function(){
-        document.getElementById("success-message").style.display="block";
+    // Form submit success
+    document.getElementById("appointment-form").addEventListener("submit", function () {
+      setTimeout(function () {
+        document.getElementById("success-message").style.display = "block";
         document.getElementById("appointment-form").reset();
-      },500);
+      }, 500);
     });
   </script>
 </body>
