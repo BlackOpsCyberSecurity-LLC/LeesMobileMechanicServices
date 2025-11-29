@@ -1,279 +1,485 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html>
+
 <head>
+
   <meta charset="UTF-8">
+
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+
   <link rel="shortcut icon" href="https://r.mobirisesite.com/1997632/assets/images/shop3-h_mifa1ufz.jpg" type="image/x-icon">
-  <title>Book Appointment – Lee’s Mobile Mechanic</title>
+
+  <meta name="description" content="">
+
+  <title>Home</title>
+
+
 
   <!-- CSS -->
+
   <link rel="stylesheet" href="https://r.mobirisesite.com/1997632/assets/bootstrap/css/bootstrap.min.css">
+
   <link rel="stylesheet" href="https://r.mobirisesite.com/1997632/assets/dropdown/css/style.css">
+
   <link rel="stylesheet" href="https://r.mobirisesite.com/1997632/assets/animatecss/animate.css">
+
   <link rel="stylesheet" href="https://r.mobirisesite.com/1997632/assets/theme/css/style.css">
+
   <link rel="preload" href="https://fonts.googleapis.com/css?family=Inter+Tight:100,200,300,400,500,600,700,800,900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
   <noscript>
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter+Tight:100,200,300,400,500,600,700,800,900&display=swap">
+
   </noscript>
+
   <link rel="stylesheet" href="https://r.mobirisesite.com/1997632/assets/css/mbr-additional.css" type="text/css">
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
+
+
 
   <style>
+
     body { display: flex; flex-direction: column; min-height: 100vh; }
+
     main { flex: 1; }
+
     footer { flex-shrink: 0; }
 
-    /* Card layout for the form */
-    .appointment-card {
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-      padding: 2rem;
-      margin-top: 4rem;
-    }
 
-    h4 {
-      background: #000;
+
+    /* Text styling */
+
+    .intro-text, .service-text { line-height: 1.6; }
+
+    .service-text ul { padding-left: 1.2rem; }
+
+    .service-text li { margin-bottom: 0.8rem; }
+
+
+
+    /* Contact links */
+
+    .contact-link { color: #007BFF; text-decoration: underline; transition: color 0.3s; }
+
+    .contact-link:hover { color: #ffd700; text-decoration: none; }
+
+
+
+    /* Service banners */
+
+    .service-banner {
+
+      background-color: #000;
+
       color: #fff;
-      padding: 10px 15px;
-      border-radius: 6px;
-      margin-bottom: 1rem;
+
+      padding: 0.6rem 1rem;
+
+      margin-top: 1rem;
+
+      margin-bottom: 0.5rem;
+
+      border-radius: 5px;
+
+      font-size: 1.2rem;
+
+      display: flex;
+
+      align-items: center;
+
     }
 
-    .submit-btn {
-      background: #007bff;
-      color: white;
-      padding: 12px 35px;
-      font-size: 1.3rem;
-      border-radius: 10px;
-      border: none;
-      transition: 0.2s;
+    .service-banner i { margin-right: 0.6rem; }
+
+
+
+    /* Benefits highlight */
+
+    .benefit-item {
+
+      display: flex;
+
+      align-items: flex-start;
+
+      margin-bottom: 0.8rem;
+
     }
 
-    .submit-btn:hover {
-      background: #0056b3;
+    .benefit-item i {
+
+      color: #28a745;
+
+      margin-right: 0.5rem;
+
+      margin-top: 2px;
+
     }
 
-    select, input, textarea {
-      border: 2px solid #000 !important;
-    }
+    .benefit-list { margin-top: 0.8rem; }
 
-    /* VIN lookup row */
-    .vin-row { margin-bottom: 1rem; }
-
-    /* Responsive image next to form */
-    .appointment-image { max-height: 450px; object-fit: cover; border-radius: 12px; }
   </style>
+
 </head>
+
 <body>
+
 <main>
 
+
+
 <!-- Navbar -->
+
 <section data-bs-version="5.1" class="menu menu5 cid-v3BV98Nlzj" once="menu" id="menu05-1i">
+
   <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
+
     <div class="container">
+
       <div class="navbar-brand">
+
         <span class="navbar-logo">
+
           <img src="https://r.mobirisesite.com/1997632/assets/images/shop3-h_mifa1ufz.jpg" alt="" style="height: 5rem;">
+
         </span>
+
         <span class="navbar-caption-wrap">
+
           <a class="navbar-caption text-black text-primary display-4">Lee's Mobile Mechanic Service</a>
+
         </span>
+
       </div>
+
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+
         <div class="hamburger"><span></span><span></span><span></span><span></span></div>
+
       </button>
+
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
         <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
+
           <li class="nav-item"><a class="nav-link link text-black text-primary display-7" href="index.html">Home</a></li>
+
         </ul>
+
         <div class="navbar-buttons mbr-section-btn">
+
           <a class="btn btn-black display-4" href="page1.html">Job Pricing</a>
+
           <a class="btn btn-black display-4" href="index.html#contacts02-1n">Contact Info</a>
+
+          <!-- Book Appointment button -->
+
           <a class="btn btn-primary display-4" href="appointment.html">Book Appointment</a>
+
         </div>
+
       </div>
+
     </div>
+
   </nav>
+
 </section>
 
-<!-- Appointment Form Section -->
-<section class="cid-v3Capy1s1k" id="appointment-section">
+
+
+<!-- Features Section -->
+
+<section data-bs-version="5.1" class="features030 cid-v3Capy1s1k" id="features030-1q">
+
   <div class="container">
+
     <div class="row justify-content-center">
-      <!-- Form Card -->
-      <div class="col-lg-7 col-md-12">
-        <div class="appointment-card">
-          <form action="https://usebasin.com/f/d459393c2dd6" method="POST">
 
-            <!-- VIN Lookup -->
-            <h4><i class="bi bi-search"></i> VIN Lookup</h4>
-            <div class="vin-row row">
-              <div class="col-md-8 mb-3">
-                <input type="text" id="vin" name="VIN" class="form-control" placeholder="Enter VIN to auto-fill vehicle info">
-              </div>
-              <div class="col-md-4 mb-3">
-                <button type="button" id="vin-btn" class="btn btn-primary w-100">Lookup VIN</button>
-              </div>
-            </div>
+      <div class="col-md-12 content-head mb-5">
 
-            <!-- Personal Info -->
-            <h4><i class="bi bi-person-fill"></i> Personal Information</h4>
-            <label class="form-label">Full Name</label>
-            <input name="Full Name" class="form-control mb-3" required>
+        <h1 class="mbr-section-title mbr-fonts-style mb-0 display-2">Why Choose Us?</h1>
 
-            <label class="form-label">Email</label>
-            <input type="email" name="Email" class="form-control mb-3" required>
-
-            <label class="form-label">Phone Number</label>
-            <input name="Phone" class="form-control mb-3" required>
-
-            <!-- Vehicle Info -->
-            <h4><i class="bi bi-car-front-fill"></i> Vehicle Information</h4>
-            <div class="row">
-              <div class="col-md-4 mb-3">
-                <label>Year</label>
-                <select id="year" name="Year" class="form-select select2-single">
-                  <option value="">Select Year</option>
-                </select>
-              </div>
-
-              <div class="col-md-4 mb-3">
-                <label>Make</label>
-                <select id="make" name="Make" class="form-select select2-single">
-                  <option value="">Select Make</option>
-                </select>
-              </div>
-
-              <div class="col-md-4 mb-3">
-                <label>Model</label>
-                <select id="model" name="Model" class="form-select select2-single">
-                  <option value="">Select Model</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-md-6 mb-3">
-                <label>Engine Type (4-cyl, V6, V8, etc.)</label>
-                <input id="engineType" name="Engine Type" class="form-control mb-3" placeholder="Example: V6, V8, 4 Cylinder">
-              </div>
-              <div class="col-md-6 mb-3">
-                <label>Engine Size (Liters)</label>
-                <input id="engineLiters" name="Engine Liters" class="form-control mb-3" placeholder="Example: 3.5L">
-              </div>
-            </div>
-
-            <!-- Services -->
-            <h4><i class="bi bi-tools"></i> Services Requested</h4>
-            <select name="Services Requested" class="form-select select2-multiple" multiple>
-              <option>Full Diagnostic Scan</option>
-              <option>Check Engine Light</option>
-              <option>Oil Change</option>
-              <option>Brake Pads</option>
-              <option>Battery Replacement</option>
-              <option>Tune-Up</option>
-              <option>Other</option>
-            </select>
-
-            <!-- Notes -->
-            <label class="form-label mt-3">Additional Notes</label>
-            <textarea name="Notes" class="form-control" rows="3"></textarea>
-
-            <!-- Submit -->
-            <div class="text-center mt-4">
-              <button class="submit-btn">Submit Appointment</button>
-            </div>
-          </form>
-        </div>
       </div>
 
-      <!-- Optional Image Next to Form -->
-      <div class="col-lg-5 d-none d-lg-block">
-        <img src="https://r.mobirisesite.com/1997632/assets/images/gallery10-h_mifbcdak.jpg" class="appointment-image" alt="Service Vehicle">
-      </div>
     </div>
+
+
+
+    <div class="row justify-content-center blockContent">
+
+      <div class="col-12 col-lg">
+
+        <div class="item-wrapper align-left service-text">
+
+
+
+          <p class="intro-text"><strong>
+
+            Lee’s Mobile Mechanic Service delivers professional, high-quality automotive repair and maintenance directly to your home, workplace, or roadside. With certified-level experience, reliable tools, and a commitment to honest workmanship, I provide dealership-grade service without the dealership price or wait times. Whether it’s routine maintenance, diagnostics, or emergency breakdowns, you can count on fast response times, transparent pricing, and dependable repairs that keep you safely on the road.
+
+          </strong></p>
+
+
+
+          <!-- Service Categories -->
+
+          <div class="service-banner"><i class="bi bi-tools"></i>Diagnostics & Electronics</div>
+
+          <ul>
+
+            <li>Full vehicle diagnostics, check engine light troubleshooting, pre-purchase inspections.</li>
+
+            <li>Electrical system diagnostics, starting & charging system repair, battery testing & replacement.</li>
+
+            <li>ECU/computer diagnostics & programming, sensor replacement, wiring & harness repair.</li>
+
+          </ul>
+
+
+
+          <div class="service-banner"><i class="bi bi-cpu"></i>Engine Services</div>
+
+          <ul>
+
+            <li>Oil changes, tune-ups & spark plugs, belts & pulleys, timing belt/chain replacement.</li>
+
+            <li>Cooling system repair, alternator & starter replacement, fuel system repair.</li>
+
+            <li>Engine overhaul, head gasket replacement, air intake & throttle body cleaning.</li>
+
+          </ul>
+
+
+
+          <div class="service-banner"><i class="bi bi-gear-fill"></i>Transmission & Drivetrain</div>
+
+          <ul>
+
+            <li>Automatic & manual transmission service, clutch repair.</li>
+
+            <li>Differential & transfer case repair, CV joints & driveshaft repair, wheel bearings replacement.</li>
+
+          </ul>
+
+
+
+          <div class="service-banner"><i class="bi bi-car-front-fill"></i>Brakes & Suspension</div>
+
+          <ul>
+
+            <li>Brake pads, rotors, calipers, brake fluid flush, brake lines & hoses.</li>
+
+            <li>Shocks & struts, suspension components, steering system repair, alignment checks & adjustments.</li>
+
+          </ul>
+
+
+
+          <div class="service-banner"><i class="bi bi-thermometer-half"></i>Cooling & HVAC</div>
+
+          <ul>
+
+            <li>Radiator repair/replacement, hoses & coolant flush, heater core repair.</li>
+
+            <li>AC recharge & troubleshooting, compressor replacement, condenser & evaporator repair.</li>
+
+          </ul>
+
+
+
+          <div class="service-banner"><i class="bi bi-tire"></i>Tires & Wheels</div>
+
+          <ul>
+
+            <li>Tire replacement & rotation, flat tire repair, wheel balancing, alignment.</li>
+
+          </ul>
+
+
+
+          <div class="service-banner"><i class="bi bi-wind"></i>Exhaust & Emissions</div>
+
+          <ul>
+
+            <li>Muffler, catalytic converter, piping replacement, oxygen sensor replacement, exhaust manifold repair.</li>
+
+          </ul>
+
+
+
+          <div class="service-banner"><i class="bi bi-lightning-fill"></i>Roadside & Emergency</div>
+
+          <ul>
+
+            <li>Jump-starts, battery replacement, lockouts, tire changes, emergency diagnostics, towing assistance coordination.</li>
+
+          </ul>
+
+
+
+          <div class="service-banner"><i class="bi bi-droplet-half"></i>Maintenance & Fluids</div>
+
+          <ul>
+
+            <li>Fluids top-off & flushes, air filter & cabin filter replacement, fuel system cleaning, wiper blade replacement, light bulbs replacement.</li>
+
+          </ul>
+
+
+
+          <p><strong>Why Customers Choose Me:</strong></p>
+
+          <div class="benefit-list">
+
+            <div class="benefit-item"><i class="bi bi-check-circle-fill"></i>Fast response times — I come to you, fully equipped.</div>
+
+            <div class="benefit-item"><i class="bi bi-check-circle-fill"></i>Professional workmanship — no shortcuts, no guesswork.</div>
+
+            <div class="benefit-item"><i class="bi bi-check-circle-fill"></i>Honest pricing — clear quotes before any work begins.</div>
+
+            <div class="benefit-item"><i class="bi bi-check-circle-fill"></i>Convenient service — no waiting rooms, no towing.</div>
+
+            <div class="benefit-item"><i class="bi bi-check-circle-fill"></i>Trusted experience — real mechanical expertise, on-site.</div>
+
+          </div>
+
+
+
+        </div>
+
+      </div>
+
+
+
+      <div class="col-12 col-lg-6">
+
+        <div class="image-wrapper mb-4">
+
+          <img class="w-100" src="https://r.mobirisesite.com/1997632/assets/images/gallery10-h_mifbcdak.jpg" alt="">
+
+        </div>
+
+      </div>
+
+
+
+    </div>
+
   </div>
+
 </section>
+
+
+
+<!-- Contact Section -->
+
+<section data-bs-version="5.1" class="contacts02 map1 cid-v3BW1ZDWa1" id="contacts02-1n">
+
+  <div class="container">
+
+    <div class="row justify-content-center">
+
+      <div class="col-12 content-head">
+
+        <div class="mbr-section-head mb-5">
+
+          <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2"><strong>Contact Info</strong></h3>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="row justify-content-center">
+
+      <div class="card col-12 col-md-12 col-lg-6">
+
+        <div class="card-wrapper">
+
+          <div class="text-wrapper">
+
+            <h5 class="cardTitle mbr-fonts-style mb-2 display-5"><strong>Contact Us @</strong></h5>
+
+            <ul class="list mbr-fonts-style display-7">
+
+              <li>Phone: <a href="tel:+12394418552" class="contact-link">239-441-8552</a></li>
+
+              <li>Email: <a href="mailto:leesmobilemechanicservices@gmail.com" class="contact-link">leesmobilemechanicservices@gmail.com</a></li>
+
+              <li>Address: Conway, South Carolina-29526</li>
+
+              <li>Working Hours: Full Time</li>
+
+            </ul>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="map-wrapper col-md-12 col-lg-6">
+
+        <div class="google-map">
+
+          <iframe frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB7QWkvlxV39ZsyKvhZRjPGVqlJFvxxNkw&q=Conway South Carolina" allowfullscreen></iframe>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+</main>
+
+
 
 <!-- Footer -->
+
 <footer class="footer py-3 bg-dark text-white mt-auto">
+
   <div class="container text-center">
+
+
+    <p class="mb-0">&copy; 2025 Lee's Mobile Mechanic Service. All rights reserved.</p>
+
+
     <p class="mb-0">&copy; 2025 Lee'sMobileMechanicService-LLC. All rights reserved.</p>
+
   </div>
+
 </footer>
 
+
+
 <!-- JS -->
+
 <script src="https://r.mobirisesite.com/1997632/assets/web/assets/jquery/jquery.min.js"></script>
+
 <script src="https://r.mobirisesite.com/1997632/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+
 <script src="https://r.mobirisesite.com/1997632/assets/smoothscroll/smooth-scroll.js"></script>
+
 <script src="https://r.mobirisesite.com/1997632/assets/ytplayer/index.js"></script>
+
 <script src="https://r.mobirisesite.com/1997632/assets/dropdown/js/navbar-dropdown.js"></script>
+
 <script src="https://r.mobirisesite.com/1997632/assets/theme/js/script.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
-<script>
-$(document).ready(function () {
-    // Initialize Select2
-    $('.select2-single').select2({ width: "100%" });
-    $('.select2-multiple').select2({ width: "100%" });
 
-    // VIN lookup mock function (replace with your VIN API if available)
-    $('#vin-btn').click(function() {
-        var vin = $('#vin').val().trim();
-        if (!vin) { alert('Please enter a VIN'); return; }
-
-        // Example: populate vehicle info based on VIN
-        // Replace this with real API call
-        var mockData = {
-            "year": "2020",
-            "make": "Toyota",
-            "model": "Camry",
-            "engineType": "V6",
-            "engineLiters": "3.5"
-        };
-
-        $('#year').val(mockData.year).trigger('change');
-        $('#make').val(mockData.make).trigger('change');
-        $('#model').val(mockData.model).trigger('change');
-        $('#engineType').val(mockData.engineType);
-        $('#engineLiters').val(mockData.engineLiters);
-    });
-
-    // Vehicle dropdowns (optional: load from local JSON or API)
-    var vehicleData = {
-        "2020": { "Toyota": ["Camry","Corolla"], "Honda":["Civic","Accord"] },
-        "2021": { "Toyota": ["Camry","Corolla"], "Honda":["Civic","Accord"] }
-    };
-
-    var years = Object.keys(vehicleData).sort((a,b)=>b-a);
-    years.forEach(y => $("#year").append(`<option>${y}</option>`));
-
-    $("#year").on("change", function() {
-        var year = this.value;
-        $("#make").empty().append(`<option value="">Select Make</option>`);
-        $("#model").empty().append(`<option value="">Select Model</option>`);
-        if(vehicleData[year]) {
-            Object.keys(vehicleData[year]).forEach(make => {
-                $("#make").append(`<option>${make}</option>`);
-            });
-        }
-    });
-
-    $("#make").on("change", function() {
-        var year = $("#year").val();
-        var make = this.value;
-        $("#model").empty().append(`<option value="">Select Model</option>`);
-        if(vehicleData[year] && vehicleData[year][make]) {
-            vehicleData[year][make].forEach(model => {
-                $("#model").append(`<option>${model}</option>`);
-            });
-        }
-    });
-});
-</script>
 
 </body>
+
 </html>
