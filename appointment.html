@@ -77,6 +77,7 @@
     <div class="form-section">
       <h2>Book Your Appointment</h2>
       <form id="appointment-form" action="https://usebasin.com/f/d459393c2dd6" method="POST" enctype="multipart/form-data">
+
         <!-- Personal Info -->
         <h4><i class="bi bi-person-fill"></i> Personal Information</h4>
         <div class="mb-3"><label class="form-label">Full Name</label><input name="full_name" type="text" class="form-control" placeholder="John Doe" required></div>
@@ -118,12 +119,62 @@
         <!-- Services -->
         <h4><i class="bi bi-tools"></i> Requested Services</h4>
         <select id="services" name="services[]" class="form-select" multiple>
-          <optgroup label="Maintenance">
-            <option value="Oil Change">Oil Change ($35–$60)</option>
-            <option value="Brake Pads Replacement">Brake Pads Replacement ($65–$110)</option>
-            <option value="Air Filter">Air Filter ($20–$35)</option>
-            <option value="Fluid Top-Off / Basic Service">Fluid Top-Off / Basic Service ($25–$35)</option>
-            <option value="Tune-Up / Spark Plugs">Tune-Up / Spark Plugs ($50–$90)</option>
+          <optgroup label="Diagnostics">
+            <option>Full Vehicle Diagnostic Scan</option>
+            <option>Check Engine Light Troubleshooting</option>
+            <option>Electrical/Starting System Diagnostic</option>
+          </optgroup>
+          <optgroup label="Suspension & Steering">
+            <option>Shocks / Struts</option>
+            <option>Control Arms / Bushings</option>
+            <option>Ball Joints</option>
+            <option>Tie Rod Ends</option>
+            <option>Steering Rack / Gear</option>
+          </optgroup>
+          <optgroup label="Brakes">
+            <option>Brake Pads (Front or Rear)</option>
+            <option>Pads + Rotors</option>
+            <option>Brake Calipers</option>
+            <option>Brake Lines / Hoses</option>
+            <option>Brake Fluid Flush</option>
+          </optgroup>
+          <optgroup label="Engine & Exhaust">
+            <option>Alternator Replacement</option>
+            <option>Starter Replacement</option>
+            <option>Battery Replacement</option>
+            <option>Radiator Replacement</option>
+            <option>Water Pump Replacement</option>
+            <option>Serpentine Belt</option>
+            <option>Thermostat Replacement</option>
+            <option>Head Gasket Replacement</option>
+            <option>Engine Overhaul / Major Repair</option>
+            <option>Muffler Replacement</option>
+            <option>Catalytic Converter</option>
+            <option>Exhaust Piping / Manifold</option>
+            <option>Oxygen Sensor Replacement</option>
+          </optgroup>
+          <optgroup label="Fuel & Maintenance">
+            <option>Fuel Pump Replacement</option>
+            <option>Fuel Filter Replacement</option>
+            <option>Fuel Injector Cleaning / Replacement</option>
+            <option>Carburetor / EFI Service</option>
+            <option>Oil Change (Mobile)</option>
+            <option>Tune-Up / Spark Plugs</option>
+            <option>Air Filter Replacement</option>
+            <option>Fluid Top-Off / Basic Service</option>
+          </optgroup>
+          <optgroup label="Roadside & Electrical">
+            <option>Jump-Start</option>
+            <option>Battery Testing</option>
+            <option>Lockout Service (Non-destructive)</option>
+            <option>Flat Tire Replacement / Repair</option>
+            <option>Emergency Breakdown Diagnostic</option>
+            <option>Standard Service Call</option>
+            <option>Emergency / After-Hours Call</option>
+            <option>Alternator / Starter Diagnostics</option>
+            <option>Sensor Replacement (O2, MAF, etc.)</option>
+            <option>Wiring / Harness Repair</option>
+            <option>ECU / Computer Diagnostics</option>
           </optgroup>
         </select>
         <div id="price-box" class="mt-3 mb-3">Estimated Total: $0.00</div>
@@ -178,7 +229,6 @@ $(document).ready(function(){
   let vehicleData = {};
   fetch('vehicles_us.json').then(r=>r.json()).then(d=>vehicleData=d).catch(err=>console.log("Vehicle JSON load error:", err));
 
-  // Update Makes
   function updateMakes(){
     const y = yearSelect.val();
     makeSelect.empty().append(new Option('Select Make',''));
@@ -189,7 +239,6 @@ $(document).ready(function(){
     makeSelect.trigger('change.select2');
   }
 
-  // Update Models
   function updateModels(selectedModel){
     const y = yearSelect.val(), m = makeSelect.val();
     modelSelect.empty().append(new Option('Select Model',''));
@@ -202,7 +251,6 @@ $(document).ready(function(){
     } else modelSelect.trigger('change.select2');
   }
 
-  // Set Engine Type / Liter
   function setEngineType(val){ if(!val) return; if($('#engineType option[value="'+val+'"]').length===0) engineTypeSelect.append(new Option(val,val)); engineTypeSelect.val(val).trigger('change.select2'); }
   function setEngineLiter(val){ if(!val) return; const v=parseFloat(val).toFixed(1); if($('#engineLiters option[value="'+v+'"]').length===0) engineLiterSelect.append(new Option(v,v)); engineLiterSelect.val(v).trigger('change.select2'); }
 
@@ -213,41 +261,4 @@ $(document).ready(function(){
   vinBtn.on('click', ()=>{
     const vin = vinInput.val().trim();
     vinError.hide();
-    if(vin.length !== 17){ vinError.text("VIN must be 17 characters.").show(); return; }
-    vinLoading.show();
-    fetch(`https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVinValues/${vin}?format=json`)
-      .then(r=>r.json())
-      .then(res=>{
-        vinLoading.hide();
-        const info = res.Results[0];
-        if(!info){ vinError.text("Could not decode VIN").show(); return; }
-        vinHidden.val(vin);
-        if(info.ModelYear) yearSelect.val(info.ModelYear).trigger('change.select2');
-        if(info.Make){ makeSelect.append(new Option(info.Make,info.Make)); makeSelect.val(info.Make).trigger('change.select2'); }
-        if(info.Model) updateModels(info.Model);
-        if(info.EngineCylinders) setEngineType(info.EngineCylinders+' cyl');
-        if(info.DisplacementL) setEngineLiter(info.DisplacementL);
-      })
-      .catch(()=>{ vinLoading.hide(); vinError.text("VIN lookup failed. Try again.").show(); });
-  });
-
-  // Price calculation
-  const SERVICE_PRICES = {"Oil Change":60,"Brake Pads Replacement":110,"Air Filter":35,"Fluid Top-Off / Basic Service":35,"Tune-Up / Spark Plugs":90};
-  services.on('change', function(){
-    let total = 0;
-    $(this).val()?.forEach(s => total += SERVICE_PRICES[s] || 0);
-    priceBox.text("Estimated Total: $" + total.toFixed(2));
-  });
-
-  // Form submission
-  $('#appointment-form').on('submit', function(e){
-    e.preventDefault();
-    $('#success-message').show();
-    this.reset();
-    $('#year,#make,#model,#engineType,#engineLiters,#services').val(null).trigger('change.select2');
-    priceBox.text('Estimated Total: $0.00');
-  });
-});
-</script>
-</body>
-</html
+    if
