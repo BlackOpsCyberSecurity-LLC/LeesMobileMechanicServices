@@ -76,12 +76,7 @@
             <label class="form-label">Make</label>
             <select name="vehicle_make" id="make" class="form-select">
               <option value="">Select Make</option>
-              <option>Toyota</option>
-              <option>Honda</option>
-              <option>Ford</option>
-              <option>Chevrolet</option>
-              <option>Nissan</option>
-              <option>Other</option>
+              <!-- Populated dynamically after Year selection -->
             </select>
           </div>
           <div class="col-md-3 mb-3">
@@ -181,7 +176,6 @@
 
 <script>
 $(document).ready(function(){
-  // Enable searchable dropdowns
   $('#year,#make,#model,#engineType,#engineLiters,#services').select2({width:'100%'});
 
   const yearSelect = $('#year');
@@ -203,7 +197,19 @@ $(document).ready(function(){
     .then(data => vehicleData = data)
     .catch(err => console.log("No vehicle JSON found or error:", err));
 
-  // Update models dynamically
+  // Populate Makes based on Year
+  function updateMakes(){
+    const y = yearSelect.val();
+    makeSelect.empty().append(new Option('Select Make',''));
+    modelSelect.empty().append(new Option('Select Model',''));
+
+    if(y && vehicleData[y]){
+      Object.keys(vehicleData[y]).forEach(make => makeSelect.append(new Option(make, make)));
+    }
+    makeSelect.trigger('change.select2');
+  }
+
+  // Populate Models based on Make
   function updateModels(selectedModel){
     const y = yearSelect.val();
     const m = makeSelect.val();
@@ -225,10 +231,10 @@ $(document).ready(function(){
     }
   }
 
-  yearSelect.on('change', function(){ updateModels(); });
+  yearSelect.on('change', updateMakes);
   makeSelect.on('change', function(){ updateModels(); });
 
-  // Engine Type & Liter helpers
+  // Engine helpers
   function setEngineType(val){
     if(!val) return;
     let optionExists = $('#engineType option').filter(function(){ return $(this).val().toLowerCase() === val.toLowerCase(); }).length > 0;
@@ -265,7 +271,7 @@ $(document).ready(function(){
         if(!info){ vinError.text("Could not decode VIN").show(); return; }
 
         if(info.ModelYear) yearSelect.val(info.ModelYear).trigger('change.select2');
-
+        // Populate Make dynamically if VIN gives a make
         if(info.Make){
           if($('#make option[value="'+info.Make+'"]').length === 0){
             makeSelect.append(new Option(info.Make, info.Make));
@@ -273,7 +279,7 @@ $(document).ready(function(){
           makeSelect.val(info.Make).trigger('change.select2');
         }
 
-        // Models
+        // Model
         setTimeout(()=>{ updateModels(info.Model); },100);
 
         // Engine
@@ -311,7 +317,6 @@ $(document).ready(function(){
     priceBox.text("Estimated Total: $" + total.toFixed(2));
   });
 
-  // Form submit success
   $("#appointment-form").on("submit", function(){
     setTimeout(function(){
       $("#success-message").show();
