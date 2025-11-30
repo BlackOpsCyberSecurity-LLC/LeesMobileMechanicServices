@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
   <link rel="shortcut icon" href="https://r.mobirisesite.com/1997632/assets/images/shop3-h_mifa1ufz.jpg" type="image/x-icon">
-  <meta name="description" content="Lee's Mobile Mechanic Service delivers professional automotive repair & maintenance at your home or workplace in Conway, SC.">
+  <meta name="description" content="">
   <title>Home</title>
 
   <!-- CSS -->
@@ -25,272 +25,190 @@
     main { flex: 1; }
     footer { flex-shrink: 0; }
 
-    /* Hero Section */
-    .hero-section {
-      background: url('https://r.mobirisesite.com/1997632/assets/images/gallery10-h_mifbcdak.jpg') center/cover no-repeat;
-      color: white;
-      text-align: center;
-      padding: 6rem 1rem 4rem;
-      position: relative;
-    }
-    .hero-section::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.55);
-    }
-    .hero-content {
-      position: relative;
-      z-index: 1;
-    }
-    .hero-content h1 { font-size: 3rem; margin-bottom: 1rem; font-weight: 700; }
-    .hero-content p { font-size: 1.3rem; margin-bottom: 2rem; }
+    /* Text styling */
+    .intro-text, .service-text { line-height: 1.6; }
+    .service-text ul { padding-left: 1.2rem; }
+    .service-text li { margin-bottom: 0.8rem; }
 
-    /* Quick Services */
-    .quick-services .card {
-      transition: transform 0.3s, box-shadow 0.3s;
-      cursor: pointer;
-    }
-    .quick-services .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    }
-
-    /* Accordion */
-    .accordion-button { font-weight: 600; }
-    .accordion-button:not(.collapsed) { color: #fff; background-color: #00aaff; }
-
-    /* Benefits Section */
-    .benefit-card { border: none; }
-    .benefit-card i { color: #28a745; font-size: 2rem; margin-bottom: 0.5rem; }
-
-    /* Contact Links */
+    /* Contact links */
     .contact-link { color: #007BFF; text-decoration: underline; transition: color 0.3s; }
     .contact-link:hover { color: #ffd700; text-decoration: none; }
+
+    /* Section headers like pricing page */
+    .section-banner { background-color: #000; color: #fff; padding: 0.6rem 1rem; margin-top: 1rem; margin-bottom: 0.5rem; border-radius: 5px; font-size: 1.2rem; display: flex; align-items: center; }
+    .section-banner i { margin-right: 0.6rem; }
+
+    /* Benefits highlight */
+    .benefit-item { display: flex; align-items: flex-start; margin-bottom: 0.8rem; }
+    .benefit-item i { color: #28a745; margin-right: 0.5rem; margin-top: 2px; }
+    .benefit-list { margin-top: 0.8rem; }
+
+    /* Image wrapper */
+    .image-wrapper img { border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+
+    /* CTA buttons */
+    .btn-primary, .btn-black { border-radius: 0.25rem; padding: 0.6rem 1.2rem; font-weight: 600; }
+
+    /* Active navbar button */
+    .btn-black.active { background-color: #444; color: #ffd700; cursor: default; }
   </style>
 </head>
+
 <body>
 <main>
 
-  <!-- Navbar -->
-  <section data-bs-version="5.1" class="menu menu5 cid-v3BV98Nlzj" once="menu" id="menu05-1i">
-    <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
-      <div class="container">
-        <div class="navbar-brand">
-          <span class="navbar-logo">
-            <img src="https://r.mobirisesite.com/1997632/assets/images/shop3-h_mifa1ufz.jpg" alt="" style="height: 5rem;">
-          </span>
-          <span class="navbar-caption-wrap">
-            <a class="navbar-caption text-black text-primary display-4">Lee's Mobile Mechanic Service</a>
-          </span>
-        </div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <div class="hamburger"><span></span><span></span><span></span><span></span></div>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
-            <li class="nav-item"><a class="nav-link link text-black text-primary display-7" href="index.html">Home</a></li>
-          </ul>
-          <div class="navbar-buttons mbr-section-btn">
-            <a class="btn btn-black display-4" href="page1.html">Job Pricing</a>
-            <a class="btn btn-black display-4" href="index.html#contacts02-1n">Contact Info</a>
-            <a class="btn btn-primary display-4" href="appointment.html">Book Appointment</a>
-          </div>
-        </div>
-      </div>
-    </nav>
-  </section>
-
-  <!-- Hero Section -->
-  <section class="hero-section">
-    <div class="container hero-content">
-      <h1>Mobile Mechanic Services at Your Doorstep</h1>
-      <p>Expert automotive repair & maintenance directly to your home, workplace, or roadside in Conway, SC.</p>
-      <a href="appointment.html" class="btn btn-primary btn-lg me-2">Book Appointment</a>
-      <a href="page1.html" class="btn btn-black btn-lg">View Pricing</a>
-    </div>
-  </section>
-
-  <!-- Quick Services Overview -->
-  <section class="container py-5 quick-services">
-    <div class="text-center mb-4">
-      <h2 class="display-5 fw-bold">Our Core Services</h2>
-      <p>Fast, reliable, and fully equipped mobile automotive services.</p>
-    </div>
-    <div class="row g-4 text-center">
-      <div class="col-md-3">
-        <div class="card p-3 h-100">
-          <i class="bi bi-tools fs-1 mb-2"></i>
-          <h5>Diagnostics & Electronics</h5>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="card p-3 h-100">
-          <i class="bi bi-cpu fs-1 mb-2"></i>
-          <h5>Engine Services</h5>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="card p-3 h-100">
-          <i class="bi bi-gear-fill fs-1 mb-2"></i>
-          <h5>Transmission & Drivetrain</h5>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="card p-3 h-100">
-          <i class="bi bi-car-front-fill fs-1 mb-2"></i>
-          <h5>Brakes & Suspension</h5>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Detailed Services Accordion -->
-  <section class="container py-5">
-    <h2 class="text-center mb-4 display-5 fw-bold">Full Service Details</h2>
-    <div class="accordion" id="servicesAccordion">
-
-      <!-- Diagnostics -->
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingDiagnostics">
-          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDiagnostics">
-            <i class="bi bi-tools me-2"></i>Diagnostics & Electronics
-          </button>
-        </h2>
-        <div id="collapseDiagnostics" class="accordion-collapse collapse show" data-bs-parent="#servicesAccordion">
-          <div class="accordion-body">
-            <ul>
-              <li>Full vehicle diagnostics, check engine light troubleshooting, pre-purchase inspections.</li>
-              <li>Electrical system diagnostics, starting & charging system repair, battery testing & replacement.</li>
-              <li>ECU/computer diagnostics & programming, sensor replacement, wiring & harness repair.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Engine Services -->
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingEngine">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEngine">
-            <i class="bi bi-cpu me-2"></i>Engine Services
-          </button>
-        </h2>
-        <div id="collapseEngine" class="accordion-collapse collapse" data-bs-parent="#servicesAccordion">
-          <div class="accordion-body">
-            <ul>
-              <li>Oil changes, tune-ups & spark plugs, belts & pulleys, timing belt/chain replacement.</li>
-              <li>Cooling system repair, alternator & starter replacement, fuel system repair.</li>
-              <li>Engine overhaul, head gasket replacement, air intake & throttle body cleaning.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Transmission & Drivetrain -->
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingTransmission">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTransmission">
-            <i class="bi bi-gear-fill me-2"></i>Transmission & Drivetrain
-          </button>
-        </h2>
-        <div id="collapseTransmission" class="accordion-collapse collapse" data-bs-parent="#servicesAccordion">
-          <div class="accordion-body">
-            <ul>
-              <li>Automatic & manual transmission service, clutch repair.</li>
-              <li>Differential & transfer case repair, CV joints & driveshaft repair, wheel bearings replacement.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Brakes & Suspension -->
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingBrakes">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBrakes">
-            <i class="bi bi-car-front-fill me-2"></i>Brakes & Suspension
-          </button>
-        </h2>
-        <div id="collapseBrakes" class="accordion-collapse collapse" data-bs-parent="#servicesAccordion">
-          <div class="accordion-body">
-            <ul>
-              <li>Brake pads, rotors, calipers, brake fluid flush, brake lines & hoses.</li>
-              <li>Shocks & struts, suspension components, steering system repair, alignment checks & adjustments.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Additional categories (Cooling, Tires, Exhaust, Roadside, Maintenance) can follow the same accordion structure -->
-    </div>
-  </section>
-
-  <!-- Benefits Section -->
-  <section class="container py-5">
-    <h2 class="text-center mb-4 display-5 fw-bold">Why Customers Choose Me</h2>
-    <div class="row g-4 text-center">
-      <div class="col-md-4">
-        <div class="card benefit-card p-3 h-100">
-          <i class="bi bi-check-circle-fill"></i>
-          <h5>Fast Response</h5>
-          <p>Fully equipped mobile service, arriving at your location promptly.</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card benefit-card p-3 h-100">
-          <i class="bi bi-check-circle-fill"></i>
-          <h5>Professional Workmanship</h5>
-          <p>No shortcuts, no guesswork—reliable repairs every time.</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card benefit-card p-3 h-100">
-          <i class="bi bi-check-circle-fill"></i>
-          <h5>Honest Pricing</h5>
-          <p>Transparent quotes before any work begins, no hidden fees.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section data-bs-version="5.1" class="contacts02 map1 cid-v3BW1ZDWa1" id="contacts02-1n">
+<!-- Navbar -->
+<section data-bs-version="5.1" class="menu menu5 cid-v3BV98Nlzj" once="menu" id="menu05-1i">
+  <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
     <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-12 content-head">
-          <div class="mbr-section-head mb-5">
-            <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2"><strong>Contact Info</strong></h3>
-          </div>
-        </div>
+      <div class="navbar-brand">
+        <span class="navbar-logo">
+          <img src="https://r.mobirisesite.com/1997632/assets/images/shop3-h_mifa1ufz.jpg" alt="" style="height: 5rem;">
+        </span>
+        <span class="navbar-caption-wrap">
+          <a class="navbar-caption text-black text-primary display-4">Lee's Mobile Mechanic Service</a>
+        </span>
       </div>
-      <div class="row justify-content-center">
-        <div class="card col-12 col-md-12 col-lg-6">
-          <div class="card-wrapper">
-            <div class="text-wrapper">
-              <h5 class="cardTitle mbr-fonts-style mb-2 display-5"><strong>Contact Us @</strong></h5>
-              <ul class="list mbr-fonts-style display-7">
-                <li>Phone: <a href="tel:+12394418552" class="contact-link">239-441-8552</a></li>
-                <li>Email: <a href="mailto:leesmobilemechanicservices@gmail.com" class="contact-link">leesmobilemechanicservices@gmail.com</a></li>
-                <li>Address: Conway, South Carolina-29526</li>
-                <li>Working Hours: Full Time</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="map-wrapper col-md-12 col-lg-6">
-          <div class="google-map">
-            <iframe frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB7QWkvlxV39ZsyKvhZRjPGVqlJFvxxNkw&q=Conway South Carolina" allowfullscreen></iframe>
-          </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <div class="hamburger"><span></span><span></span><span></span><span></span></div>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
+          <li class="nav-item"><a class="nav-link link text-black text-primary display-7" href="index.html">Home</a></li>
+        </ul>
+        <div class="navbar-buttons mbr-section-btn">
+          <a class="btn btn-black display-4 active" href="index.html">Home</a>
+          <a class="btn btn-black display-4" href="page1.html">Job Pricing</a>
+          <a class="btn btn-black display-4" href="index.html#contacts02-1n">Contact Info</a>
+          <a class="btn btn-primary display-4" href="appointment.html">Book Appointment</a>
         </div>
       </div>
     </div>
-  </section>
+  </nav>
+</section>
+
+<!-- Hero & Intro -->
+<section class="text-center container mt-5 mb-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-8">
+      <div class="image-wrapper mb-4">
+        <img class="w-100" src="https://r.mobirisesite.com/1997632/assets/images/gallery10-h_mifbcdak.jpg" alt="">
+      </div>
+      <h1 class="display-2"><strong>Professional Mobile Mechanic Services</strong></h1>
+      <p class="intro-text text-muted mt-3">
+        Lee’s Mobile Mechanic Service delivers high-quality automotive repair and maintenance directly to your home, workplace, or roadside. Certified-level experience, reliable tools, and honest workmanship guarantee dealership-grade service without the dealership price or wait times.
+      </p>
+      <div class="mt-3">
+        <!-- Optional: <a href="page1.html" class="btn btn-black me-2">View Pricing</a> -->
+        <a href="appointment.html" class="btn btn-primary">Book Appointment</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services Section -->
+<section class="container mt-5">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="mb-4">Our Services</h2>
+
+      <div class="service-text">
+        <div class="section-banner"><i class="bi bi-tools"></i>Diagnostics & Electronics</div>
+        <ul>
+          <li>Full vehicle diagnostics, check engine light troubleshooting, pre-purchase inspections</li>
+          <li>Electrical system diagnostics, battery testing & replacement</li>
+          <li>ECU/computer diagnostics & sensor replacement, wiring & harness repair</li>
+        </ul>
+
+        <div class="section-banner"><i class="bi bi-cpu"></i>Engine Services</div>
+        <ul>
+          <li>Oil changes, tune-ups & spark plugs, belts & pulleys</li>
+          <li>Cooling system repair, alternator & starter replacement, fuel system repair</li>
+          <li>Engine overhaul, head gasket replacement, air intake & throttle body cleaning</li>
+        </ul>
+
+        <div class="section-banner"><i class="bi bi-gear-fill"></i>Transmission & Drivetrain</div>
+        <ul>
+          <li>Automatic & manual transmission service, clutch repair</li>
+          <li>Differential & transfer case repair, CV joints & driveshaft repair</li>
+        </ul>
+
+        <div class="section-banner"><i class="bi bi-car-front-fill"></i>Brakes & Suspension</div>
+        <ul>
+          <li>Brake pads, rotors, calipers, brake fluid flush</li>
+          <li>Shocks & struts, steering system repair, alignment checks & adjustments</li>
+        </ul>
+
+        <div class="section-banner"><i class="bi bi-thermometer-half"></i>Cooling & HVAC</div>
+        <ul>
+          <li>Radiator & heater core repair, hoses & coolant flush</li>
+          <li>AC recharge, compressor & condenser repair</li>
+        </ul>
+
+        <div class="section-banner"><i class="bi bi-tire"></i>Tires & Wheels</div>
+        <ul>
+          <li>Tire replacement & rotation, flat tire repair, wheel balancing, alignment</li>
+        </ul>
+
+        <div class="section-banner"><i class="bi bi-lightning-fill"></i>Roadside & Emergency</div>
+        <ul>
+          <li>Jump-starts, battery replacement, lockouts, tire changes, emergency diagnostics</li>
+        </ul>
+
+        <div class="section-banner"><i class="bi bi-droplet-half"></i>Maintenance & Fluids</div>
+        <ul>
+          <li>Fluids top-off & flushes, air filter & cabin filter replacement, fuel system cleaning</li>
+        </ul>
+      </div>
+
+      <h3 class="mt-5">Why Customers Choose Us</h3>
+      <div class="benefit-list">
+        <div class="benefit-item"><i class="bi bi-check-circle-fill"></i>Fast response times — I come to you fully equipped</div>
+        <div class="benefit-item"><i class="bi bi-check-circle-fill"></i>Professional workmanship — no shortcuts, no guesswork</div>
+        <div class="benefit-item"><i class="bi bi-check-circle-fill"></i>Honest pricing — clear quotes before work begins</div>
+        <div class="benefit-item"><i class="bi bi-check-circle-fill"></i>Convenient service — no waiting rooms, no towing</div>
+        <div class="benefit-item"><i class="bi bi-check-circle-fill"></i>Trusted experience — real mechanical expertise, on-site</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section data-bs-version="5.1" class="contacts02 map1 cid-v3BW1ZDWa1" id="contacts02-1n">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 content-head mb-4">
+        <h3 class="text-center display-2"><strong>Contact Info</strong></h3>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="card col-12 col-md-12 col-lg-6 mb-3">
+        <div class="card-wrapper">
+          <div class="text-wrapper">
+            <h5 class="display-5 mb-2"><strong>Contact Us @</strong></h5>
+            <ul class="list display-7">
+              <li>Phone: <a href="tel:+12394418552" class="contact-link">239-441-8552</a></li>
+              <li>Email: <a href="mailto:leesmobilemechanicservices@gmail.com" class="contact-link">leesmobilemechanicservices@gmail.com</a></li>
+              <li>Address: Conway, South Carolina-29526</li>
+              <li>Working Hours: Full Time</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="map-wrapper col-md-12 col-lg-6 mb-3">
+        <iframe frameborder="0" style="border:0;width:100%;height:100%;" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB7QWkvlxV39ZsyKvhZRjPGVqlJFvxxNkw&q=Conway South Carolina" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
 
 </main>
 
 <!-- Footer -->
 <footer class="footer py-3 bg-dark text-white mt-auto">
   <div class="container text-center">
-    <p class="mb-0">&copy; 2025 Lee's Mobile Mechanic Service-LLC. All rights reserved.</p>
+    <p class="mb-0">&copy; 2025 Lee'sMobileMechanicService-LLC. All rights reserved.</p>
   </div>
 </footer>
 
@@ -301,6 +219,17 @@
 <script src="https://r.mobirisesite.com/1997632/assets/ytplayer/index.js"></script>
 <script src="https://r.mobirisesite.com/1997632/assets/dropdown/js/navbar-dropdown.js"></script>
 <script src="https://r.mobirisesite.com/1997632/assets/theme/js/script.js"></script>
+
+<!-- Smooth scroll for in-page links -->
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+});
+</script>
 
 </body>
 </html>
