@@ -133,284 +133,294 @@
 </head>
 
 <body>
-  <main>
-    <!-- Navbar -->
-    <section data-bs-version="5.1" class="menu menu5 cid-v3BV98Nlzj" once="menu" id="menu05-1i">
-      <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
-        <div class="container">
-          <div class="navbar-brand">
-            <span class="navbar-logo">
-              <img src="https://r.mobirisesite.com/1997632/assets/images/shop3-h_mifa1ufz.jpg" alt="" style="height: 5rem;">
-            </span>
-            <span class="navbar-caption-wrap">
-              <a class="navbar-caption text-black text-primary display-4">Lee's Mobile Mechanic Service</a>
-            </span>
-          </div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <div class="hamburger"><span></span><span></span><span></span><span></span></div>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
-              <li class="nav-item"><a class="nav-link link text-black text-primary display-7" href="index.html">Home</a></li>
-            </ul>
-            <div class="navbar-buttons mbr-section-btn">
-              <a class="btn btn-black display-4" href="page1.html">Job Pricing</a>
-              <a class="btn btn-black display-4" href="index.html#contacts02-1n">Contact Info</a>
-              <a class="btn btn-primary display-4" href="appointment.html">Book Appointment</a>
-            </div>
+<main>
+  <!-- Navbar -->
+  <section data-bs-version="5.1" class="menu menu5 cid-v3BV98Nlzj" once="menu" id="menu05-1i">
+    <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
+      <div class="container">
+        <div class="navbar-brand">
+          <span class="navbar-logo">
+            <img src="https://r.mobirisesite.com/1997632/assets/images/shop3-h_mifa1ufz.jpg" alt="" style="height: 5rem;">
+          </span>
+          <span class="navbar-caption-wrap">
+            <a class="navbar-caption text-black text-primary display-4">Lee's Mobile Mechanic Service</a>
+          </span>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+          <div class="hamburger"><span></span><span></span><span></span><span></span></div>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
+            <li class="nav-item"><a class="nav-link link text-black text-primary display-7" href="index.html">Home</a></li>
+          </ul>
+          <div class="navbar-buttons mbr-section-btn">
+            <a class="btn btn-black display-4" href="page1.html">Job Pricing</a>
+            <a class="btn btn-black display-4" href="index.html#contacts02-1n">Contact Info</a>
+            <a class="btn btn-primary display-4" href="appointment.html">Book Appointment</a>
           </div>
         </div>
-      </nav>
-    </section>
-
-    <!-- Appointment Form -->
-    <section class="container">
-      <div class="form-section">
-        <h2>Book Your Appointment</h2>
-        <form id="appointment-form" action="https://usebasin.com/f/d459393c2dd6" method="POST" enctype="multipart/form-data">
-          <!-- Personal Info -->
-          <h4><i class="bi bi-person-fill"></i> Personal Information</h4>
-          <div class="mb-3"><label class="form-label">Full Name</label><input name="full_name" type="text" class="form-control" placeholder="John Doe" required></div>
-          <div class="mb-3"><label class="form-label">Email</label><input name="email" type="email" class="form-control" placeholder="you@example.com" required></div>
-          <div class="mb-3"><label class="form-label">Phone</label><input name="phone" type="tel" class="form-control" placeholder="239-441-8552" required></div>
-          <div class="mb-3"><label class="form-label">Service Address</label><input name="address" type="text" class="form-control" placeholder="123 Main St, City, State"></div>
-
-          <!-- VIN Lookup -->
-          <h4><i class="bi bi-upc-scan"></i> Vehicle VIN Lookup</h4>
-          <div class="input-group mb-3">
-            <input type="text" id="vin" class="form-control" placeholder="Enter 17-character VIN" maxlength="17">
-            <button type="button" class="btn btn-secondary" id="lookup-vin">Lookup VIN</button>
-            <span id="vin-loading">Fetching vehicle info...</span>
-          </div>
-          <div id="vin-error"></div>
-          <input type="hidden" name="vin" id="vin-hidden">
-
-          <!-- Vehicle Info -->
-          <h4><i class="bi bi-car-front-fill"></i> Vehicle Information</h4>
-          <div class="row">
-            <div class="col-md-3 mb-3"><label>Year</label><select name="vehicle_year" id="year" class="form-select"><option value="">Select Year</option><script>for(let y=2025;y>=1980;y--){document.write(`<option value="${y}">${y}</option>`);}</script></select></div>
-            <div class="col-md-3 mb-3"><label>Make</label><select name="vehicle_make" id="make" class="form-select"><option value="">Select Make</option></select></div>
-            <div class="col-md-3 mb-3"><label>Model</label><select name="vehicle_model" id="model" class="form-select"><option value="">Select Model</option></select></div>
-            <div class="col-md-3 mb-3"><label>Engine Type</label><select name="engine_type" id="engineType" class="form-select">
-                <option value="">Select Engine Type</option>
-                <option>I4</option><option>I6</option><option>V6</option><option>V8</option>
-                <option>V12</option><option>Boxer</option><option>Electric / Hybrid</option><option>Other</option>
-              </select></div>
-          </div>
-          <div class="row">
-            <div class="col-md-3 mb-3"><label>Engine Liter</label><select name="engine_liters" id="engineLiters" class="form-select"><option value="">Select Engine Liter</option>
-                <option>1.0</option><option>1.2</option><option>1.4</option><option>1.5</option>
-                <option>1.6</option><option>1.8</option><option>2.0</option><option>2.4</option>
-                <option>2.5</option><option>3.0</option><option>3.2</option><option>3.5</option>
-                <option>4.0</option><option>4.2</option><option>4.5</option><option>5.0</option><option>Other</option>
-              </select></div>
-          </div>
-
-          <!-- Services -->
-          <h4><i class="bi bi-tools"></i> Requested Services</h4>
-          <select id="services" name="services[]" class="form-select" multiple>
-            <optgroup label="Diagnostics">
-              <option>Full Vehicle Diagnostic Scan</option>
-              <option>Check Engine Light Troubleshooting</option>
-              <option>Electrical/Starting System Diagnostic</option>
-            </optgroup>
-            <optgroup label="Suspension & Steering">
-              <option>Shocks / Struts</option>
-              <option>Control Arms / Bushings</option>
-              <option>Ball Joints</option>
-              <option>Tie Rod Ends</option>
-              <option>Steering Rack / Gear</option>
-            </optgroup>
-            <optgroup label="Brakes">
-              <option>Brake Pads (Front or Rear)</option>
-              <option>Pads + Rotors</option>
-              <option>Brake Calipers</option>
-              <option>Brake Lines / Hoses</option>
-              <option>Brake Fluid Flush</option>
-            </optgroup>
-            <optgroup label="Engine & Exhaust">
-              <option>Alternator Replacement</option>
-              <option>Starter Replacement</option>
-              <option>Battery Replacement</option>
-              <option>Radiator Replacement</option>
-              <option>Water Pump Replacement</option>
-              <option>Serpentine Belt</option>
-              <option>Thermostat Replacement</option>
-              <option>Head Gasket Replacement</option>
-              <option>Engine Overhaul / Major Repair</option>
-              <option>Muffler Replacement</option>
-              <option>Catalytic Converter</option>
-              <option>Exhaust Piping / Manifold</option>
-              <option>Oxygen Sensor Replacement</option>
-            </optgroup>
-            <optgroup label="Fuel & Maintenance">
-              <option>Fuel Pump Replacement</option>
-              <option>Fuel Filter Replacement</option>
-              <option>Fuel Injector Cleaning / Replacement</option>
-              <option>Carburetor / EFI Service</option>
-              <option>Oil Change (Mobile)</option>
-              <option>Tune-Up / Spark Plugs</option>
-              <option>Air Filter Replacement</option>
-              <option>Fluid Top-Off / Basic Service</option>
-            </optgroup>
-            <optgroup label="Roadside & Electrical">
-              <option>Jump-Start</option>
-              <option>Battery Testing</option>
-              <option>Lockout Service (Non-destructive)</option>
-              <option>Flat Tire Replacement / Repair</option>
-              <option>Emergency Breakdown Diagnostic</option>
-              <option>Standard Service Call</option>
-              <option>Emergency / After-Hours Call</option>
-              <option>Alternator / Starter Diagnostics</option>
-              <option>Sensor Replacement (O2, MAF, etc.)</option>
-              <option>Wiring / Harness Repair</option>
-              <option>ECU / Computer Diagnostics</option>
-            </optgroup>
-          </select>
-          <div id="price-box" class="mt-3 mb-3">Estimated Total: $0.00</div>
-
-          <!-- Appointment -->
-          <h4><i class="bi bi-calendar-event"></i> Appointment Date & Time</h4>
-          <div class="row">
-            <div class="col-md-6 mb-3"><label>Date</label><input type="date" name="appointment_date" class="form-control"
-                required></div>
-            <div class="col-md-6 mb-3"><label>Time Slot</label><select name="appointment_time" class="form-select" required>
-                <option value="">Select Time</option>
-                <option>Morning (8AM - 12PM)</option>
-                <option>Afternoon (12PM - 4PM)</option>
-                <option>Evening (4PM - 7PM)</option>
-              </select></div>
-          </div>
-
-          <!-- Notes / Photos -->
-          <h4><i class="bi bi-journal-text"></i> Notes / Observations</h4>
-          <textarea name="notes" class="form-control" rows="4" placeholder="Describe the issue..."></textarea>
-          <h4><i class="bi bi-image"></i> Upload Photos (optional)</h4>
-          <input type="file" name="photos[]" class="form-control mb-3" accept="image/*" multiple>
-
-          <button type="submit" class="submit-btn mt-4">Submit</button>
-          <div id="success-message">Your appointment has been submitted successfully!</div>
-        </form>
       </div>
-    </section>
-  </main>
+    </nav>
+  </section>
 
-  <!-- Footer -->
-  <footer class="footer py-3 bg-dark text-white mt-auto">
-    <div class="container text-center">
-      <p class="mb-0">&copy; 2025 Lee's Mobile Mechanic Service-LLC. All rights reserved.</p>
+  <!-- Appointment Form -->
+  <section class="container">
+    <div class="form-section">
+      <h2>Book Your Appointment</h2>
+      <form id="appointment-form" action="https://usebasin.com/f/d459393c2dd6" method="POST" enctype="multipart/form-data">
+
+        <!-- Personal Info -->
+        <h4><i class="bi bi-person-fill"></i> Personal Information</h4>
+        <div class="mb-3"><label class="form-label">Full Name</label><input name="full_name" type="text" class="form-control" placeholder="John Doe" required></div>
+        <div class="mb-3"><label class="form-label">Email</label><input name="email" type="email" class="form-control" placeholder="you@example.com" required></div>
+        <div class="mb-3"><label class="form-label">Phone</label><input name="phone" type="tel" class="form-control" placeholder="239-441-8552" required></div>
+        <div class="mb-3"><label class="form-label">Service Address</label><input name="address" type="text" class="form-control" placeholder="123 Main St, City, State"></div>
+
+        <!-- VIN Lookup -->
+        <h4><i class="bi bi-upc-scan"></i> Vehicle VIN Lookup</h4>
+        <div class="input-group mb-3">
+          <input type="text" id="vin" class="form-control" placeholder="Enter 17-character VIN" maxlength="17">
+          <button type="button" class="btn btn-secondary" id="lookup-vin">Lookup VIN</button>
+          <span id="vin-loading">Fetching vehicle info...</span>
+        </div>
+        <div id="vin-error"></div>
+        <input type="hidden" name="vin" id="vin-hidden">
+
+        <!-- Vehicle Info -->
+        <h4><i class="bi bi-car-front-fill"></i> Vehicle Information</h4>
+        <div class="row">
+          <div class="col-md-3 mb-3"><label>Year</label><select name="vehicle_year" id="year" class="form-select"><option value="">Select Year</option><script>for(let y=2025;y>=1980;y--){document.write(`<option value="${y}">${y}</option>`);}</script></select></div>
+          <div class="col-md-3 mb-3"><label>Make</label><select name="vehicle_make" id="make" class="form-select"><option value="">Select Make</option></select></div>
+          <div class="col-md-3 mb-3"><label>Model</label><select name="vehicle_model" id="model" class="form-select"><option value="">Select Model</option></select></div>
+          <div class="col-md-3 mb-3"><label>Engine Type</label><select name="engine_type" id="engineType" class="form-select">
+            <option value="">Select Engine Type</option>
+            <option>I4</option><option>I6</option><option>V6</option><option>V8</option>
+            <option>V12</option><option>Boxer</option><option>Electric / Hybrid</option><option>Other</option>
+          </select></div>
+        </div>
+        <div class="row">
+          <div class="col-md-3 mb-3"><label>Engine Liter</label><select name="engine_liters" id="engineLiters" class="form-select"><option value="">Select Engine Liter</option>
+            <option>1.0</option><option>1.2</option><option>1.4</option><option>1.5</option>
+            <option>1.6</option><option>1.8</option><option>2.0</option><option>2.4</option>
+            <option>2.5</option><option>3.0</option><option>3.2</option><option>3.5</option>
+            <option>4.0</option><option>4.2</option><option>4.5</option><option>5.0</option><option>Other</option>
+          </select></div>
+        </div>
+
+        <!-- Services -->
+        <h4><i class="bi bi-tools"></i> Requested Services</h4>
+        <select id="services" name="services[]" class="form-select" multiple>
+          <option value="Full Vehicle Diagnostic Scan">Full Vehicle Diagnostic Scan</option>
+          <option value="Check Engine Light Troubleshooting">Check Engine Light Troubleshooting</option>
+          <option value="Electrical/Starting System Diagnostic">Electrical/Starting System Diagnostic</option>
+          <option value="Shocks / Struts">Shocks / Struts</option>
+          <option value="Control Arms / Bushings">Control Arms / Bushings</option>
+          <option value="Ball Joints">Ball Joints</option>
+          <option value="Tie Rod Ends">Tie Rod Ends</option>
+          <option value="Steering Rack / Gear">Steering Rack / Gear</option>
+          <option value="Brake Pads (Front or Rear)">Brake Pads (Front or Rear)</option>
+          <option value="Pads + Rotors">Pads + Rotors</option>
+          <option value="Brake Calipers">Brake Calipers</option>
+          <option value="Brake Lines / Hoses">Brake Lines / Hoses</option>
+          <option value="Brake Fluid Flush">Brake Fluid Flush</option>
+          <option value="Alternator Replacement">Alternator Replacement</option>
+          <option value="Starter Replacement">Starter Replacement</option>
+          <option value="Battery Replacement">Battery Replacement</option>
+          <option value="Radiator Replacement">Radiator Replacement</option>
+          <option value="Water Pump Replacement">Water Pump Replacement</option>
+          <option value="Serpentine Belt">Serpentine Belt</option>
+          <option value="Thermostat Replacement">Thermostat Replacement</option>
+          <option value="Head Gasket Replacement (Parts Extra)">Head Gasket Replacement (Parts Extra)</option>
+          <option value="Engine Overhaul / Major Repair (Parts Extra)">Engine Overhaul / Major Repair (Parts Extra)</option>
+          <option value="Muffler Replacement">Muffler Replacement</option>
+          <option value="Catalytic Converter (Parts Extra)">Catalytic Converter (Parts Extra)</option>
+          <option value="Exhaust Piping / Manifold">Exhaust Piping / Manifold</option>
+          <option value="Oxygen Sensor Replacement">Oxygen Sensor Replacement</option>
+          <option value="Fuel Pump Replacement">Fuel Pump Replacement</option>
+          <option value="Fuel Filter Replacement">Fuel Filter Replacement</option>
+          <option value="Fuel Injector Cleaning / Replacement">Fuel Injector Cleaning / Replacement</option>
+          <option value="Carburetor / EFI Service">Carburetor / EFI Service</option>
+          <option value="Oil Change (Mobile)">Oil Change (Mobile)</option>
+          <option value="Tune-Up / Spark Plugs">Tune-Up / Spark Plugs</option>
+          <option value="Air Filter Replacement">Air Filter Replacement</option>
+          <option value="Fluid Top-Off / Basic Service">Fluid Top-Off / Basic Service</option>
+          <option value="Jump-Start">Jump-Start</option>
+          <option value="Battery Testing">Battery Testing</option>
+          <option value="Lockout Service (Non-destructive)">Lockout Service (Non-destructive)</option>
+          <option value="Flat Tire Replacement / Repair">Flat Tire Replacement / Repair</option>
+          <option value="Emergency Breakdown Diagnostic">Emergency Breakdown Diagnostic</option>
+          <option value="Standard Service Call">Standard Service Call</option>
+          <option value="Emergency / After-Hours Call">Emergency / After-Hours Call</option>
+          <option value="Alternator / Starter Diagnostics">Alternator / Starter Diagnostics</option>
+          <option value="Sensor Replacement (O2, MAF, etc.)">Sensor Replacement (O2, MAF, etc.)</option>
+          <option value="Wiring / Harness Repair">Wiring / Harness Repair</option>
+          <option value="ECU / Computer Diagnostics">ECU / Computer Diagnostics</option>
+        </select>
+        <div id="price-box" class="mt-3 mb-3">Estimated Total: $0.00</div>
+
+        <!-- Appointment Date & Time -->
+        <h4><i class="bi bi-calendar-event"></i> Appointment Date & Time</h4>
+        <div class="row">
+          <div class="col-md-6 mb-3"><label>Date</label><input type="date" name="appointment_date" class="form-control" required></div>
+          <div class="col-md-6 mb-3"><label>Time Slot</label><select name="appointment_time" class="form-select" required>
+            <option value="">Select Time</option>
+            <option>Morning (8AM - 12PM)</option>
+            <option>Afternoon (12PM - 4PM)</option>
+            <option>Evening (4PM - 7PM)</option>
+          </select></div>
+        </div>
+
+        <!-- Notes / Photos -->
+        <h4><i class="bi bi-journal-text"></i> Notes / Observations</h4>
+        <textarea name="notes" class="form-control" rows="4" placeholder="Describe the issue..."></textarea>
+        <h4><i class="bi bi-image"></i> Upload Photos (optional)</h4>
+        <input type="file" name="photos[]" class="form-control mb-3" accept="image/*" multiple>
+
+        <button type="submit" class="submit-btn mt-4">Submit</button>
+        <div id="success-message">Your appointment has been submitted successfully!</div>
+      </form>
     </div>
-  </footer>
+  </section>
+</main>
 
-  <!-- JS -->
-  <script src="https://r.mobirisesite.com/1997632/assets/web/assets/jquery/jquery.min.js"></script>
-  <script src="https://r.mobirisesite.com/1997632/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<!-- Footer -->
+<footer class="footer py-3 bg-dark text-white mt-auto">
+  <div class="container text-center">
+    <p class="mb-0">&copy; 2025 Lee's Mobile Mechanic Service-LLC. All rights reserved.</p>
+  </div>
+</footer>
 
-  <script>
-    $(document).ready(function () {
-      const yearSelect = $('#year'),
-        makeSelect = $('#make'),
-        modelSelect = $('#model');
-      const engineTypeSelect = $('#engineType'),
-        engineLiterSelect = $('#engineLiters');
-      const vinInput = $('#vin'),
-        vinBtn = $('#lookup-vin'),
-        vinError = $('#vin-error'),
-        vinLoading = $('#vin-loading'),
-        vinHidden = $('#vin-hidden');
-      const services = $('#services'),
-        priceBox = $('#price-box');
+<!-- JS -->
+<script src="https://r.mobirisesite.com/1997632/assets/web/assets/jquery/jquery.min.js"></script>
+<script src="https://r.mobirisesite.com/1997632/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
-      // Initialize Select2
-      $('#year,#make,#model,#engineType,#engineLiters,#services').select2({ width: '100%' });
+<script>
+$(document).ready(function(){
+  const yearSelect = $('#year'), makeSelect = $('#make'), modelSelect = $('#model');
+  const engineTypeSelect = $('#engineType'), engineLiterSelect = $('#engineLiters');
+  const vinInput = $('#vin'), vinBtn = $('#lookup-vin'), vinError = $('#vin-error'), vinLoading = $('#vin-loading'), vinHidden = $('#vin-hidden');
+  const services = $('#services'), priceBox = $('#price-box');
 
-      let vehicleData = {};
-      fetch('vehicles_us.json')
-        .then(r => r.json())
-        .then(d => vehicleData = d)
-        .catch(err => console.log("Vehicle JSON load error:", err));
+  // Initialize Select2
+  $('#year,#make,#model,#engineType,#engineLiters,#services').select2({width:'100%'});
 
-      // Update Makes
-      function updateMakes() {
-        const y = yearSelect.val();
-        makeSelect.empty().append(new Option('Select Make', ''));
-        modelSelect.empty().append(new Option('Select Model', ''));
-        if (y && vehicleData[y]) {
-          Object.keys(vehicleData[y]).forEach(make => makeSelect.append(new Option(make, make)));
-        }
-        makeSelect.trigger('change.select2');
-      }
+  let vehicleData = {};
+  fetch('vehicles_us.json').then(r=>r.json()).then(d=>vehicleData=d).catch(err=>console.log("Vehicle JSON load error:", err));
 
-      // Update Models
-      function updateModels(selectedModel) {
-        const y = yearSelect.val(),
-          m = makeSelect.val();
-        modelSelect.empty().append(new Option('Select Model', ''));
-        if (y && m && vehicleData[y] && vehicleData[y][m]) {
-          vehicleData[y][m].forEach(mod => modelSelect.append(new Option(mod, mod)));
-        }
-        if (selectedModel) {
-          if ($('#model option[value="' + selectedModel + '"]').length === 0) modelSelect.append(new Option(selectedModel, selectedModel));
-          modelSelect.val(selectedModel).trigger('change.select2');
-        } else modelSelect.trigger('change.select2');
-      }
+  // Update Makes
+  function updateMakes(){
+    const y = yearSelect.val();
+    makeSelect.empty().append(new Option('Select Make',''));
+    modelSelect.empty().append(new Option('Select Model',''));
+    if(y && vehicleData[y]){
+      Object.keys(vehicleData[y]).forEach(make => makeSelect.append(new Option(make, make)));
+    }
+    makeSelect.trigger('change.select2');
+  }
 
-      // Set Engine Type / Liter
-      function setEngineType(val) { if (!val) return; if ($('#engineType option[value="' + val + '"]').length === 0) engineTypeSelect.append(new Option(val, val)); engineTypeSelect.val(val).trigger('change.select2'); }
-      function setEngineLiter(val) { if (!val) return; if ($('#engineLiters option[value="' + val + '"]').length === 0) engineLiterSelect.append(new Option(val, val)); engineLiterSelect.val(val).trigger('change.select2'); }
+  // Update Models
+  function updateModels(selectedModel){
+    const y = yearSelect.val(), m = makeSelect.val();
+    modelSelect.empty().append(new Option('Select Model',''));
+    if(y && m && vehicleData[y] && vehicleData[y][m]){
+      vehicleData[y][m].forEach(mod => modelSelect.append(new Option(mod, mod)));
+    }
+    if(selectedModel) modelSelect.val(selectedModel).trigger('change.select2');
+  }
 
-      yearSelect.on('change', updateMakes);
-      makeSelect.on('change', () => updateModels());
+  yearSelect.change(updateMakes);
+  makeSelect.change(()=>updateModels());
 
-      // VIN Lookup
-      vinBtn.on('click', () => {
-        const vin = vinInput.val().trim();
-        if (!vin || vin.length < 17) {
-          vinError.text("Invalid VIN. Must be 17 characters").show(); return;
-        }
-        vinError.hide(); vinLoading.show();
-        fetch(`https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVinValues/${vin}?format=json`)
-          .then(r => r.json())
-          .then(data => {
-            vinLoading.hide();
-            const result = data.Results[0];
-            vinHidden.val(vin);
-            yearSelect.val(result.ModelYear).trigger('change.select2');
-            updateMakes();
-            setTimeout(() => {
-              if ($('#make option[value="' + result.Make + '"]').length === 0) makeSelect.append(new Option(result.Make, result.Make));
-              makeSelect.val(result.Make).trigger('change.select2');
-              updateModels(result.Model);
-              setEngineType(result.EngineCylinders || result.EngineConfiguration || result.EngineType);
-              setEngineLiter(result.DisplacementL || result.EngineDisplacement);
-            }, 150);
-          })
-          .catch(err => { vinLoading.hide(); vinError.text("VIN lookup failed. Try again").show(); console.log(err); });
-      });
+  // VIN Lookup (no server)
+  vinBtn.click(function(){
+    const vin = vinInput.val().trim();
+    if(vin.length!==17){vinError.text('VIN must be 17 characters').show();return;}
+    vinError.hide(); vinLoading.show();
+    // Mock lookup (replace with real API if needed)
+    setTimeout(()=>{
+      vinLoading.hide();
+      // For demo, just prefill year/make/model with first available
+      const yList=Object.keys(vehicleData).sort((a,b)=>b-a);
+      const y=yList[0]; const m=Object.keys(vehicleData[y])[0]; const mo=vehicleData[y][m][0];
+      yearSelect.val(y).trigger('change.select2');
+      makeSelect.val(m).trigger('change.select2');
+      updateModels(mo);
+      vinHidden.val(vin);
+    },800);
+  });
 
-      // Price calculation
-      function calculatePrice() {
-        let total = 0;
-        services.val()?.forEach(s => {
-          const nums = s.match(/\$([0-9]+)(?:–\$([0-9]+))?/);
-          if (nums) total += parseFloat(nums[1]);
-        });
-        priceBox.text(`Estimated Total: $${total.toFixed(2)}`);
-      }
-      services.on('change', calculatePrice);
+  // Prices
+  const SERVICE_PRICES = {
+    "Full Vehicle Diagnostic Scan":50,
+    "Check Engine Light Troubleshooting":60,
+    "Electrical/Starting System Diagnostic":90,
+    "Shocks / Struts":160,
+    "Control Arms / Bushings":160,
+    "Ball Joints":160,
+    "Tie Rod Ends":160,
+    "Steering Rack / Gear":250,
+    "Brake Pads (Front or Rear)":110,
+    "Pads + Rotors":150,
+    "Brake Calipers":120,
+    "Brake Lines / Hoses":180,
+    "Brake Fluid Flush":90,
+    "Alternator Replacement":160,
+    "Starter Replacement":160,
+    "Battery Replacement":35,
+    "Radiator Replacement":160,
+    "Water Pump Replacement":160,
+    "Serpentine Belt":40,
+    "Thermostat Replacement":50,
+    "Head Gasket Replacement (Parts Extra)":700,
+    "Engine Overhaul / Major Repair (Parts Extra)":1500,
+    "Muffler Replacement":160,
+    "Catalytic Converter (Parts Extra)":200,
+    "Exhaust Piping / Manifold":160,
+    "Oxygen Sensor Replacement":60,
+    "Fuel Pump Replacement":270,
+    "Fuel Filter Replacement":55,
+    "Fuel Injector Cleaning / Replacement":150,
+    "Carburetor / EFI Service":160,
+    "Oil Change (Mobile)":60,
+    "Tune-Up / Spark Plugs":90,
+    "Air Filter Replacement":35,
+    "Fluid Top-Off / Basic Service":35,
+    "Jump-Start":35,
+    "Battery Testing":30,
+    "Lockout Service (Non-destructive)":75,
+    "Flat Tire Replacement / Repair":140,
+    "Emergency Breakdown Diagnostic":90,
+    "Standard Service Call":0,
+    "Emergency / After-Hours Call":40,
+    "Alternator / Starter Diagnostics":65,
+    "Sensor Replacement (O2, MAF, etc.)":90,
+    "Wiring / Harness Repair":220,
+    "ECU / Computer Diagnostics":90
+  };
 
-      // Success message
-      $('#appointment-form').on('submit', function (e) {
-        e.preventDefault();
-        this.submit();
-        $('#success-message').fadeIn().delay(4000).fadeOut();
-        this.reset();
-        $('#year,#make,#model,#engineType,#engineLiters,#services').val(null).trigger('change.select2');
-        priceBox.text(`Estimated Total: $0.00`);
-      });
-    });
-  </script>
+  function updatePrice(){
+    let total=0;
+    services.val()?.forEach(s=>{total+=SERVICE_PRICES[s]||0;});
+    priceBox.text(`Estimated Total: $${total.toFixed(2)}`);
+  }
+
+  services.on('change',updatePrice);
+  updatePrice();
+
+  // Form submit
+  $('#appointment-form').submit(function(e){
+    e.preventDefault();
+    $(this).find('button[type=submit]').prop('disabled',true).text('Submitting...');
+    setTimeout(()=>{ // Simulate successful submit
+      $('#success-message').show();
+      $(this).trigger('reset');
+      services.val(null).trigger('change.select2');
+      priceBox.text('Estimated Total: $0.00');
+      $(this).find('button[type=submit]').prop('disabled',false).text('Submit');
+    },1200);
+  });
+});
+</script>
 </body>
 </html>
