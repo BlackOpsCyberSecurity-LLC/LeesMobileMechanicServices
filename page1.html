@@ -15,12 +15,54 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
   <style>
-    body { display: flex; flex-direction: column; min-height: 100vh; }
+    body { display: flex; flex-direction: column; min-height: 100vh; font-family: 'Inter Tight', sans-serif; }
     main { flex: 1; }
     footer { flex-shrink: 0; }
+
     .accordion-button { font-weight: 600; }
     .accordion-button:not(.collapsed) { background-color: #00aaff; color: #fff; }
     .price { font-weight: 600; color: #28a745; }
+
+    /* Section Banner for each accordion */
+    .section-banner {
+      background-color: #000;
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 4px;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    /* Hero Section Style (like home page) */
+    .hero-section {
+      background: url('https://r.mobirisesite.com/1997632/assets/images/10-h_mife0e9v.jpg') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 6rem 1rem 4rem;
+      position: relative;
+    }
+    .hero-section::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    .hero-content h1 { font-size: 3rem; margin-bottom: 1rem; font-weight: 700; }
+    .hero-content p { font-size: 1.3rem; margin-bottom: 2rem; }
+
+    /* Buttons same as home page */
+    .btn-primary { background-color: #00aaff; border-color: #00aaff; }
+    .btn-primary:hover { background-color: #008fcc; border-color: #008fcc; }
+    .btn-black { background-color: #000; border-color: #000; color: #fff; }
+    .btn-black:hover { background-color: #222; }
+
+    /* Contact Links */
+    .contact-link { color: #007BFF; text-decoration: underline; transition: color 0.3s; }
+    .contact-link:hover { color: #ffd700; text-decoration: none; }
   </style>
 </head>
 <body>
@@ -53,212 +95,199 @@
   </nav>
 </section>
 
-<!-- Header -->
-<section data-bs-version="5.1" class="header16 cid-v3Ctp1XAlI" id="header16-20">
-  <div class="text-center container">
-    <div class="row justify-content-center mb-4">
-      <div class="col-12 col-lg-8">
-        <div class="image-wrap">
-          <img src="https://r.mobirisesite.com/1997632/assets/images/10-h_mife0e9v.jpg" alt="">
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="container hero-content">
+    <h1>Full Service List + Pricing</h1>
+    <p>Labor costs for mobile mechanic services in Conway, SC. Prices may vary by vehicle make, model, and year.</p>
+    <a href="appointment.html" class="btn btn-primary btn-lg me-2">Book Appointment</a>
+    <a href="#pricingAccordion" class="btn btn-black btn-lg">View Pricing</a>
+  </div>
+</section>
+
+<!-- Pricing Accordion Section -->
+<section class="container py-5">
+  <div class="accordion" id="pricingAccordion">
+
+    <!-- Engine / Major Components -->
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#engine">
+          <i class="bi bi-cpu me-2"></i> Engine & Major Components
+        </button>
+      </h2>
+      <div id="engine" class="accordion-collapse collapse show" data-bs-parent="#pricingAccordion">
+        <div class="accordion-body">
+          <ul>
+            <li>Diagnostic Scan / Check Engine Light — <span class="price">$75–$120</span></li>
+            <li>Tune-Up (Spark Plugs Only) — <span class="price">$100–$150</span></li>
+            <li>Full Tune-Up (Plugs, Coils, Filters) — <span class="price">$200–$350</span></li>
+            <li>Timing Belt + Water Pump — <span class="price">$400–$700</span></li>
+            <li>Timing Chain — <span class="price">$600–$1,000</span></li>
+            <li>Head Gasket (4-cyl labor) — <span class="price">$600–$1,200</span></li>
+            <li>Valve Cover Gasket — <span class="price">$150–$250</span></li>
+            <li>Oil Pan Gasket — <span class="price">$180–$300</span></li>
+            <li>Engine Swap — <span class="price">$800–$1,500</span></li>
+            <li>Water Pump Replacement — <span class="price">$200–$350</span></li>
+            <li>Serpentine Belt — <span class="price">$25–$40</span></li>
+            <li>Thermostat Replacement — <span class="price">$40–$50</span></li>
+          </ul>
         </div>
       </div>
     </div>
-    <div class="row justify-content-center">
-      <div class="col-md-12 content-head">
-        <h1 class="mbr-section-title mbr-fonts-style mt-4 display-2">
-          <strong>✔ Full Service List + Pricing</strong>
-          <div><strong>Labor Only</strong></div>
-        </h1>
-        <p class="text-center text-muted mb-4"><em>Note: Prices vary depending on vehicle year, make, and model.</em></p>
 
-        <!-- Pricing Accordion -->
-        <section class="container mt-4">
-          <div class="accordion" id="pricingAccordion">
-
-            <!-- Engine / Major Components -->
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#engine">
-                  <i class="bi bi-cpu me-2"></i> Engine & Major Components
-                </button>
-              </h2>
-              <div id="engine" class="accordion-collapse collapse show" data-bs-parent="#pricingAccordion">
-                <div class="accordion-body">
-                  <ul>
-                    <li>Diagnostic Scan / Check Engine Light — <span class="price">$75–$120</span></li>
-                    <li>Tune-Up (Spark Plugs Only) — <span class="price">$100–$150</span></li>
-                    <li>Full Tune-Up (Plugs, Coils, Filters) — <span class="price">$200–$350</span></li>
-                    <li>Timing Belt + Water Pump — <span class="price">$400–$700</span></li>
-                    <li>Timing Chain — <span class="price">$600–$1,000</span></li>
-                    <li>Head Gasket (4-cyl labor) — <span class="price">$600–$1,200</span></li>
-                    <li>Valve Cover Gasket — <span class="price">$150–$250</span></li>
-                    <li>Oil Pan Gasket — <span class="price">$180–$300</span></li>
-                    <li>Engine Swap — <span class="price">$800–$1,500</span></li>
-                    <li>Water Pump Replacement — <span class="price">$200–$350</span></li>
-                    <li>Serpentine Belt — <span class="price">$25–$40</span></li>
-                    <li>Thermostat Replacement — <span class="price">$40–$50</span></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <!-- Transmission / Drivetrain -->
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#transmission">
-                  <i class="bi bi-gear-fill me-2"></i> Transmission & Drivetrain
-                </button>
-              </h2>
-              <div id="transmission" class="accordion-collapse collapse" data-bs-parent="#pricingAccordion">
-                <div class="accordion-body">
-                  <ul>
-                    <li>Transmission Swap (Manual/Automatic) — <span class="price">$700–$1,400</span></li>
-                    <li>Clutch Replacement (Manual) — <span class="price">$400–$800</span></li>
-                    <li>CV Axle Replacement — <span class="price">$150–$250 per axle</span></li>
-                    <li>Driveshaft / U-Joint Replacement — <span class="price">$150–$300</span></li>
-                    <li>Differential Service / Rebuild — <span class="price">$300–$800</span></li>
-                    <li>Transfer Case Service / Replacement — <span class="price">$250–$600</span></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <!-- Suspension & Steering -->
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#suspension">
-                  <i class="bi bi-arrow-up-down me-2"></i> Suspension & Steering
-                </button>
-              </h2>
-              <div id="suspension" class="accordion-collapse collapse" data-bs-parent="#pricingAccordion">
-                <div class="accordion-body">
-                  <ul>
-                    <li>Shocks / Struts — <span class="price">$200–$350</span></li>
-                    <li>Control Arm Replacement — <span class="price">$150–$250</span></li>
-                    <li>Ball Joint Replacement — <span class="price">$120–$250</span></li>
-                    <li>Sway Bar Links / Bushings — <span class="price">$80–$150</span></li>
-                    <li>Tie Rod / Steering Linkage — <span class="price">$100–$250</span></li>
-                    <li>Steering Rack Replacement — <span class="price">$400–$800</span></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <!-- Brakes -->
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#brakes">
-                  <i class="bi bi-car-front-fill me-2"></i> Brakes
-                </button>
-              </h2>
-              <div id="brakes" class="accordion-collapse collapse" data-bs-parent="#pricingAccordion">
-                <div class="accordion-body">
-                  <ul>
-                    <li>Brake Pads (1 axle) — <span class="price">$140–$200</span></li>
-                    <li>Brake Rotors + Pads — <span class="price">$200–$280</span></li>
-                    <li>Brake Calipers — <span class="price">$150–$300</span></li>
-                    <li>Brake Line / Hose Replacement — <span class="price">$120–$250</span></li>
-                    <li>Master Cylinder Replacement — <span class="price">$180–$350</span></li>
-                    <li>Brake Fluid Flush — <span class="price">$80–$120</span></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <!-- Electrical / Starting -->
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#electrical">
-                  <i class="bi bi-lightning-charge-fill me-2"></i> Electrical / Starting
-                </button>
-              </h2>
-              <div id="electrical" class="accordion-collapse collapse" data-bs-parent="#pricingAccordion">
-                <div class="accordion-body">
-                  <ul>
-                    <li>Battery Replacement — <span class="price">$70–$120</span></li>
-                    <li>Alternator Replacement — <span class="price">$150–$220</span></li>
-                    <li>Starter Replacement — <span class="price">$140–$200</span></li>
-                    <li>Fuses / Relays — <span class="price">$50–$100</span></li>
-                    <li>Power Window / Lock Repair — <span class="price">$80–$150</span></li>
-                    <li>Lighting / Bulb Replacement — <span class="price">$40–$80 per light</span></li>
-                    <li>Wiring / Short Fix — <span class="price">$80–$250</span></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <!-- HVAC / AC -->
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hvac">
-                  <i class="bi bi-snow me-2"></i> HVAC / Air Conditioning
-                </button>
-              </h2>
-              <div id="hvac" class="accordion-collapse collapse" data-bs-parent="#pricingAccordion">
-                <div class="accordion-body">
-                  <ul>
-                    <li>AC Recharge — <span class="price">$80–$150</span></li>
-                    <li>AC Compressor Replacement — <span class="price">$300–$600</span></li>
-                    <li>Blower Motor Replacement — <span class="price">$120–$250</span></li>
-                    <li>Heater Core Replacement — <span class="price">$300–$500</span></li>
-                    <li>HVAC Diagnostics — <span class="price">$75–$120</span></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <!-- Fluids & Maintenance -->
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#fluids">
-                  <i class="bi bi-droplet me-2"></i> Fluids & Maintenance
-                </button>
-              </h2>
-              <div id="fluids" class="accordion-collapse collapse" data-bs-parent="#pricingAccordion">
-                <div class="accordion-body">
-                  <ul>
-                    <li>Oil Change (Customer Supplies) — <span class="price">$40–$60</span></li>
-                    <li>Oil Change (We Supply) — <span class="price">$80–$120</span></li>
-                    <li>Transmission Fluid Change — <span class="price">$100–$180</span></li>
-                    <li>Coolant Flush — <span class="price">$70–$120</span></li>
-                    <li>Power Steering Fluid Change — <span class="price">$70–$120</span></li>
-                    <li>Differential Fluid Change — <span class="price">$80–$150</span></li>
-                    <li>Fuel Filter Replacement — <span class="price">$80–$150</span></li>
-                    <li>Air Filter Replacement — <span class="price">$50–$90</span></li>
-                    <li>Cabin Filter Replacement — <span class="price">$50–$90</span></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <!-- Tires & Misc -->
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#tires">
-                  <i class="bi bi-circle me-2"></i> Tires & Miscellaneous
-                </button>
-              </h2>
-              <div id="tires" class="accordion-collapse collapse" data-bs-parent="#pricingAccordion">
-                <div class="accordion-body">
-                  <ul>
-                    <li>Tire Mount & Balance (per tire) — <span class="price">$25–$50</span></li>
-                    <li>Tire Rotation — <span class="price">$40–$80</span></li>
-                    <li>Wheel Alignment — <span class="price">$120–$200</span></li>
-                    <li>Flat Repair / Patch — <span class="price">$20–$50 per tire</span></li>
-                    <li>Lug Nut / Stud Replacement — <span class="price">$20–$50 each</span></li>
-                    <li>Mobile Call / Trip Fee (Optional) — <span class="price">$20–$35</span></li>
-                    <li>After-Hours / Weekend Work — <span class="price">+10–20%</span></li>
-                    <li>Diagnostic Fee (Waived if Repair Done) — <span class="price">$75–$120</span></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </section>
-
+    <!-- Transmission / Drivetrain -->
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#transmission">
+          <i class="bi bi-gear-fill me-2"></i> Transmission & Drivetrain
+        </button>
+      </h2>
+      <div id="transmission" class="accordion-collapse collapse" data-bs-parent="#pricingAccordion">
+        <div class="accordion-body">
+          <ul>
+            <li>Transmission Swap (Manual/Automatic) — <span class="price">$700–$1,400</span></li>
+            <li>Clutch Replacement (Manual) — <span class="price">$400–$800</span></li>
+            <li>CV Axle Replacement — <span class="price">$150–$250 per axle</span></li>
+            <li>Driveshaft / U-Joint Replacement — <span class="price">$150–$300</span></li>
+            <li>Differential Service / Rebuild — <span class="price">$300–$800</span></li>
+            <li>Transfer Case Service / Replacement — <span class="price">$250–$600</span></li>
+          </ul>
+        </div>
       </div>
     </div>
+
+    <!-- Suspension & Steering -->
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#suspension">
+          <i class="bi bi-arrow-up-down me-2"></i> Suspension & Steering
+        </button>
+      </h2>
+      <div id="suspension" class="accordion-collapse collapse" data-bs-parent="#pricingAccordion">
+        <div class="accordion-body">
+          <ul>
+            <li>Shocks / Struts — <span class="price">$200–$350</span></li>
+            <li>Control Arm Replacement — <span class="price">$150–$250</span></li>
+            <li>Ball Joint Replacement — <span class="price">$120–$250</span></li>
+            <li>Sway Bar Links / Bushings — <span class="price">$80–$150</span></li>
+            <li>Tie Rod / Steering Linkage — <span class="price">$100–$250</span></li>
+            <li>Steering Rack Replacement — <span class="price">$400–$800</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Brakes -->
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#brakes">
+          <i class="bi bi-car-front-fill me-2"></i> Brakes
+        </button>
+      </h2>
+      <div id="brakes" class="accordion-collapse collapse" data-bs-parent="#pricingAccordion">
+        <div class="accordion-body">
+          <ul>
+            <li>Brake Pads (1 axle) — <span class="price">$140–$200</span></li>
+            <li>Brake Rotors + Pads — <span class="price">$200–$280</span></li>
+            <li>Brake Calipers — <span class="price">$150–$300</span></li>
+            <li>Brake Line / Hose Replacement — <span class="price">$120–$250</span></li>
+            <li>Master Cylinder Replacement — <span class="price">$180–$350</span></li>
+            <li>Brake Fluid Flush — <span class="price">$80–$120</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Electrical / Starting -->
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#electrical">
+          <i class="bi bi-lightning-charge-fill me-2"></i> Electrical / Starting
+        </button>
+      </h2>
+      <div id="electrical" class="accordion-collapse collapse" data-bs-parent="#pricingAccordion">
+        <div class="accordion-body">
+          <ul>
+            <li>Battery Replacement — <span class="price">$70–$120</span></li>
+            <li>Alternator Replacement — <span class="price">$150–$220</span></li>
+            <li>Starter Replacement — <span class="price">$140–$200</span></li>
+            <li>Fuses / Relays — <span class="price">$50–$100</span></li>
+            <li>Power Window / Lock Repair — <span class="price">$80–$150</span></li>
+            <li>Lighting / Bulb Replacement — <span class="price">$40–$80 per light</span></li>
+            <li>Wiring / Short Fix — <span class="price">$80–$250</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- HVAC / AC -->
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hvac">
+          <i class="bi bi-snow me-2"></i> HVAC / Air Conditioning
+        </button>
+      </h2>
+      <div id="hvac" class="accordion-collapse collapse" data-bs-parent="#pricingAccordion">
+        <div class="accordion-body">
+          <ul>
+            <li>AC Recharge — <span class="price">$80–$150</span></li>
+            <li>AC Compressor Replacement — <span class="price">$300–$600</span></li>
+            <li>Blower Motor Replacement — <span class="price">$120–$250</span></li>
+            <li>Heater Core Replacement — <span class="price">$300–$500</span></li>
+            <li>HVAC Diagnostics — <span class="price">$75–$120</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fluids & Maintenance -->
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#fluids">
+          <i class="bi bi-droplet me-2"></i> Fluids & Maintenance
+        </button>
+      </h2>
+      <div id="fluids" class="accordion-collapse collapse" data-bs-parent="#pricingAccordion">
+        <div class="accordion-body">
+          <ul>
+            <li>Oil Change (Customer Supplies) — <span class="price">$40–$60</span></li>
+            <li>Oil Change (We Supply) — <span class="price">$80–$120</span></li>
+            <li>Transmission Fluid Change — <span class="price">$100–$180</span></li>
+            <li>Coolant Flush — <span class="price">$70–$120</span></li>
+            <li>Power Steering Fluid Change — <span class="price">$70–$120</span></li>
+            <li>Differential Fluid Change — <span class="price">$80–$150</span></li>
+            <li>Fuel Filter Replacement — <span class="price">$80–$150</span></li>
+            <li>Air Filter Replacement — <span class="price">$50–$90</span></li>
+            <li>Cabin Filter Replacement — <span class="price">$50–$90</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tires & Misc -->
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#tires">
+          <i class="bi bi-circle me-2"></i> Tires & Miscellaneous
+        </button>
+      </h2>
+      <div id="tires" class="accordion-collapse collapse" data-bs-parent="#pricingAccordion">
+        <div class="accordion-body">
+          <ul>
+            <li>Tire Mount & Balance (per tire) — <span class="price">$25–$50</span></li>
+            <li>Tire Rotation — <span class="price">$40–$80</span></li>
+            <li>Wheel Alignment — <span class="price">$120–$200</span></li>
+            <li>Flat Repair / Patch — <span class="price">$20–$50 per tire</span></li>
+            <li>Lug Nut / Stud Replacement — <span class="price">$20–$50 each</span></li>
+            <li>Mobile Call / Trip Fee (Optional) — <span class="price">$20–$35</span></li>
+            <li>After-Hours / Weekend Work — <span class="price">+10–20%</span></li>
+            <li>Diagnostic Fee (Waived if Repair Done) — <span class="price">$75–$120</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -298,7 +327,7 @@
 </main>
 
 <!-- Footer -->
-<footer class="footer py-3 bg-dark text-white">
+<footer class="footer py-3 bg-dark text-white mt-auto">
   <div class="container text-center">
     <p class="mb-0">&copy; 2025 Lee's Mobile Mechanic Service LLC. All rights reserved.</p>
   </div>
