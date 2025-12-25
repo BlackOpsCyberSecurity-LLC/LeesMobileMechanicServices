@@ -1,110 +1,225 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
   <link rel="shortcut icon" href="https://r.mobirisesite.com/1997632/assets/images/shop3-h_mifa1ufz.jpg" type="image/x-icon">
-  <title>Pricing</title>
+  <meta name="description" content="Flat-rate mobile mechanic pricing for Lee's Mobile Mechanic Service in Conway, SC.">
+  <title>Job Pricing</title>
 
+  <!-- CSS -->
   <link rel="stylesheet" href="https://r.mobirisesite.com/1997632/assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://r.mobirisesite.com/1997632/assets/dropdown/css/style.css">
   <link rel="stylesheet" href="https://r.mobirisesite.com/1997632/assets/animatecss/animate.css">
   <link rel="stylesheet" href="https://r.mobirisesite.com/1997632/assets/theme/css/style.css">
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Inter+Tight:100,200,300,400,500,600,700,800,900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter+Tight:100,200,300,400,500,600,700,800,900&display=swap"></noscript>
   <link rel="stylesheet" href="https://r.mobirisesite.com/1997632/assets/css/mbr-additional.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
   <style>
-    .contact-link { color:#007BFF; text-decoration:underline; }
-    .contact-link:hover { color:#ffd700; text-decoration:none; }
-    h4.section-banner { background:#000; color:#fff; padding:8px 12px; border-radius:4px; }
-    thead.table-dark th { background:#000!important; color:#fff!important; }
+    body { display:flex; flex-direction:column; min-height:100vh; }
+    main { flex:1; }
+
+    .hero-section {
+      background: url('https://r.mobirisesite.com/1997632/assets/images/gallery10-h_mifbcdak.jpg') center/cover no-repeat;
+      color:#fff;
+      text-align:center;
+      padding:6rem 1rem 4rem;
+      position:relative;
+    }
+    .hero-section::after {
+      content:"";
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,0.55);
+    }
+    .hero-content {
+      position:relative;
+      z-index:1;
+    }
+    .hero-content h1 { font-size:3rem; font-weight:700; }
+    .hero-content p { font-size:1.3rem; }
+
+    h4.section-banner {
+      background:#000;
+      color:#fff;
+      padding:8px 12px;
+      border-radius:4px;
+      margin-bottom:15px;
+      font-weight:600;
+    }
+    thead.table-dark th {
+      background:#000!important;
+      color:#fff!important;
+    }
+
+    .contact-link {
+      color:#007BFF;
+      text-decoration:underline;
+    }
+    .contact-link:hover {
+      color:#ffd700;
+      text-decoration:none;
+    }
   </style>
 </head>
 
 <body>
+<main>
 
-<!-- Header -->
-<section class="header16 cid-v3Ctp1XAlI">
-<div class="container text-center">
-<h1 class="display-2"><strong>✔ Full Service List + Pricing</strong><br><strong>Labor Only</strong></h1>
-<p class="text-muted"><em>Note: Prices vary depending on vehicle year, make, and model.</em></p>
+<!-- Navbar -->
+<section data-bs-version="5.1" class="menu menu5 cid-v3CtbnZEpL" once="menu">
+  <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
+    <div class="container">
+      <div class="navbar-brand">
+        <span class="navbar-logo">
+          <img src="https://r.mobirisesite.com/1997632/assets/images/shop3-h_mifa1ufz.jpg" style="height:5rem;">
+        </span>
+        <span class="navbar-caption-wrap">
+          <a class="navbar-caption text-black text-primary display-4">Lee's Mobile Mechanic Service</a>
+        </span>
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+        <div class="hamburger"><span></span><span></span><span></span><span></span></div>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav nav-dropdown">
+          <li class="nav-item"><a class="nav-link text-black text-primary display-7" href="index.html">Home</a></li>
+        </ul>
+        <div class="navbar-buttons mbr-section-btn">
+          <a class="btn btn-black display-4" href="page1.html">Job Pricing</a>
+          <a class="btn btn-black display-4" href="index.html#contacts02-1n">Contact Info</a>
+          <a class="btn btn-primary display-4" href="appointment.html">Book Appointment</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</section>
 
-<!-- Diagnostics -->
-<h4 class="section-banner">Diagnostics</h4>
-<table class="table table-striped">
-<tr><td>Full Vehicle Diagnostic Scan</td><td>$75–$120</td></tr>
-<tr><td>Check Engine Light Troubleshooting</td><td>$75–$120</td></tr>
-<tr><td>Electrical / Starting System Diagnostic</td><td>$75–$120</td></tr>
+<!-- Hero -->
+<section class="hero-section">
+  <div class="container hero-content">
+    <h1>Flat-Rate Job Pricing</h1>
+    <p>Transparent mobile mechanic labor pricing — no hourly surprises.</p>
+    <a href="appointment.html" class="btn btn-primary btn-lg me-2">Book Appointment</a>
+    <a href="#pricing" class="btn btn-black btn-lg">View Pricing</a>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section id="pricing" class="container py-5">
+
+<div class="text-center mb-5">
+  <h2 class="display-5 fw-bold">Labor Pricing Overview</h2>
+  <p class="text-muted">Labor only. Parts extra unless stated. Diagnostic fees may be waived with repair.</p>
+</div>
+
+<!-- ENGINE -->
+<h4 class="section-banner">Engine & Major Components</h4>
+<table class="table table-striped table-hover shadow-sm rounded">
+<thead class="table-dark"><tr><th>Service</th><th>Labor Cost</th></tr></thead>
+<tbody>
+<tr><td>Diagnostic Scan / Check Engine Light</td><td>$75–$120</td></tr>
+<tr><td>Tune-Up (Spark Plugs Only)</td><td>$100–$150</td></tr>
+<tr><td>Full Tune-Up</td><td>$200–$350</td></tr>
+<tr><td>Timing Belt + Water Pump</td><td>$400–$700</td></tr>
+<tr><td>Timing Chain Replacement</td><td>$600–$1,000</td></tr>
+<tr><td>Head Gasket (4-Cyl)</td><td>$600–$1,200</td></tr>
+<tr><td>Valve Cover Gasket</td><td>$150–$250</td></tr>
+<tr><td>Oil Pan Gasket</td><td>$180–$300</td></tr>
+<tr><td>Engine Swap</td><td>$800–$1,500</td></tr>
+</tbody>
 </table>
 
-<!-- Suspension -->
-<h4 class="section-banner">Suspension & Steering</h4>
-<table class="table table-striped">
-<tr><td>Shocks / Struts</td><td>$200–$350</td></tr>
-<tr><td>Control Arms / Bushings</td><td>$150–$250</td></tr>
-<tr><td>Ball Joints</td><td>$120–$250</td></tr>
-<tr><td>Tie Rod Ends</td><td>$100–$250</td></tr>
-<tr><td>Steering Rack / Gear</td><td>$400–$800</td></tr>
+<!-- TRANSMISSION -->
+<h4 class="section-banner">Transmission & Drivetrain</h4>
+<table class="table table-striped table-hover shadow-sm rounded">
+<thead class="table-dark"><tr><th>Service</th><th>Labor Cost</th></tr></thead>
+<tbody>
+<tr><td>Transmission Swap</td><td>$700–$1,400</td></tr>
+<tr><td>Clutch Replacement</td><td>$400–$800</td></tr>
+<tr><td>CV Axle (Per Axle)</td><td>$150–$250</td></tr>
+<tr><td>Driveshaft / U-Joint</td><td>$150–$300</td></tr>
+<tr><td>Differential Service / Rebuild</td><td>$300–$800</td></tr>
+<tr><td>Transfer Case Service</td><td>$250–$600</td></tr>
+</tbody>
 </table>
 
-<!-- Brakes -->
+<!-- BRAKES -->
 <h4 class="section-banner">Brakes</h4>
-<table class="table table-striped">
-<tr><td>Brake Pads (Front or Rear)</td><td>$140–$200</td></tr>
-<tr><td>Pads + Rotors</td><td>$200–$280</td></tr>
-<tr><td>Brake Calipers</td><td>$150–$300</td></tr>
-<tr><td>Brake Lines / Hoses</td><td>$120–$250</td></tr>
+<table class="table table-striped table-hover shadow-sm rounded">
+<thead class="table-dark"><tr><th>Service</th><th>Labor Cost</th></tr></thead>
+<tbody>
+<tr><td>Brake Pads (1 Axle)</td><td>$140–$200</td></tr>
+<tr><td>Brake Pads + Rotors</td><td>$200–$280</td></tr>
+<tr><td>Caliper Replacement</td><td>$150–$300</td></tr>
+<tr><td>Brake Line / Hose</td><td>$120–$250</td></tr>
 <tr><td>Brake Fluid Flush</td><td>$80–$120</td></tr>
+</tbody>
 </table>
 
-<!-- Engine -->
-<h4 class="section-banner">Engine & Exhaust</h4>
-<table class="table table-striped">
-<tr><td>Alternator Replacement</td><td>$150–$220</td></tr>
-<tr><td>Starter Replacement</td><td>$140–$200</td></tr>
-<tr><td>Battery Replacement</td><td>$70–$120</td></tr>
+<!-- HVAC -->
+<h4 class="section-banner">HVAC & Cooling</h4>
+<table class="table table-striped table-hover shadow-sm rounded">
+<thead class="table-dark"><tr><th>Service</th><th>Labor Cost</th></tr></thead>
+<tbody>
+<tr><td>AC Recharge</td><td>$80–$150</td></tr>
+<tr><td>AC Compressor</td><td>$300–$600</td></tr>
 <tr><td>Radiator Replacement</td><td>$180–$300</td></tr>
-<tr><td>Water Pump Replacement</td><td>$200–$350</td></tr>
-<tr><td>Serpentine Belt</td><td>$80–$150</td></tr>
-<tr><td>Thermostat Replacement</td><td>$100–$180</td></tr>
-<tr><td>Head Gasket Replacement</td><td>$600–$1,200</td></tr>
-<tr><td>Engine Overhaul / Major Repair</td><td>$800–$1,500</td></tr>
-<tr><td>Muffler Replacement</td><td>$120–$250</td></tr>
-<tr><td>Catalytic Converter</td><td>$400–$800</td></tr>
-<tr><td>Exhaust Piping / Manifold</td><td>$100–$250</td></tr>
-<tr><td>Oxygen Sensor Replacement</td><td>$100–$180</td></tr>
+<tr><td>Thermostat</td><td>$100–$180</td></tr>
+<tr><td>Water Pump</td><td>$200–$350</td></tr>
+</tbody>
 </table>
 
-<!-- Maintenance -->
-<h4 class="section-banner">Fuel & Maintenance</h4>
-<table class="table table-striped">
-<tr><td>Fuel Pump Replacement</td><td>$300–$600</td></tr>
-<tr><td>Fuel Filter Replacement</td><td>$80–$150</td></tr>
-<tr><td>Oil Change (Mobile)</td><td>$80–$120</td></tr>
-<tr><td>Tune-Up / Spark Plugs</td><td>$100–$150</td></tr>
-<tr><td>Air Filter Replacement</td><td>$50–$90</td></tr>
-<tr><td>Fluid Top-Off / Basic Service</td><td>$70–$120</td></tr>
+<!-- TIRES -->
+<h4 class="section-banner">Tires & Wheels</h4>
+<table class="table table-striped table-hover shadow-sm rounded">
+<thead class="table-dark"><tr><th>Service</th><th>Labor Cost</th></tr></thead>
+<tbody>
+<tr><td>Tire Mount & Balance (Per Tire)</td><td>$25–$50</td></tr>
+<tr><td>Tire Rotation</td><td>$40–$80</td></tr>
+<tr><td>Wheel Alignment</td><td>$120–$200</td></tr>
+<tr><td>Flat Repair</td><td>$20–$50</td></tr>
+</tbody>
 </table>
 
-<!-- Electrical -->
-<h4 class="section-banner">Roadside & Electrical</h4>
-<table class="table table-striped">
-<tr><td>Jump-Start</td><td>$50–$100</td></tr>
-<tr><td>Battery Testing</td><td>$50–$100</td></tr>
-<tr><td>Lockout Service</td><td>$80–$150</td></tr>
-<tr><td>Emergency Breakdown Diagnostic</td><td>$75–$120</td></tr>
-<tr><td>Standard Service Call</td><td>$20–$35</td></tr>
-<tr><td>Emergency / After-Hours Call</td><td>+10–20%</td></tr>
-<tr><td>Wiring / Harness Repair</td><td>$80–$250</td></tr>
+<!-- EXTRAS -->
+<h4 class="section-banner">Miscellaneous</h4>
+<table class="table table-striped table-hover shadow-sm rounded">
+<thead class="table-dark"><tr><th>Service</th><th>Labor Cost</th></tr></thead>
+<tbody>
+<tr><td>Mobile Call / Trip Fee</td><td>$20–$35</td></tr>
+<tr><td>After-Hours / Weekend</td><td>+10–20%</td></tr>
+<tr><td>Diagnostic Fee (Waived if Repair Done)</td><td>$75–$120</td></tr>
+</tbody>
 </table>
 
+</section>
+
+<!-- Contact -->
+<section data-bs-version="5.1" class="contacts02 map1 cid-v3CtbpuTqx" id="contacts02-1y">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-6">
+<h5>Contact Us @</h5>
+<ul>
+<li>Phone: <a class="contact-link" href="tel:+12394418552">239-441-8552</a></li>
+<li>Email: <a class="contact-link" href="mailto:leesmobilemechanicservices@gmail.com">leesmobilemechanicservices@gmail.com</a></li>
+<li>Conway, South Carolina</li>
+</ul>
+</div>
+</div>
 </div>
 </section>
 
-<footer class="footer bg-dark text-white text-center py-3">
+</main>
+
+<footer class="footer py-3 bg-dark text-white text-center">
 <p>&copy; 2025 Lee's Mobile Mechanic Service LLC</p>
 </footer>
 
+<script src="https://r.mobirisesite.com/1997632/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
